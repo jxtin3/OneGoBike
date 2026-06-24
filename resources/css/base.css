@@ -1,8 +1,4 @@
-/* =============================================================
-   BASE — resets, typography utilities, shared component styles
-   ============================================================= */
-
-/* ── Base reset & smooth scroll ─────────────────────────── */
+/*  Base reset & smooth scroll  */
 html {
     scroll-behavior: smooth;
 }
@@ -20,41 +16,53 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ── Heading font utility ────────────────────────────────── */
+/*  Heading font utility  */
 .font-heading {
     font-family: 'Oswald', ui-sans-serif, system-ui, sans-serif;
 }
 
-/* ── Alpine cloak ────────────────────────────────────────── */
-[x-cloak] { display: none !important; }
+/*  Alpine cloak  */
+[x-cloak] {
+    display: none !important;
+}
 
-/* ── Scroll reveal animation ─────────────────────────────── */
+/*  Scroll reveal animation  */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .reveal {
     opacity: 0;
     transform: translateY(30px);
 }
+
 .reveal.visible {
     animation: fadeInUp 0.65s ease-out forwards;
 }
 
-/* ── Card hover lift ─────────────────────────────────────── */
+/*  Card hover lift  */
 .card-lift {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
 .card-lift:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* ── Nav underline slide ─────────────────────────────────── */
+/*  Nav underline slide  */
 .nav-underline {
     position: relative;
 }
+
 .nav-underline::after {
     content: '';
     position: absolute;
@@ -65,32 +73,111 @@ body {
     background: #2FA7FF;
     transition: width 0.25s ease;
 }
+
 .nav-underline:hover::after,
 .nav-underline.active::after {
     width: 100%;
 }
 
-/* ── Back-to-top button ──────────────────────────────────── */
+/*  Back-to-top button  */
 #back-to-top {
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
 }
+
 #back-to-top.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-/* ── Program card icon ring ──────────────────────────────── */
+/*  Program card icon ring  */
 .icon-ring {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .program-card:hover .icon-ring {
     background-color: #132D6B;
     transform: scale(1.1);
 }
+
 .program-card:hover .icon-ring svg {
     color: #ffffff;
+}
+
+/*  WBR Style Button Animation  */
+.btn-wbr {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+    overflow: hidden;
+    background-color: transparent;
+    border: 2px solid #F97316;
+    color: #F97316;
+    transition: color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+    z-index: 1;
+}
+
+.btn-wbr::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #F97316;
+    transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+    z-index: -1;
+}
+
+.btn-wbr:hover {
+    color: white;
+}
+
+.btn-wbr:hover::before {
+    transform: translateX(100%);
+}
+
+.btn-wbr .arrow {
+    transition: transform 0.3s ease;
+}
+
+.btn-wbr:hover .arrow {
+    transform: translateX(4px);
+}
+
+.btn-wbr.btn-wbr-dark {
+    border-color: #111827;
+    color: #111827;
+}
+
+.btn-wbr.btn-wbr-dark::before {
+    background-color: #111827;
+}
+
+.btn-wbr.btn-wbr-dark:hover {
+    color: white;
+}
+
+/* Light version for dark backgrounds */
+.btn-wbr.btn-wbr-light {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+.btn-wbr.btn-wbr-light::before {
+    background-color: white;
+}
+
+.btn-wbr.btn-wbr-light:hover {
+    color: #111827;
 }

@@ -1,18 +1,14 @@
-/**
- * Scripts specific to the Homepage
- */
 
 // Alpine counter component script
 function counterSection() {
     return {
         started: false,
-        // NOTE: Change your target numbers here!
-        // Alpine.js uses this array to run the animation, which will overwrite the <span> contents.
+        // NOTE: Change target numbers here
         counts: [
             { target: 2500, suffix: '+', display: '0+' },
-            { target: 45,   suffix: '',  display: '0'  },
-            { target: 18000,suffix: '+', display: '0+' },
-            { target: 2019, suffix: '',  display: '2019' }, // 2019 is static
+            { target: 45, suffix: '', display: '0' },
+            { target: 18000, suffix: '+', display: '0+' },
+            { target: 2019, suffix: '', display: '2019' },
         ],
         startCounters() {
             if (this.started) return;
@@ -21,15 +17,15 @@ function counterSection() {
             this.counts.forEach((stat, idx) => {
                 if (idx === 3) return; // "Active Since" — static
 
-                const duration  = 1800;
+                const duration = 2000;
                 const startTime = performance.now();
 
                 const easeOut = t => 1 - Math.pow(1 - t, 3);
 
                 const step = (now) => {
-                    const elapsed  = now - startTime;
+                    const elapsed = now - startTime;
                     const progress = Math.min(elapsed / duration, 1);
-                    const value    = Math.round(easeOut(progress) * stat.target);
+                    const value = Math.round(easeOut(progress) * stat.target);
                     this.counts[idx].display = value.toLocaleString() + stat.suffix;
                     if (progress < 1) requestAnimationFrame(step);
                 };
@@ -44,7 +40,7 @@ function programSlider() {
     return {
         active: 0,
         interval: null,
-        intervalMs: 6000,
+        intervalMs: 4000,
         progress: 0,
         progressInterval: null,
         programs: [

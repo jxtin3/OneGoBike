@@ -1,4 +1,32 @@
 
+//  Mantra word flipper (bottom-to-top rectangle flip) 
+(function () {
+    const words = ['Power of Youth', 'Community Action', 'Local Leadership', 'Collective Purpose'];
+    let index = 0;
+
+    function flipWord() {
+        const el = document.getElementById('mantra-word');
+        if (!el) return;
+
+        el.classList.remove('mantra-flip-in');
+        el.classList.add('mantra-flip-out');
+
+        setTimeout(() => {
+            index = (index + 1) % words.length;
+            el.textContent = words[index];
+
+            el.classList.remove('mantra-flip-out');
+            void el.offsetWidth;
+            el.classList.add('mantra-flip-in');
+        }, 250);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const el = document.getElementById('mantra-word');
+        if (el) setInterval(flipWord, 2800);
+    });
+})();
+
 // Alpine counter component script
 function counterSection() {
     return {

@@ -29,12 +29,6 @@
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 w-full">
         <div class="max-w-3xl">
 
-            <!-- Eyebrow tag -->
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#2FA7FF]/15 border border-[#2FA7FF]/30 mb-6"
-                 x-data x-intersect.once="$el.classList.add('animate-[fadeInUp_0.5s_ease_forwards]')">
-                <span class="w-2 h-2 rounded-full bg-[#2FA7FF] animate-pulse"></span>
-                <span class="text-xs font-semibold tracking-widest uppercase text-[#2FA7FF]">Pangasinan, Philippines</span>
-            </div>
 
              <!-- Main headline  -->
             <h1
@@ -61,7 +55,7 @@
                 <a
                     href="{{ url('/programs') }}"
                     id="hero-cta-programs"
-                    class="btn-wbr"
+                    class="btn-wbr btn-wbr-orange"
                 >
                     <span>Explore Programs</span>
                     <svg class="w-5 h-5 arrow" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
@@ -69,7 +63,9 @@
                 <a
                     href="{{ url('/about') }}"
                     id="hero-cta-about"
-                    class="btn-wbr btn-wbr-light backdrop-blur-sm"
+                    class="inline-flex items-center justify-center gap-2 px-10 py-4
+                            border-2 border-white/40
+                            text-white text-sm font-bold tracking-[0.1em] uppercase"
                 >
                     <span>Learn More</span>
                 </a>
@@ -87,74 +83,72 @@
 
 
 
-
-<!-- SECTION 3 MANTRA & IMPACT STORIES (WBR Style) -->
+<!-- SECTION 3 MANTRA & IMPACT STORIES -->
 <section id="stories" class="bg-white" aria-labelledby="stories-heading">
     
     <!-- The Mantra -->
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center reveal">
         <h2 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-[#111827] uppercase tracking-tighter leading-[1.1]">
-            We Believe In The <span class="text-[#F97316]">Power of Youth</span> To Transform Communities.
+            We Believe In The
+            <br>
+            <span class="mantra-box"><span id="mantra-word" class="mantra-flip-in">Power of Youth</span></span>
+            <br>
+            To Transform Communities.
         </h2>
     </div>
 
-    <!-- 2 "Video" style rows: 50% image, 50% text -->
-    <div class="w-full flex flex-col">
+    <div class="w-full flex flex-col gap-8 md:gap-12 pb-16">
+
         <!-- Story 1 -->
-        <div class="flex flex-col md:flex-row w-full reveal">
-            <!-- Image side -->
-            <div class="w-full md:w-1/2 relative h-[400px] md:h-[600px] overflow-hidden group">
-                <img src="{{ asset('images/story-1.jpg') }}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Youth responders in action">
-                <!-- Play button overlay -->
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <button class="w-20 h-20 bg-white/20 hover:bg-[#F97316] backdrop-blur-sm rounded-full flex items-center justify-center transition-all group-hover:scale-110 duration-300 shadow-lg">
-                        <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </button>
-                </div>
+        <div class="relative flex flex-col md:flex-row items-stretch reveal">
+        
+            <div class="w-full md:w-[70%] relative h-[380px] md:h-[520px] overflow-hidden flex-shrink-0">
+                <img
+                    src="{{ asset('images/story-1.jpg') }}"
+                    class="absolute inset-0 w-full h-full object-cover"
+                    alt="Youth responders in action"
+                />
             </div>
-            <!-- Text side -->
-            <div class="w-full md:w-1/2 bg-[#1a1a1a] p-10 md:p-16 lg:p-24 flex flex-col justify-center text-white">
-                <span class="text-[#F97316] font-bold tracking-widest uppercase text-[11px] mb-4">First Responders</span>
-                <h3 class="text-4xl md:text-5xl font-heading font-bold uppercase mb-6 leading-tight tracking-tight">Racing Against<br>The Clock</h3>
-                <p class="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg font-light">
+            <!-- Dark text panel — overlaps image by ~80px on desktop -->
+            <div class="story-card w-full md:w-[44%] md:-ml-16 bg-[#1a1a1a] p-10 md:p-12 lg:p-16 flex flex-col justify-center text-white z-10 self-center md:my-12">
+                <div class="story-rule bg-[#F97316]"></div>
+                <h3 class="text-3xl md:text-4xl font-heading font-bold uppercase mb-5 leading-tight tracking-tight">
+                    Racing Against<br>The Clock
+                </h3>
+                <p class="text-white/70 text-sm md:text-base leading-relaxed mb-8 font-light">
                     In remote barangays, access to immediate care is limited. Our youth responders on bicycles bridge that gap, delivering first aid and critical supplies faster than traditional vehicles ever could.
                 </p>
-                <div>
-                    <a href="{{ url('/about') }}" class="btn-wbr">
-                        <span>Watch The Film</span>
-                        <svg class="w-5 h-5 arrow" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                    </a>
-                </div>
             </div>
         </div>
 
-        <!-- Story 2 (Reversed) -->
-        <div class="flex flex-col md:flex-row-reverse w-full reveal">
-            <!-- Image side -->
-            <div class="w-full md:w-1/2 relative h-[400px] md:h-[600px] overflow-hidden group">
-                <img src="{{ asset('images/impact-story.jpg') }}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Community empowerment">
-                <!-- Play button overlay -->
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <button class="w-20 h-20 bg-white/20 hover:bg-[#132D6B] backdrop-blur-sm rounded-full flex items-center justify-center transition-all group-hover:scale-110 duration-300 shadow-lg">
-                        <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </button>
-                </div>
+        <!-- Story 2  -->
+        <div class="relative flex flex-col md:flex-row-reverse items-stretch reveal">
+            
+            <div class="w-full md:w-[70%] relative h-[380px] md:h-[550px] overflow-hidden flex-shrink-0">
+                <img
+                    src="{{ asset('images/impact-story.jpg') }}"
+                    class="absolute inset-0 w-full h-full object-cover"
+                    alt="Community empowerment"
+                />
             </div>
-            <!-- Text side -->
-            <div class="w-full md:w-1/2 bg-[#F8FAFC] p-10 md:p-16 lg:p-24 flex flex-col justify-center">
-                <span class="text-[#132D6B] font-bold tracking-widest uppercase text-[11px] mb-4">Community Impact</span>
-                <h3 class="text-4xl md:text-5xl font-heading font-bold text-[#111827] uppercase mb-6 leading-tight tracking-tight">Empowering The<br>Next Generation</h3>
-                <p class="text-[#475569] text-lg md:text-xl leading-relaxed mb-10 max-w-lg font-light">
+            <!-- Dark text panel — matches Story 1 -->
+            <div class="story-card w-full md:w-[44%] md:-mr-16 bg-[#1a1a1a] p-10 md:p-12 lg:p-16 flex flex-col justify-center text-white z-10 self-center md:my-12">
+                <div class="story-rule bg-[#F97316]"></div>
+                <h3 class="text-3xl md:text-4xl font-heading font-bold uppercase mb-5 leading-tight tracking-tight">
+                    Empowering The<br>Next Generation
+                </h3>
+                <p class="text-white/70 text-sm md:text-base leading-relaxed mb-8 font-light">
                     Bicycles do more than transport; they unlock potential. We see young riders turning into community leaders, taking responsibility for the health and safety of their neighbors.
                 </p>
                 <div>
-                    <a href="{{ url('/news') }}" class="btn-wbr btn-wbr-dark">
+                    <a href="{{ url('/news') }}" class="btn-wbr">
                         <span>Read Their Stories</span>
                         <svg class="w-5 h-5 arrow" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                     </a>
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -167,7 +161,7 @@
     x-data="programSlider()"
 >
     <!-- Top Header Bar -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-5 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
             <span class="text-[11px] font-bold tracking-widest uppercase text-[#F97316] block mb-2">Our Programs</span>
             <h2 id="programs-heading" class="text-4xl md:text-5xl font-heading font-bold text-white uppercase tracking-tight">

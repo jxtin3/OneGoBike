@@ -9,10 +9,30 @@ html {
     box-sizing: border-box;
 }
 
-/* ── Noise Texture ────────────────────────────────────────── */
+/*  Noise Texture  */
 .bg-noise {
     background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E');
     background-size: 200px 200px;
+}
+
+/* Story card animated rule */
+.story-rule {
+    height: 3px;
+    width: 2.5rem;
+    /* 40px = w-10 */
+    transition: width 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+    margin-bottom: 1.75rem;
+}
+
+.story-card:hover .story-rule {
+    width: 100%;
+}
+
+/* ── Mantra Word Flipper — perspective wrapper only ──────── */
+.mantra-box {
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: inherit;
 }
 
 body {
@@ -186,4 +206,20 @@ body {
 
 .btn-wbr.btn-wbr-light:hover {
     color: #111827;
+}
+
+/* Solid orange → white fill sweep (for hero CTA on dark backgrounds) */
+.btn-wbr.btn-wbr-orange {
+    background-color: #F97316;
+    border-color: #F97316;
+    color: white;
+}
+
+.btn-wbr.btn-wbr-orange::before {
+    background-color: white;
+}
+
+.btn-wbr.btn-wbr-orange:hover {
+    color: #111827;
+    border-color: white;
 }

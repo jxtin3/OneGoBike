@@ -68,7 +68,7 @@ function programSlider() {
     return {
         active: 0,
         interval: null,
-        intervalMs: 4000,
+        intervalMs: 3000,
         progress: 0,
         progressInterval: null,
         programs: [
@@ -94,7 +94,7 @@ function programSlider() {
                 href: '/programs/volunteer'
             },
             {
-                img: '/images/hero-home.jpg',
+                img: '/images/home.jpg',
                 accent: '#132D6B',
                 title: 'Disaster Preparedness',
                 desc: 'Equipping communities with the knowledge, tools, and confidence to prepare for, respond to, and recover from natural disasters — before they strike.',
@@ -107,23 +107,33 @@ function programSlider() {
         start() {
             this.resetProgress();
             this.interval = setInterval(() => {
-                this.next();
+                this.next(false);
             }, this.intervalMs);
         },
         pause() {
-            clearInterval(this.interval);
-            clearInterval(this.progressInterval);
+            if (this.interval) clearInterval(this.interval);
+            if (this.progressInterval) clearInterval(this.progressInterval);
+            this.interval = null;
+            this.progressInterval = null;
         },
         resume() {
-            this.start();
+            if (!this.interval) this.start();
         },
-        next() {
+        next(manual = true) {
             this.active = (this.active + 1) % this.programs.length;
             this.resetProgress();
+            if (manual && this.interval) {
+                clearInterval(this.interval);
+                this.interval = setInterval(() => { this.next(false); }, this.intervalMs);
+            }
         },
-        prev() {
+        prev(manual = true) {
             this.active = (this.active - 1 + this.programs.length) % this.programs.length;
             this.resetProgress();
+            if (manual && this.interval) {
+                clearInterval(this.interval);
+                this.interval = setInterval(() => { this.next(false); }, this.intervalMs);
+            }
         },
         goTo(index) {
             this.active = index;

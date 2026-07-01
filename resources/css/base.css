@@ -1,4 +1,8 @@
-/*  Base reset & smooth scroll  */
+/* ══════════════════════════════════════════════════════════════════
+   BASE — OneGoBike Design System
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Reset & smooth scroll ───────────────────────────────────────── */
 html {
     scroll-behavior: smooth;
 }
@@ -9,82 +13,66 @@ html {
     box-sizing: border-box;
 }
 
-/*  Noise Texture  */
-.bg-noise {
-    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E');
-    background-size: 200px 200px;
-}
-
-/* Story card animated rule */
-.story-rule {
-    height: 3px;
-    width: 2.5rem;
-    /* 40px = w-10 */
-    transition: width 0.5s cubic-bezier(0.86, 0, 0.07, 1);
-    margin-bottom: 1.75rem;
-}
-
-.story-card:hover .story-rule {
-    width: 100%;
-}
-
-/* ── Mantra Word Flipper — perspective wrapper only ──────── */
-.mantra-box {
-    display: inline-block;
-    vertical-align: baseline;
-    line-height: inherit;
-}
-
+/* ── Root body ───────────────────────────────────────────────────── */
 body {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
     color: #111827;
     background-color: #F8FAFC;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/*  Heading font utility  */
+/* ── Heading font ────────────────────────────────────────────────── */
 .font-heading {
     font-family: 'Oswald', ui-sans-serif, system-ui, sans-serif;
 }
 
-/*  Alpine cloak  */
-[x-cloak] {
-    display: none !important;
+/* ── Noise grain overlay ─────────────────────────────────────────── */
+.bg-noise {
+    background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E');
+    background-size: 200px 200px;
 }
 
-/*  Scroll reveal animation  */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
+/* ── Alpine cloak ────────────────────────────────────────────────── */
+[x-cloak] { display: none !important; }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ── Scroll reveal animation ─────────────────────────────────────── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-28px); }
+    to   { opacity: 1; transform: translateX(0);     }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(28px); }
+    to   { opacity: 1; transform: translateX(0);    }
 }
 
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(28px);
 }
 
 .reveal.visible {
-    animation: fadeInUp 0.65s ease-out forwards;
+    animation: fadeInUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/*  Card hover lift  */
+/* ── Card hover lift ─────────────────────────────────────────────── */
 .card-lift {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.28s ease;
 }
 
 .card-lift:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-7px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.11);
 }
 
-/*  Nav underline slide  */
+/* ── Nav underline slide ─────────────────────────────────────────── */
 .nav-underline {
     position: relative;
 }
@@ -92,12 +80,13 @@ body {
 .nav-underline::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: -3px;
     left: 0;
     width: 0;
     height: 2px;
-    background: #2FA7FF;
-    transition: width 0.25s ease;
+    background: linear-gradient(90deg, #2FA7FF, #60c0ff);
+    transition: width 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    border-radius: 1px;
 }
 
 .nav-underline:hover::after,
@@ -105,7 +94,7 @@ body {
     width: 100%;
 }
 
-/*  Back-to-top button  */
+/* ── Back-to-top button ──────────────────────────────────────────── */
 #back-to-top {
     opacity: 0;
     visibility: hidden;
@@ -119,21 +108,21 @@ body {
     transform: translateY(0);
 }
 
-/*  Program card icon ring  */
+/* ── Program card icon ring ──────────────────────────────────────── */
 .icon-ring {
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
 }
 
 .program-card:hover .icon-ring {
     background-color: #132D6B;
-    transform: scale(1.1);
+    transform: scale(1.12);
 }
 
 .program-card:hover .icon-ring svg {
     color: #ffffff;
 }
 
-/*  WBR Style Button Animation  */
+/* ── WBR Style Buttons ───────────────────────────────────────────── */
 .btn-wbr {
     position: relative;
     display: inline-flex;
@@ -144,7 +133,7 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     overflow: hidden;
     background-color: transparent;
     border: 2px solid #F97316;
@@ -165,61 +154,33 @@ body {
     z-index: -1;
 }
 
-.btn-wbr:hover {
-    color: white;
-}
-
-.btn-wbr:hover::before {
-    transform: translateX(100%);
-}
+.btn-wbr:hover           { color: white; }
+.btn-wbr:hover::before   { transform: translateX(100%); }
 
 .btn-wbr .arrow {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
 }
 
-.btn-wbr:hover .arrow {
-    transform: translateX(4px);
-}
+.btn-wbr:hover .arrow { transform: translateX(5px); }
 
-.btn-wbr.btn-wbr-dark {
-    border-color: #111827;
-    color: #111827;
-}
+/* Dark variant */
+.btn-wbr.btn-wbr-dark               { border-color: #111827; color: #111827; }
+.btn-wbr.btn-wbr-dark::before       { background-color: #111827; }
+.btn-wbr.btn-wbr-dark:hover         { color: white; }
 
-.btn-wbr.btn-wbr-dark::before {
-    background-color: #111827;
-}
+/* Light variant (for dark backgrounds) */
+.btn-wbr.btn-wbr-light              { border-color: rgba(255,255,255,0.50); color: white; }
+.btn-wbr.btn-wbr-light::before      { background-color: white; }
+.btn-wbr.btn-wbr-light:hover        { color: #111827; }
 
-.btn-wbr.btn-wbr-dark:hover {
-    color: white;
-}
+/* Solid orange → white fill sweep */
+.btn-wbr.btn-wbr-orange             { background-color: #F97316; border-color: #F97316; color: white; }
+.btn-wbr.btn-wbr-orange::before     { background-color: white; }
+.btn-wbr.btn-wbr-orange:hover       { color: #111827; border-color: white; }
 
-/* Light version for dark backgrounds */
-.btn-wbr.btn-wbr-light {
-    border-color: rgba(255, 255, 255, 0.5);
-    color: white;
-}
-
-.btn-wbr.btn-wbr-light::before {
-    background-color: white;
-}
-
-.btn-wbr.btn-wbr-light:hover {
-    color: #111827;
-}
-
-/* Solid orange → white fill sweep (for hero CTA on dark backgrounds) */
-.btn-wbr.btn-wbr-orange {
-    background-color: #F97316;
-    border-color: #F97316;
-    color: white;
-}
-
-.btn-wbr.btn-wbr-orange::before {
-    background-color: white;
-}
-
-.btn-wbr.btn-wbr-orange:hover {
-    color: #111827;
-    border-color: white;
+/* ── Divider accent ──────────────────────────────────────────────── */
+.accent-divider {
+    height: 3px;
+    background: linear-gradient(90deg, #F97316 0%, #fb923c 60%, transparent 100%);
+    border: none;
 }

@@ -33,12 +33,12 @@
 
 <body class="bg-[#F8FAFC] text-[#111827] antialiased" x-data="{ mobileOpen: false, scrolled: false }" @keydown.escape.window="mobileOpen = false">
 
-    {{-- STICKY HEADER --}}
+    <!-- Header -->
     <header
         id="site-header"
-        class="fixed top-0 inset-x-0 z-50 transition-all duration-300"
+        class="fixed top-0 inset-x-0 z-50 transition-all duration-200"
         :class="scrolled
-            ? 'bg-[#0D1B2A]/95 backdrop-blur-md shadow-lg shadow-black/20'
+            ? 'bg-[#0D1B2A]/96 backdrop-blur-xl shadow-2xl shadow-black/30 border-b border-white/[0.06]'
             : 'bg-transparent'"
         x-init="
             window.addEventListener('scroll', () => {
@@ -49,32 +49,39 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 md:h-20">
 
-            <!-- Logo -->
+                <!-- Logo -->
                 <a
                     href="{{ url('/') }}"
-                    class="flex flex-col leading-none group shrink-0"
+                    class="flex items-center gap-3 group shrink-0"
                     aria-label="OneGoBike Home"
                 >
-                    <span class="font-heading text-2xl font-bold tracking-wider">
-                        <span class="text-[#F97316] group-hover:brightness-110 transition-all duration-200">One</span><!--
-                     --><span class="text-[#2FA7FF] group-hover:brightness-110 transition-all duration-200">GoBike</span>
-                    </span>
-                    <span class="text-[10px] font-medium tracking-[0.18em] text-white/60 uppercase -mt-0.5">Community Responders</span>
+                    <div class="flex flex-col leading-none">
+                        <span class="font-heading text-xl font-bold tracking-wider">
+                            <span class="text-[#F97316]">One</span><span class="text-[#2FA7FF]">GoBike</span>
+                        </span>
+                        <span class="text-[9px] font-semibold tracking-[0.2em] text-white/50 uppercase">Community Responders</span>
+                    </div>
                 </a>
 
                  <!-- Desktop Navigation  -->
-                <nav class="hidden md:flex items-center gap-8" aria-label="Primary navigation">
+                <nav class="hidden md:flex items-center gap-7" aria-label="Primary navigation">
                     <x-nav-link href="{{ url('/about') }}">About</x-nav-link>
                     <x-nav-link href="{{ url('/programs') }}">Programs</x-nav-link>
                     <x-nav-link href="{{ url('/community') }}">Community</x-nav-link>
                     <x-nav-link href="{{ url('/contact') }}">Contact</x-nav-link>
                 </nav>
 
-                <!-- Right Side CTA  -->
-                <div class="hidden md:flex items-center gap-4">
+                <!-- Right Side CTAs  -->
+                <div class="hidden md:flex items-center gap-3">
+                    <a
+                        href="{{ url('/volunteer') }}"
+                        class="text-sm font-semibold text-white/70 hover:text-white transition-colors duration-200 tracking-wide"
+                    >
+                        Volunteer
+                    </a>
                     <a
                         href="{{ url('/donate') }}"
-                        class="inline-flex items-center gap-2 px-8 py-2.5 rounded-sm text-sm font-semibold tracking-wide bg-white text-[#132D6B] hover:bg-[#2FA7FF] hover:text-white transition-colors duration-200 shadow-sm"
+                        class="inline-flex items-center gap-1.5 px-5 py-2.5 text-sm font-bold tracking-wide bg-[#F97316] text-white hover:bg-[#fb923c] transition-all duration-200 shadow-sm hover:shadow-md rounded-sm"
                     >
                         Donate
                     </a>
@@ -129,7 +136,6 @@
                         class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-sm text-sm font-semibold bg-white text-[#132D6B]"
                         @click="mobileOpen = false"
                     >
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
                         Donate Now
                     </a>
                 </div>
@@ -137,50 +143,60 @@
         </div>
     </header>
 
-         <!-- MAIN CONTENT -->
+    <!-- Main Content -->
     <main id="main-content">
         {{ $slot }}
     </main>
 
     
-    <!-- Alpine.js (Moved to bottom before footer) -->
+    <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-         <!-- GLOBAL FOOTER -->
-    <footer class="bg-[#0D1B2A] text-white" aria-label="Site footer">
+    <!-- Footer -->
+    <footer class="bg-[#0D1B2A] text-white relative overflow-hidden" aria-label="Site footer">
+
+        <!-- Subtle top gradient separator -->
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2FA7FF]/20 to-transparent"></div>
+
+        <!-- Decorative background accent -->
+        <div class="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#132D6B]/15 blur-3xl pointer-events-none"></div>
 
         <!-- Main footer grid -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-12">
 
-                <!-- Column 1 - Brand + Social -->
-                <div class="flex flex-col gap-5">
-                    <a href="{{ url('/') }}" class="inline-block" aria-label="OneGoBike Home">
-                        <span class="font-heading text-3xl font-bold tracking-wider">
-                            <span class="text-[#F97316]">GO</span><span class="text-[#2FA7FF]">BIKE</span>
-                        </span>
-                        <p class="text-[11px] tracking-[0.18em] text-white/50 uppercase mt-0.5">Community Responders</p>
+                <!-- Column 1 - Brand + Social (wider) -->
+                <div class="md:col-span-2 flex flex-col gap-5">
+                    <a href="{{ url('/') }}" class="inline-flex items-center gap-3" aria-label="OneGoBike Home">
+                        <div>
+                            <span class="font-heading text-2xl font-bold tracking-wider block">
+                                <span class="text-[#F97316]">One</span><span class="text-[#2FA7FF]">GoBike</span>
+                            </span>
+                            <p class="text-[10px] tracking-[0.18em] text-white/40 uppercase">Community Responders</p>
+                        </div>
                     </a>
-                    <p class="text-sm text-white/60 leading-relaxed max-w-xs">
+                    <p class="text-sm text-white/55 leading-relaxed max-w-sm">
                         A youth-led community organization mobilizing volunteers, responders, cyclists, and local communities to improve health, resilience, and disaster preparedness throughout Pangasinan.
                     </p>
+                    <!-- Government accreditation note -->
+                    <div class="flex flex-wrap gap-2 mt-1">
+                        <span class="inline-block text-[9px] font-bold tracking-[0.14em] uppercase px-2.5 py-1 border border-white/10 text-white/40 rounded-sm">DILG Accredited</span>
+                        <span class="inline-block text-[9px] font-bold tracking-[0.14em] uppercase px-2.5 py-1 border border-white/10 text-white/40 rounded-sm">DOH Partner</span>
+                        <span class="inline-block text-[9px] font-bold tracking-[0.14em] uppercase px-2.5 py-1 border border-white/10 text-white/40 rounded-sm">LGU Recognized</span>
+                    </div>
                     <!-- Social Icons -->
-                    <div class="flex items-center gap-3 mt-1" role="list" aria-label="Social media links">
-                        <!-- Facebook -->
-                        <a href="#" role="listitem" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#2FA7FF] transition-colors duration-200" aria-label="Facebook">
+                    <div class="flex items-center gap-2.5 mt-2" role="list" aria-label="Social media links">
+                        <a href="#" role="listitem" class="w-9 h-9 rounded-sm bg-white/8 border border-white/10 flex items-center justify-center hover:bg-[#2FA7FF] hover:border-[#2FA7FF] transition-all duration-200" aria-label="Facebook">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
-                        <!-- Instagram -->
-                        <a href="#" role="listitem" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#2FA7FF] transition-colors duration-200" aria-label="Instagram">
+                        <a href="#" role="listitem" class="w-9 h-9 rounded-sm bg-white/8 border border-white/10 flex items-center justify-center hover:bg-[#2FA7FF] hover:border-[#2FA7FF] transition-all duration-200" aria-label="Instagram">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                         </a>
-                        <!-- Twitter / X -->
-                        <a href="#" role="listitem" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#2FA7FF] transition-colors duration-200" aria-label="Twitter / X">
+                        <a href="#" role="listitem" class="w-9 h-9 rounded-sm bg-white/8 border border-white/10 flex items-center justify-center hover:bg-[#2FA7FF] hover:border-[#2FA7FF] transition-all duration-200" aria-label="Twitter / X">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         </a>
-                        <!-- YouTube -->
-                        <a href="#" role="listitem" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#2FA7FF] transition-colors duration-200" aria-label="YouTube">
+                        <a href="#" role="listitem" class="w-9 h-9 rounded-sm bg-white/8 border border-white/10 flex items-center justify-center hover:bg-[#2FA7FF] hover:border-[#2FA7FF] transition-all duration-200" aria-label="YouTube">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         </a>
                     </div>
@@ -188,8 +204,8 @@
 
                 <!-- Column 2 - Quick Links -->
                 <div>
-                    <h3 class="font-heading text-base font-semibold tracking-wider uppercase text-white mb-5">Quick Links</h3>
-                    <ul class="space-y-2.5" role="list">
+                    <h3 class="font-heading text-[11px] font-bold tracking-[0.2em] uppercase text-[#F97316] mb-5">Navigate</h3>
+                    <ul class="space-y-2" role="list">
                         @foreach ([
                             ['label' => 'About Us',   'href' => '/about'],
                             ['label' => 'Programs',   'href' => '/programs'],
@@ -197,8 +213,8 @@
                             ['label' => 'Contact',    'href' => '/contact'],
                         ] as $link)
                         <li>
-                            <a href="{{ url($link['href']) }}" class="text-sm text-white/60 hover:text-[#2FA7FF] transition-colors duration-200 flex items-center gap-2 group">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#2FA7FF]/40 group-hover:bg-[#2FA7FF] transition-colors duration-200 shrink-0"></span>
+                            <a href="{{ url($link['href']) }}" class="text-sm text-white/50 hover:text-[#2FA7FF] transition-colors duration-200 flex items-center gap-2 group">
+                                <span class="w-1 h-1 rounded-full bg-[#2FA7FF]/30 group-hover:bg-[#2FA7FF] transition-colors duration-200 shrink-0"></span>
                                 {{ $link['label'] }}
                             </a>
                         </li>
@@ -208,8 +224,8 @@
 
                  <!-- Column 3 – Support  -->
                 <div>
-                    <h3 class="font-heading text-base font-semibold tracking-wider uppercase text-white mb-5">Support</h3>
-                    <ul class="space-y-2.5" role="list">
+                    <h3 class="font-heading text-[11px] font-bold tracking-[0.2em] uppercase text-[#F97316] mb-5">Get Involved</h3>
+                    <ul class="space-y-2" role="list">
                         @foreach ([
                             ['label' => 'Volunteer',      'href' => '/volunteer'],
                             ['label' => 'Donate',         'href' => '/donate'],
@@ -217,8 +233,8 @@
                             ['label' => 'Gallery',        'href' => '/gallery'],
                         ] as $link)
                         <li>
-                            <a href="{{ url($link['href']) }}" class="text-sm text-white/60 hover:text-[#2FA7FF] transition-colors duration-200 flex items-center gap-2 group">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#F97316]/40 group-hover:bg-[#F97316] transition-colors duration-200 shrink-0"></span>
+                            <a href="{{ url($link['href']) }}" class="text-sm text-white/50 hover:text-[#F97316] transition-colors duration-200 flex items-center gap-2 group">
+                                <span class="w-1 h-1 rounded-full bg-[#F97316]/30 group-hover:bg-[#F97316] transition-colors duration-200 shrink-0"></span>
                                 {{ $link['label'] }}
                             </a>
                         </li>
@@ -230,20 +246,20 @@
         </div>
 
          <!-- Bottom bar -->
-        <div class="border-t border-white/10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
-                <p>&copy; {{ date('Y') }} OneGoBike. All rights reserved.</p>
+        <div class="border-t border-white/[0.07] relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-white/30">
+                <p>&copy; {{ date('Y') }} OneGoBike. All rights reserved. &middot; Pangasinan, Philippines</p>
                 <div class="flex items-center gap-4">
-                    <a href="{{ url('/privacy-policy') }}" class="hover:text-white transition-colors duration-200">Privacy Policy</a>
-                    <span class="opacity-40">·</span>
-                    <a href="{{ url('/terms') }}" class="hover:text-white transition-colors duration-200">Terms &amp; Conditions</a>
+                    <a href="{{ url('/privacy-policy') }}" class="hover:text-white/60 transition-colors duration-200">Privacy Policy</a>
+                    <span class="opacity-30">&middot;</span>
+                    <a href="{{ url('/terms') }}" class="hover:text-white/60 transition-colors duration-200">Terms &amp; Conditions</a>
                 </div>
             </div>
         </div>
 
     </footer>
 
-         <!-- BACK-TO-TOP BUTTON -->
+    <!-- Back to Top -->
     <button
         id="back-to-top"
         type="button"

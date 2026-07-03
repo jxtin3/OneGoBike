@@ -124,9 +124,9 @@
 <section id="stories" class="bg-white" aria-labelledby="stories-heading">
 
     <!-- The Mantra -->
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center reveal">
-        <span class="section-eyebrow mb-5 inline-flex">Our Belief</span>
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-[#111827] uppercase tracking-tighter leading-[1.08] mt-4">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-20 text-center reveal">
+        <!-- <span class="section-eyebrow mb-5 inline-flex">Our Belief</span> -->
+        <h2 class="text-4xl md:text-6xl lg:text-6xl font-heading font-black text-[#111827] uppercase tracking-tighter leading-[1.08] mt-4">
             We Believe In The
             <br>
             <span class="mantra-box"><span id="mantra-word" class="mantra-flip-in">Power of Youth</span></span>
@@ -158,7 +158,8 @@
                 <div class="story-rule"></div>
                 <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F97316]/70 mb-3">Field Operations</span>
                 <h3 class="text-3xl md:text-4xl font-heading font-bold uppercase mb-5 leading-tight tracking-tight">
-                    Racing Against<br>The Clock
+                    Racing Against<br>
+                    The Clock
                 </h3>
                 <p class="text-white/65 text-sm md:text-base leading-relaxed mb-8 font-light">
                     In remote barangays, access to immediate care is limited. Our youth responders on bicycles bridge that gap, delivering first aid and critical supplies faster than traditional vehicles ever could.
@@ -186,7 +187,8 @@
                 <div class="story-rule"></div>
                 <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F97316]/70 mb-3">Youth Leadership</span>
                 <h3 class="text-3xl md:text-4xl font-heading font-bold uppercase mb-5 leading-tight tracking-tight">
-                    Empowering The<br>Next Generation
+                    Empowering The<br>
+                    Next Generation
                 </h3>
                 <p class="text-white/65 text-sm md:text-base leading-relaxed mb-8 font-light">
                     Bicycles do more than transport; they unlock potential. We see young riders turning into community leaders, taking responsibility for the health and safety of their neighbors.
@@ -214,7 +216,7 @@
     <!-- Header Bar -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-            <span class="section-eyebrow mb-2 inline-flex">Our Programs</span>
+            <!-- <span class="section-eyebrow mb-2 inline-flex">Our Programs</span> -->
             <h2 id="programs-heading" class="text-4xl md:text-5xl font-heading font-bold text-white uppercase tracking-tight mt-2">
                 What We Do
             </h2>
@@ -228,7 +230,7 @@
     <!-- Slider -->
     <div
         class="relative w-full overflow-hidden bg-[#111827] min-h-[580px] md:min-h-[640px]"
-        @mouseenter="pause()"
+        @mouseenter="resume()"
         @mouseleave="resume()"
     >
         <!-- Background slides -->
@@ -247,7 +249,7 @@
                      class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-[10s] ease-out"
                      :class="active === index ? 'scale-105' : 'scale-100'">
                 <!-- Rich overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/50 to-transparent opacity-80"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/50 to-transparent opacity-100"></div>
                 <div class="absolute inset-0" :style="'background: radial-gradient(ellipse at 80% 20%, ' + prog.accent + '18 0%, transparent 60%)'"></div>
             </div>
         </template>
@@ -322,8 +324,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center mb-14 reveal">
-            <span class="section-eyebrow mb-4 inline-flex">Navigation</span>
-            <h2 id="quick-access-heading" class="text-section-title-md font-heading font-bold text-[#111827] mt-3">
+            <!-- <span class="section-eyebrow mb-4 inline-flex">Navigation</span> -->
+            <h2 id="quick-access-heading" class="text-section-title-md font-heading font-bold text-[#b55918ff] mt-3">
                 Find What You Need
             </h2>
             <p class="text-[#64748B] mt-3 max-w-md mx-auto text-sm leading-relaxed">
@@ -335,8 +337,8 @@
         $quickLinks = [
             [
                 'icon'   => '<path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/>',
-                'bg'     => 'from-[#132D6B] to-[#1a3d8a]',
-                'accent' => '#132D6B',
+                'bg'     => 'from-[#081638ff] to-[#1a3d8a]',
+                'accent' => '#081638ff',
                 'title'  => 'Programs',
                 'desc'   => 'Explore health, outreach, and disaster readiness initiatives.',
                 'href'   => '/programs',
@@ -344,8 +346,8 @@
             ],
             [
                 'icon'   => '<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/>',
-                'bg'     => 'from-[#F97316] to-[#fb923c]',
-                'accent' => '#F97316',
+                'bg'     => 'from-[#703811ff] to-[#fb923c]',
+                'accent' => '#b55918ff',
                 'title'  => 'Volunteer',
                 'desc'   => 'Join our growing team of youth community responders.',
                 'href'   => '/volunteer',
@@ -353,8 +355,8 @@
             ],
             [
                 'icon'   => '<path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"/>',
-                'bg'     => 'from-[#2FA7FF] to-[#60c0ff]',
-                'accent' => '#2FA7FF',
+                'bg'     => 'from-[#0c436bff] to-[#60c0ff]',
+                'accent' => '#1a6da9ff',
                 'title'  => 'News & Updates',
                 'desc'   => 'Stay informed on our latest field operations and news.',
                 'href'   => '/news',
@@ -362,8 +364,8 @@
             ],
             [
                 'icon'   => '<path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>',
-                'bg'     => 'from-[#16A34A] to-[#22c55e]',
-                'accent' => '#16A34A',
+                'bg'     => 'from-[#0c622bff] to-[#22c55e]',
+                'accent' => '#0f8a3cff',
                 'title'  => 'Contact Us',
                 'desc'   => 'Reach our team for partnerships, media, or inquiries.',
                 'href'   => '/contact',
@@ -423,7 +425,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-            <!-- Left: Image -->
+            <!-- Left Image chnage -->
             <div class="relative reveal">
                 <div class="relative rounded-sm overflow-hidden shadow-lg aspect-[4/3]">
                     <img
@@ -451,7 +453,7 @@
             <!-- Right: Story -->
             <div class="flex flex-col gap-7 reveal">
                 <div>
-                    <span class="section-eyebrow mb-4 inline-flex">Impact Story</span>
+                    <!-- <span class="section-eyebrow mb-4 inline-flex">Impact Story</span> -->
                     <h2
                         id="impact-story-heading"
                         class="text-impact-title font-heading font-bold text-[#111827] leading-tight mb-4 mt-3"
@@ -468,10 +470,10 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     @php
                     $highlights = [
-                        ['value' => '300+',   'label' => 'Medical Missions Conducted', 'bg' => 'bg-[#16A34A]', 'text' => 'text-[#16A34A]'],
-                        ['value' => '12,000', 'label' => 'Beneficiaries Served',        'bg' => 'bg-[#2FA7FF]', 'text' => 'text-[#2FA7FF]'],
-                        ['value' => '45',     'label' => 'Barangays Reached',            'bg' => 'bg-[#F97316]', 'text' => 'text-[#F97316]'],
-                        ['value' => '85%',    'label' => 'Youth-Led Initiatives',        'bg' => 'bg-[#132D6B]', 'text' => 'text-[#132D6B]'],
+                        ['value' => '300+',   'label' => 'Medical Missions Conducted', 'bg' => 'bg-[#111827]', 'text' => 'text-[#132D6B]'],
+                        ['value' => '12,000', 'label' => 'Beneficiaries Served',        'bg' => 'bg-[#111827]', 'text' => 'text-[#132D6B]'],
+                        ['value' => '45',     'label' => 'Barangays Reached',            'bg' => 'bg-[#111827]', 'text' => 'text-[#132D6B]'],
+                        ['value' => '85%',    'label' => 'Youth-Led Initiatives',        'bg' => 'bg-[#111827]', 'text' => 'text-[#132D6B]'],
                     ];
                     @endphp
                     @foreach ($highlights as $h)
@@ -591,7 +593,7 @@
         </h2>
 
         <p class="text-base md:text-lg text-[#64748B] font-medium leading-relaxed mb-10 max-w-2xl mx-auto">
-            Join volunteers, partners, and community leaders creating meaningful change throughout Pangasinan. Every contribution — time, skills, or resources — helps build a stronger community.
+            Join volunteers, partners, and community leaders creating meaningful change throughout Pangasinan. Every contribution — time, skills, or resources, it helps build a stronger community.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
@@ -600,7 +602,7 @@
                 id="cta-volunteer"
                 class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#132D6B] text-white text-sm font-bold tracking-[0.1em] uppercase transition-all duration-300 shadow-lg shadow-[#132D6B]/30 hover:bg-[#2FA7FF] hover:-translate-y-1 rounded-sm"
             >
-                <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+                <!-- <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg> -->
                 <span>Volunteer With Us</span>
             </a>
             <a
@@ -608,7 +610,7 @@
                 id="cta-donate"
                 class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#F97316] border border-[#F97316]/30 text-sm font-bold tracking-[0.1em] uppercase transition-all duration-300 shadow-sm hover:border-[#F97316] hover:bg-[#F97316]/5 hover:-translate-y-1 rounded-sm"
             >
-                <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
+                <!-- <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg> -->
                 <span>Donate Now</span>
             </a>
         </div>

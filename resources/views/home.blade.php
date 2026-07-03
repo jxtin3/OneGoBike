@@ -2,8 +2,6 @@
     title="OneGoBike"
     description="Mobilizing volunteers, cyclists, responders, and local leaders to strengthen health, preparedness, and resilience across Pangasinan."
 >
-
-
      <!-- SECTION 1 — HERO -->
 <section
     id="hero"
@@ -509,52 +507,65 @@
     </div>
 </section>
 
+<!-- SECTION 6 impact stat -->
 
-<!-- SECTION 6 — IMPACT STATISTICS STRIP -->
+
+    <!-- for section below -->
+     <!-- style="background: linear-gradient(to bottom, #0D1B2A 0%, #0D1B2A 38%, #172236 48%, #2A3548 58%, #4B5768 68%, #7C8798 78%, #B8C2CE 88%, #E4E9EF 96%, #F8FAFC 100%);" -->
+
 <section
     id="impact"
-    class="bg-[#0D1B2A] relative overflow-hidden"
+    class="relative overflow-hidden pb-10 md:pb-5"
     aria-label="Impact statistics"
     x-data="counterSection()"
     x-intersect.once="startCounters()"
 >
-    <!-- Decorative background glow -->
-    <div class="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[#2FA7FF]/5 blur-3xl pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-[#F97316]/5 blur-3xl pointer-events-none" aria-hidden="true"></div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-2 md:grid-cols-4">
-
-            <!-- Stat 1 -->
-            <div class="stat-item flex flex-col items-center justify-center p-8 relative">
-                <span class="text-stat font-heading font-bold text-white mb-2" x-text="counts[0].display">0</span>
-                <span class="text-[#2FA7FF] font-bold text-xs tracking-widest uppercase">Trained Youth Volunteers</span>
-            </div>
-
-            <!-- Stat 2 -->
-            <div class="stat-item flex flex-col items-center justify-center p-8 relative">
-                <span class="text-stat font-heading font-bold text-white mb-2" x-text="counts[1].display">0</span>
-                <span class="text-[#2FA7FF] font-bold text-xs tracking-widest uppercase">Barangays Served</span>
-            </div>
-
-            <!-- Stat 3 -->
-            <div class="stat-item flex flex-col items-center justify-center p-8 relative">
-                <span class="text-stat font-heading font-bold text-white mb-2" x-text="counts[2].display">0</span>
-                <span class="text-[#2FA7FF] font-bold text-xs tracking-widest uppercase">Volunteer Hours</span>
-            </div>
-
-            <!-- Stat 4 -->
-            <div class="stat-item flex flex-col items-center justify-center p-8 relative">
-                <span class="text-stat font-heading font-bold text-white mb-2" x-text="counts[3].display">2019</span>
-                <span class="text-[#2FA7FF] font-bold text-xs tracking-widest uppercase">Active Since</span>
-            </div>
-
+ 
+<div class="max-w-2xl mx-auto px-4 sm:px-6 relative z-10 divide-y-2 divide-[#0D1B2A]/30"> 
+        <!-- Stat 1 -->
+        <div class="flex flex-col items-center justify-center text-center py-10">
+            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm12 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15v-2.25l3-4.5h3.75L18 15M9 15h9M9 15H4.5l1.9-5.7a1.5 1.5 0 0 1 1.425-1.05H9"/>
+            </svg>
+            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[0].display">0</span>
+            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Trained Youth Volunteers</span>
         </div>
+ 
+        <!-- Stat 2 -->
+        <div class="flex flex-col items-center justify-center text-center py-10">
+            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
+            </svg>
+            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[1].display">0</span>
+            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Barangays Served</span>
+        </div>
+ 
+        <!-- Stat 3 -->
+        <div class="flex flex-col items-center justify-center text-center py-10">
+            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+            </svg>
+            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[2].display">0</span>
+            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Volunteer Hours</span>
+        </div>
+ 
+        <!-- Stat 4 -->
+        <div class="flex flex-col items-center justify-center text-center py-10">
+            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3.75 8.25h16.5M4.5 6h15a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75h-15a.75.75 0 0 1-.75-.75V6.75A.75.75 0 0 1 4.5 6Z"/>
+            </svg>
+            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[3].display">2019</span>
+            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Active Since</span>
+        </div>
+ 
     </div>
 </section>
-
-
-<!-- SECTION 7 — CALL TO ACTION -->
+ 
+ <!-- SECTION 7 — CALL TO ACTION      -->
 <section
     id="cta"
     class="relative py-28 md:py-25 overflow-hidden"
@@ -562,28 +573,27 @@
 >
     <!-- Background Map -->
     <div class="absolute inset-0 z-0 bg-[#F8FAFC]">
-        <img src="{{ asset('images/pangasinan map.png') }}" alt="Map of Pangasinan" class="w-full h-full object-cover opacity-[0.15] mix-blend-multiply scale-105">
+        <img src="{{ asset('images/pangasinan-map.png') }}" alt="Map of Pangasinan" class="w-full h-full object-cover opacity-[0.3] mix-blend-multiply scale-105">
         <!-- Light overlay to fade and ensure text remains readable -->
-        <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC] via-white/70 to-[#F8FAFC]"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/60 via-transparent to-[#F8FAFC]/60"></div>
     </div>
-
+ 
     <!-- Grid pattern overlay (inverted for light theme) -->
     <div class="cta-grid-pattern absolute inset-0 opacity-30" aria-hidden="true" style="filter: invert(1);"></div>
-
+ 
     <!-- Glowing blobs (softened for light theme) -->
     <div class="cta-blob-blue absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl opacity-30" aria-hidden="true"></div>
     <div class="cta-blob-orange absolute bottom-0 right-0 w-80 h-80 rounded-full blur-3xl opacity-20" aria-hidden="true"></div>
-
+ 
     <!-- Philippine-inspired subtle accent lines -->
-    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2FA7FF]/40 to-transparent" aria-hidden="true"></div>
     <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" aria-hidden="true"></div>
-
+ 
     <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-
+ 
         <span class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.22em] uppercase text-[#F97316] mb-5">
             Get Involved
         </span>
-
+ 
         <h2
             id="cta-heading"
             class="text-cta-title font-heading font-bold text-[#111827] mb-6 leading-tight"
@@ -591,18 +601,17 @@
             Ready To Make<br/>
             An <span class="text-[#2FA7FF]">Impact?</span>
         </h2>
-
+ 
         <p class="text-base md:text-lg text-[#64748B] font-medium leading-relaxed mb-10 max-w-2xl mx-auto">
             Join volunteers, partners, and community leaders creating meaningful change throughout Pangasinan. Every contribution — time, skills, or resources, it helps build a stronger community.
         </p>
-
+ 
         <div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
             <a
                 href="{{ url('/volunteer') }}"
                 id="cta-volunteer"
                 class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#132D6B] text-white text-sm font-bold tracking-[0.1em] uppercase transition-all duration-300 shadow-lg shadow-[#132D6B]/30 hover:bg-[#2FA7FF] hover:-translate-y-1 rounded-sm"
             >
-                <!-- <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg> -->
                 <span>Volunteer With Us</span>
             </a>
             <a
@@ -610,16 +619,10 @@
                 id="cta-donate"
                 class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#F97316] border border-[#F97316]/30 text-sm font-bold tracking-[0.1em] uppercase transition-all duration-300 shadow-sm hover:border-[#F97316] hover:bg-[#F97316]/5 hover:-translate-y-1 rounded-sm"
             >
-                <!-- <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg> -->
                 <span>Donate Now</span>
             </a>
         </div>
-
-        <!-- Micro trust signal -->
-        <!-- <p class="mt-10 text-[11px] text-white/30 tracking-wide">
-            Registered Non-Profit Organization · DILG Accredited · Pangasinan, Philippines
-        </p> -->
-
+ 
     </div>
 </section>
 

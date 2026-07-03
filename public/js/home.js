@@ -45,7 +45,7 @@ function counterSection() {
             this.counts.forEach((stat, idx) => {
                 if (idx === 3) return; // "Active Since" — static
 
-                const duration = 2000;
+                const duration = 3000;
                 const startTime = performance.now();
 
                 const easeOut = t => 1 - Math.pow(1 - t, 3);

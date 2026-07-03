@@ -27,11 +27,11 @@
     });
 })();
 
-// Alpine counter component script
+// stat
 function counterSection() {
     return {
         started: false,
-        // NOTE: Change target numbers here
+        // Change target numbers here
         counts: [
             { target: 2500, suffix: '+', display: '0+' },
             { target: 45, suffix: '', display: '0' },
@@ -63,7 +63,7 @@ function counterSection() {
     };
 }
 
-// Alpine program slider component script
+//  program slider  
 function programSlider() {
     return {
         active: 0,

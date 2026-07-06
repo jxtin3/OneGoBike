@@ -1,0 +1,30 @@
+/* 
+   Testimonial Cards
+*/
+
+.testimonial-card {
+    background: #ffffff;
+    border: 1px solid #F1F5F9;
+    border-radius: 2px;
+    padding: 1.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    position: relative;
+    transition: box-shadow 0.28s ease, transform 0.28s ease;
+}
+
+.testimonial-card::before {
+    content: '\201C';
+    position: absolute;
+    top: 0.75rem;
+    left: 1.25rem;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: #F97316;
+    opacity: 0.2;
+    font-family: Georgia, serif;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}

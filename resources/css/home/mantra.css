@@ -1,0 +1,43 @@
+/* 
+   Mantra Section
+*/
+
+.mantra-quote {
+    display: block;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(6rem, 14vw, 11rem);
+    line-height: 0.5;
+    color: #F97316;
+    opacity: 0.65;
+    margin-bottom: -0.2em;
+    user-select: none;
+}
+
+.mantra-box {
+    display: inline-block;
+    perspective: 800px;
+    min-width: 11ch;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+#mantra-word {
+    display: inline-block;
+    background: linear-gradient(135deg, #F97316 0%, #fb923c 100%);
+    color: white;
+    padding: 0.06em 0.45em 0.15em;
+    transform-origin: center center;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    box-shadow: 0 4px 24px rgba(249, 115, 22, 0.30);
+}
+
+/* Flip animation classes */
+.mantra-flip-in {
+    animation: flip3d 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.mantra-flip-out {
+    animation: flip3dOut 0.22s ease-in forwards;
+}

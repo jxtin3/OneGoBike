@@ -1,0 +1,20 @@
+/* 
+   Scroll Reveal — Animation Delay Variants
+   (Base .reveal class is defined in base.css)
+*/
+
+.reveal-delay-1 {
+    animation-delay: 80ms;
+}
+
+.reveal-delay-2 {
+    animation-delay: 160ms;
+}
+
+.reveal-delay-3 {
+    animation-delay: 240ms;
+}
+
+.reveal-delay-4 {
+    animation-delay: 320ms;
+}

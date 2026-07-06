@@ -1,8 +1,8 @@
-/* ══════════════════════════════════════════════════════════════════
-   BASE — OneGoBike Design System
-   ══════════════════════════════════════════════════════════════════ */
+/* 
+   BASE - OneGoBike Design System
+*/
 
-/* ── Reset & smooth scroll ───────────────────────────────────────── */
+/* Reset & smooth scroll */
 html {
     scroll-behavior: smooth;
 }
@@ -13,7 +13,8 @@ html {
     box-sizing: border-box;
 }
 
-/* ── Root body ───────────────────────────────────────────────────── */
+
+/*  Root body  */
 body {
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
     color: #111827;
@@ -22,34 +23,61 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Heading font ────────────────────────────────────────────────── */
+
+/*  Heading font  */
 .font-heading {
     font-family: 'Oswald', ui-sans-serif, system-ui, sans-serif;
 }
 
-/* ── Noise grain overlay ─────────────────────────────────────────── */
+
+/*  Noise grain overlay  */
 .bg-noise {
     background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E');
     background-size: 200px 200px;
 }
 
-/* ── Alpine cloak ────────────────────────────────────────────────── */
-[x-cloak] { display: none !important; }
 
-/* ── Scroll reveal animation ─────────────────────────────────────── */
+/*  Alpine cloak  */
+[x-cloak] {
+    display: none !important;
+}
+
+
+/*  Scroll reveal animation  */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0);    }
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInLeft {
-    from { opacity: 0; transform: translateX(-28px); }
-    to   { opacity: 1; transform: translateX(0);     }
+    from {
+        opacity: 0;
+        transform: translateX(-28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(28px); }
-    to   { opacity: 1; transform: translateX(0);    }
+    from {
+        opacity: 0;
+        transform: translateX(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .reveal {
@@ -61,10 +89,11 @@ body {
     animation: fadeInUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* ── Card hover lift ─────────────────────────────────────────────── */
+
+/*  Card hover lift  */
 .card-lift {
     transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.28s ease;
+        box-shadow 0.28s ease;
 }
 
 .card-lift:hover {
@@ -72,7 +101,8 @@ body {
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.11);
 }
 
-/* ── Nav underline slide ─────────────────────────────────────────── */
+
+/*  Nav underline slide  */
 .nav-underline {
     position: relative;
 }
@@ -94,7 +124,8 @@ body {
     width: 100%;
 }
 
-/* ── Back-to-top button ──────────────────────────────────────────── */
+
+/*  Back-to-top button  */
 #back-to-top {
     opacity: 0;
     visibility: hidden;
@@ -108,9 +139,10 @@ body {
     transform: translateY(0);
 }
 
-/* ── Program card icon ring ──────────────────────────────────────── */
+
+/*  Program card icon ring  */
 .icon-ring {
-    transition: background-color 0.3s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    transition: background-color 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .program-card:hover .icon-ring {
@@ -122,7 +154,7 @@ body {
     color: #ffffff;
 }
 
-/* ── WBR Style Buttons ───────────────────────────────────────────── */
+/*  WBR Style Buttons  */
 .btn-wbr {
     position: relative;
     display: inline-flex;
@@ -154,31 +186,67 @@ body {
     z-index: -1;
 }
 
-.btn-wbr:hover           { color: white; }
-.btn-wbr:hover::before   { transform: translateX(100%); }
-
-.btn-wbr .arrow {
-    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+.btn-wbr:hover {
+    color: white;
 }
 
-.btn-wbr:hover .arrow { transform: translateX(5px); }
+.btn-wbr:hover::before {
+    transform: translateX(100%);
+}
+
+.btn-wbr .arrow {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-wbr:hover .arrow {
+    transform: translateX(5px);
+}
 
 /* Dark variant */
-.btn-wbr.btn-wbr-dark               { border-color: #111827; color: #111827; }
-.btn-wbr.btn-wbr-dark::before       { background-color: #111827; }
-.btn-wbr.btn-wbr-dark:hover         { color: white; }
+.btn-wbr.btn-wbr-dark {
+    border-color: #111827;
+    color: #111827;
+}
+
+.btn-wbr.btn-wbr-dark::before {
+    background-color: #111827;
+}
+
+.btn-wbr.btn-wbr-dark:hover {
+    color: white;
+}
 
 /* Light variant (for dark backgrounds) */
-.btn-wbr.btn-wbr-light              { border-color: rgba(255,255,255,0.50); color: white; }
-.btn-wbr.btn-wbr-light::before      { background-color: white; }
-.btn-wbr.btn-wbr-light:hover        { color: #111827; }
+.btn-wbr.btn-wbr-light {
+    border-color: rgba(255, 255, 255, 0.50);
+    color: white;
+}
 
-/* Solid orange → white fill sweep */
-.btn-wbr.btn-wbr-orange             { background-color: #F97316; border-color: #F97316; color: white; }
-.btn-wbr.btn-wbr-orange::before     { background-color: white; }
-.btn-wbr.btn-wbr-orange:hover       { color: #111827; border-color: white; }
+.btn-wbr.btn-wbr-light::before {
+    background-color: white;
+}
 
-/* ── Divider accent ──────────────────────────────────────────────── */
+.btn-wbr.btn-wbr-light:hover {
+    color: #111827;
+}
+
+/*  orange →  fill to white  */
+.btn-wbr.btn-wbr-orange {
+    background-color: #F97316;
+    border-color: #F97316;
+    color: white;
+}
+
+.btn-wbr.btn-wbr-orange::before {
+    background-color: white;
+}
+
+.btn-wbr.btn-wbr-orange:hover {
+    color: #111827;
+    border-color: white;
+}
+
+/*  Divider accent  */
 .accent-divider {
     height: 3px;
     background: linear-gradient(90deg, #F97316 0%, #fb923c 60%, transparent 100%);

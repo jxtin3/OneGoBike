@@ -31,9 +31,9 @@
     <!-- Content -->
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-44 w-full">
         <div class="max-w-3xl">
-<!-- 
-            Legitimacy badge
-            <div class="hero-accreditation mb-6 reveal">
+
+            <!-- Legitimacy badge -->
+            <!-- <div class="hero-accreditation mb-6 reveal">
                 <span class="hero-accreditation-dot"></span>
                 Youth-Led · Pangasinan · Est. 2019
                 <span class="w-px h-3 bg-white/20 mx-1"></span>
@@ -45,9 +45,13 @@
                 id="hero-headline"
                 class="text-hero-title font-heading font-bold text-white mb-5 reveal"
             >
-                Youth-Led<br/>
-                <span class="text-[#2FA7FF]">Community</span><br/>
-                Responders
+                <!-- Youth-Led<br/> -->
+                <!-- <span class="text-[#2FA7FF]">Community</span><br/> -->
+                <!-- Responders -->
+
+                Saving lives <br/>
+                <span class="text-[#2FA7FF]">One Ride</span><br/>
+                At A Time
             </h1>
 
             <!-- Sub-headline -->
@@ -57,29 +61,17 @@
 
             <!-- Body text -->
             <p class="text-base md:text-lg text-white/60 leading-relaxed mb-10 max-w-xl reveal">
-                Mobilizing volunteers, cyclists, responders, and local leaders to strengthen health, preparedness, and resilience across Pangasinan.
+                Mobilizing volunteers, responders, and local leaders to strengthen health, preparedness, and resilience across Pangasinan.
             </p>
 
-            <!-- CTAs -->
+            <!-- CTA(call to action) -->
             <div class="flex flex-col sm:flex-row gap-4 mt-2 reveal">
                 <a
                     href="{{ url('/programs') }}"
                     id="hero-cta-programs"
-                    class="btn-wbr btn-wbr-orange"
+                    class="btn-ghost-fill"
                 >
                     <span>Explore Programs</span>
-                    <svg class="w-5 h-5 arrow" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a>
-                <a
-                    href="{{ url('/about') }}"
-                    id="hero-cta-about"
-                    class="inline-flex items-center justify-center gap-2 px-10 py-4
-                            border-2 border-white/35 hover:border-white/70
-                            text-white text-sm font-bold tracking-[0.1em] uppercase
-                            transition-all duration-300 backdrop-blur-sm
-                            hover:bg-white/10"
-                >
-                    <span>Learn More</span>
                 </a>
             </div>
 
@@ -95,26 +87,36 @@
 
 
 <!-- Partners / Trust Bar -->
-<div class="trust-bar py-4 overflow-hidden border-y border-white/10" aria-label="Government affiliations and partners">
-    <div class="flex items-center gap-6 w-max affiliation-track cursor-pointer">
-        @php
-        $partners = [
-            ['label' => 'DOH Pangasinan',   'abbr' => 'DOH'],
-            ['label' => 'DILG Region I',     'abbr' => 'DILG'],
-            ['label' => 'LGU Dagupan',       'abbr' => 'LGU'],
-            ['label' => 'DSWD Pangasinan',   'abbr' => 'DSWD'],
-            ['label' => 'DepEd Region I',    'abbr' => 'DepEd'],
-            ['label' => 'NDRRMC',            'abbr' => 'NDRRMC'],
-        ];
-        $scrollPartners = array_merge($partners, $partners, $partners, $partners);
-        @endphp
-        
-        @foreach ($scrollPartners as $p)
-        <div class="trust-badge flex-shrink-0 px-4 py-2 bg-white/5 border border-white/10 rounded-sm flex items-center gap-2">
-            <span class="text-xs font-bold tracking-[0.12em] uppercase text-white">{{ $p['abbr'] }}</span>
-            <span class="text-xs text-white/50 font-medium">{{ $p['label'] }}</span>
+<div class="trust-bar overflow-hidden" aria-label="Government affiliations and partners">
+    <div class="trust-bar-track-wrap">
+        <div class="trust-bar-fade trust-bar-fade--left" aria-hidden="true"></div>
+
+        <div class="flex items-center w-max affiliation-track" role="list">
+            @php
+            $partners = [
+                ['label' => 'DOH Pangasinan',      'abbr' => 'DOH'],
+                ['label' => 'DILG Region I',        'abbr' => 'DILG'],
+                ['label' => 'LGU Dagupan',          'abbr' => 'LGU'],
+                ['label' => 'DSWD Pangasinan',      'abbr' => 'DSWD'],
+                ['label' => 'DepEd Region I',       'abbr' => 'DepEd'],
+                ['label' => 'NDRRMC',               'abbr' => 'NDRRMC'],
+                ['label' => 'PRC Philippines',      'abbr' => 'PRC'],
+                ['label' => 'Philippine Red Cross', 'abbr' => 'Red Cross'],
+            ];
+            $scrollPartners = array_merge($partners, $partners, $partners);
+            @endphp
+
+            @foreach ($scrollPartners as $p)
+            <div class="trust-badge" role="listitem">
+                <span class="trust-badge-dot" aria-hidden="true"></span>
+                <span class="trust-badge-abbr">{{ $p['abbr'] }}</span>
+                <span class="trust-badge-divider" aria-hidden="true"></span>
+                <span class="trust-badge-label">{{ $p['label'] }}</span>
+            </div>
+            @endforeach
         </div>
-        @endforeach
+
+        <div class="trust-bar-fade trust-bar-fade--right" aria-hidden="true"></div>
     </div>
 </div>
 
@@ -123,7 +125,7 @@
 
     <!-- The Mantra -->
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-20 text-center reveal">
-        <!-- <span class="section-eyebrow mb-5 inline-flex">Our Belief</span> -->
+        <span class="mantra-quote" aria-hidden="true">&ldquo;</span>
         <h2 class="text-4xl md:text-6xl lg:text-6xl font-heading font-black text-[#111827] uppercase tracking-tighter leading-[1.08] mt-4">
             We Believe In The
             <br>
@@ -510,7 +512,7 @@
 <!-- SECTION 6 impact stat -->
 
 
-    <!-- for section below -->
+    <!-- for section below (gradient style)-->
      <!-- style="background: linear-gradient(to bottom, #0D1B2A 0%, #0D1B2A 38%, #172236 48%, #2A3548 58%, #4B5768 68%, #7C8798 78%, #B8C2CE 88%, #E4E9EF 96%, #F8FAFC 100%);" -->
 
 <section
@@ -578,15 +580,9 @@
         <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/60 via-transparent to-[#F8FAFC]/60"></div>
     </div>
  
-    <!-- Grid pattern overlay (inverted for light theme) -->
-    <div class="cta-grid-pattern absolute inset-0 opacity-30" aria-hidden="true" style="filter: invert(1);"></div>
+    <!--  Grid pattern overlay -->
+    <!-- <div class="cta-grid-pattern absolute inset-0 opacity-30" aria-hidden="true" style="filter: invert(1);"></div>  -->
  
-    <!-- Glowing blobs (softened for light theme) -->
-    <div class="cta-blob-blue absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl opacity-30" aria-hidden="true"></div>
-    <div class="cta-blob-orange absolute bottom-0 right-0 w-80 h-80 rounded-full blur-3xl opacity-20" aria-hidden="true"></div>
- 
-    <!-- Philippine-inspired subtle accent lines -->
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F97316]/30 to-transparent" aria-hidden="true"></div>
  
     <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
  
@@ -628,7 +624,7 @@
 
 
 <x-slot:scripts>
-<script src="{{ asset('js/home.js') }}"></script>
+    <script src="{{ asset('js/home.js') }}"></script>
 </x-slot:scripts>
 
 </x-layout>

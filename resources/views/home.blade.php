@@ -5,18 +5,21 @@
      <!-- SECTION 1 — HERO -->
 <section
     id="hero"
-    class="relative min-h-screen flex items-center overflow-hidden"
+class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hidden"
     aria-labelledby="hero-headline"
 >
-    <!-- Background image -->
+    <!-- Background video -->
     <div class="absolute inset-0 z-0">
-        <img
-            src="{{ asset('images/home1.jpg') }}"
-            alt="Youth cyclists and volunteers riding through Pangasinan"
-            class="w-full h-full object-cover object-center scale-[1.04] transition-transform duration-[12s] ease-out"
-            fetchpriority="high"
-            id="hero-bg-img"
-        />
+        <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover object-center"
+            id="hero-bg-video"
+        >
+            <source src="{{ asset('videos/main-video.mp4') }}" type="video/mp4">
+        </video>
     </div>
 
     <!-- Directional overlay -->
@@ -29,7 +32,7 @@
     <div class="absolute bottom-0 left-0 right-0 h-40 z-10 bg-gradient-to-t from-[#111827]/60 to-transparent" aria-hidden="true"></div>
 
     <!-- Content -->
-    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-44 w-full">
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div class="max-w-3xl">
 
             <!-- Legitimacy badge -->
@@ -45,13 +48,13 @@
                 id="hero-headline"
                 class="text-hero-title font-heading font-bold text-white mb-5 reveal"
             >
-                <!-- Youth-Led<br/> -->
-                <!-- <span class="text-[#2FA7FF]">Community</span><br/> -->
-                <!-- Responders -->
+                Youth-Led<br/>
+                <span class="text-[#2FA7FF]">Community</span><br/>
+                Responders
 
-                Saving lives <br/>
+                <!-- Saving lives <br/>
                 <span class="text-[#2FA7FF]">One Ride</span><br/>
-                At A Time
+                At A Time -->
             </h1>
 
             <!-- Sub-headline -->

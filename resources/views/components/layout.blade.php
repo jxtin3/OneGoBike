@@ -63,9 +63,18 @@
                     </div>
                 </a>
 
-                 <!-- Desktop Navigation  -->
+                <!-- Desktop Navigation  -->
                 <nav class="hidden md:flex items-center gap-7" aria-label="Primary navigation">
-                    <x-nav-link href="{{ url('/about') }}">About</x-nav-link>
+                    <div x-data="{ open: false }" class="relative" @mouseenter="open = true" @mouseleave="open = false">
+                        <button type="button" class="nav-underline text-sm font-medium tracking-wide transition-colors duration-200 text-white/90 hover:text-white flex items-center gap-1 pb-1">
+                            Who We Are
+                            <svg class="w-3.5 h-3.5 opacity-70" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                        </button>
+                        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-1" class="absolute top-full left-0 mt-1 w-52 bg-[#0D1B2A]/95 backdrop-blur-lg border border-white/10 rounded-sm shadow-xl py-2 z-50">
+                            <a href="{{ url('/about') }}" class="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">About Us</a>
+                            <a href="{{ url('/org-structure') }}" class="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Org Structure &amp; History</a>
+                        </div>
+                    </div>
                     <x-nav-link href="{{ url('/programs') }}">Programs</x-nav-link>
                     <x-nav-link href="{{ url('/community') }}">Community</x-nav-link>
                     <x-nav-link href="{{ url('/contact') }}">Contact</x-nav-link>
@@ -125,7 +134,16 @@
             @click.outside="mobileOpen = false"
         >
             <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1" aria-label="Mobile navigation">
-                <x-nav-link :mobile="true" href="{{ url('/about') }}"     @click="mobileOpen = false">About</x-nav-link>
+                <div x-data="{ open: false }" class="flex flex-col">
+                    <button type="button" @click="open = !open" class="flex items-center justify-between w-full px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 text-white/90 hover:bg-white/10 hover:text-white">
+                        <span>Who We Are</span>
+                        <svg class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                    </button>
+                    <div x-show="open" x-cloak x-collapse class="flex flex-col gap-1 pl-6 pr-4 py-1">
+                        <a href="{{ url('/about') }}" @click="mobileOpen = false" class="block px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors">About Us</a>
+                        <a href="{{ url('/org-structure') }}" @click="mobileOpen = false" class="block px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors">Org Structure &amp; History</a>
+                    </div>
+                </div>
                 <x-nav-link :mobile="true" href="{{ url('/programs') }}"   @click="mobileOpen = false">Programs</x-nav-link>
                 <x-nav-link :mobile="true" href="{{ url('/community') }}"  @click="mobileOpen = false">Community</x-nav-link>
                 <x-nav-link :mobile="true" href="{{ url('/contact') }}"    @click="mobileOpen = false">Contact</x-nav-link>
@@ -151,6 +169,7 @@
     
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Footer -->

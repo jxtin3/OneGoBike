@@ -10,6 +10,10 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/org-structure', function () {
+    return view('pages.org-structure');
+});
+
 Route::get('/programs', function () {
     return view('programs');
 });

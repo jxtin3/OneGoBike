@@ -8,7 +8,7 @@
 class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hidden"
     aria-labelledby="hero-headline"
 >
-    <!-- Background video -->
+    <!-- bg video -->
     <div class="absolute inset-0 z-0">
         <video
             autoplay
@@ -82,10 +82,10 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
     </div>
 
     <!-- Scroll hint -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white/40 animate-bounce" aria-hidden="true">
+    <!-- <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white/40 animate-bounce" aria-hidden="true">
         <span class="text-[10px] tracking-[0.22em] uppercase font-semibold">Scroll</span>
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
-    </div>
+    </div> -->
 </section>
 
 
@@ -126,9 +126,9 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
 <!-- SECTION 2 — MANTRA & IMPACT STORIES -->
 <section id="stories" class="bg-white" aria-labelledby="stories-heading">
 
-    <!-- The Mantra -->
+    <!-- Mantra -->
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-20 text-center reveal">
-        <span class="mantra-quote" aria-hidden="true">&ldquo;</span>
+         <span class="mantra-quote" aria-hidden="true">&ldquo;</span>  <!-- qoute -->
         <h2 class="text-4xl md:text-6xl lg:text-6xl font-heading font-black text-[#111827] uppercase tracking-tighter leading-[1.08] mt-4">
             We Believe In The
             <br>
@@ -186,7 +186,8 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
                 <div class="absolute inset-0 bg-gradient-to-l from-transparent to-[#1a1a1a]/30"></div>
             </div>
             <!-- Text panel -->
-            <div class="story-card w-full md:w-[44%] md:-mr-16 bg-[#1a1a1a] p-10 md:p-12 lg:p-16 flex flex-col justify-center text-white z-10 self-center md:my-12">
+            <div class="story-card w-full md:w-[44%] md:-mr-16 bg-[#1a1a1a] p-10 
+            md:p-12 lg:p-16 flex flex-col justify-center text-white z-10 self-center md:my-12">
                 <div class="story-rule"></div>
                 <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F97316]/70 mb-3">Youth Leadership</span>
                 <h3 class="text-3xl md:text-4xl font-heading font-bold uppercase mb-5 leading-tight tracking-tight">
@@ -220,11 +221,11 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
             <!-- <span class="section-eyebrow mb-2 inline-flex">Our Programs</span> -->
-            <h2 id="programs-heading" class="text-4xl md:text-5xl font-heading font-bold text-white uppercase tracking-tight mt-2">
+            <h2 id="programs-heading" class="text-4xl md:text-5xl font-heading font-bold text-white uppercase">
                 What We Do
             </h2>
         </div>
-        <a href="{{ url('/programs') }}" class="text-sm font-bold text-white/70 hover:text-white transition-colors flex items-center gap-2 pb-1 tracking-wide group">
+        <a href="{{ url('/programs') }}" class="text-sm font-bold text-white/70 hover:text-white transition-colors flex items-center gap-2 pb-2 tracking-wide group">
             View All Programs
             <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
         </a>
@@ -275,7 +276,7 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
                         <p class="text-white/80 text-sm md:text-base font-light mb-8 max-w-xl leading-relaxed drop-shadow-sm" x-text="prog.desc"></p>
                         <a
                             :href="prog.href"
-                            class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-bold text-white border border-white/30 hover:bg-white hover:text-[#111827] transition-all duration-300 tracking-widest uppercase rounded-sm"
+                            class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-bold text-white border border-white/30 hover:bg-white hover:text-[#111827] transition-all duration-300 tracking-widest uppercase rounded-none"
                         >
                             Learn More
                             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
@@ -289,7 +290,7 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
         <div class="absolute right-6 bottom-8 z-30 flex items-center gap-3">
             <button
                 @click="prev()"
-                class="w-9 h-9 rounded-sm border border-white/20 text-white/60 hover:bg-white/10 hover:text-white transition-all flex items-center justify-center"
+                class="w-9 h-9 rounded-none border border-white/20 text-white/60 hover:bg-white/10 hover:text-white transition-all flex items-center justify-center"
                 aria-label="Previous program"
             >
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
@@ -298,7 +299,7 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
                 <template x-for="(prog, index) in programs" :key="'d' + index">
                     <button
                         @click="goTo(index)"
-                        class="h-1.5 rounded-full transition-all duration-300"
+                        class="h-1.5 rounded-none transition-all duration-300"
                         :class="active === index ? 'w-7 bg-[#F97316]' : 'w-1.5 bg-white/35 hover:bg-white/60'"
                         :aria-label="'Go to slide ' + (index + 1)"
                     ></button>
@@ -306,7 +307,7 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
             </div>
             <button
                 @click="next()"
-                class="w-9 h-9 rounded-sm border border-white/20 text-white/60 hover:bg-white/10 hover:text-white transition-all flex items-center justify-center"
+                class="w-9 h-9 rounded-none border border-white/20 text-white/60 hover:bg-white/10 hover:text-white transition-all flex items-center justify-center"
                 aria-label="Next program"
             >
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
@@ -398,7 +399,7 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
                 <span class="text-[9px] font-bold tracking-[0.18em] uppercase" style="color: {{ $link['accent'] }}">{{ $link['tag'] }}</span>
 
                 <div>
-                    <h3 class="font-heading font-semibold text-[#111827] text-lg mb-1.5 group-hover:text-[#132D6B] transition-colors duration-200">
+                    <h3 class="font-heading font-semibold text-[#111827] text-lg mb-1.5">
                         {{ $link['title'] }}
                     </h3>
                     <p class="text-sm text-[#64748B] leading-relaxed">{{ $link['desc'] }}</p>
@@ -418,7 +419,7 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
 
 
 <!-- 
-     SECTION 5 — FEATURED IMPACT -->
+     SECTION 5 — featured impact -->
    
 <section
     id="featured-impact"
@@ -446,11 +447,6 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
                     <div class="text-[10px] text-white/55 uppercase tracking-[0.18em] mt-0.5">Families Reached</div>
                 </div>
 
-                <!-- Decorative dot grid -->
-                <div class="dot-grid absolute -top-6 -left-6 w-24 h-24 opacity-25" aria-hidden="true"></div>
-
-                <!-- Orange accent bar -->
-                <div class="absolute top-0 left-0 w-1 h-20 bg-gradient-to-b from-[#F97316] to-transparent"></div>
             </div>
 
             <!-- Right: Story -->
@@ -494,14 +490,14 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
                 <div class="flex flex-col sm:flex-row gap-4 mt-1">
                     <a
                         href="{{ url('/about') }}"
-                        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold bg-[#132D6B] text-white hover:bg-[#2FA7FF] transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 rounded-sm"
+                        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold bg-[#132D6B] text-white hover:bg-[#2FA7FF] transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 rounded-none"
                     >
                         Our Full Story
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                     </a>
                     <a
                         href="{{ url('/donate') }}"
-                        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold bg-white text-[#132D6B] border border-[#132D6B]/30 hover:bg-[#132D6B] hover:text-white transition-all duration-300 shadow-sm rounded-sm"
+                        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold bg-white text-[#132D6B] border border-[#132D6B]/30 hover:bg-[#132D6B] hover:text-white transition-all duration-300 shadow-sm rounded-none"
                     >
                         Support Our Rides
                     </a>
@@ -513,7 +509,6 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
 </section>
 
 <!-- SECTION 6 impact stat -->
-
 
     <!-- for section below (gradient style)-->
      <!-- style="background: linear-gradient(to bottom, #0D1B2A 0%, #0D1B2A 38%, #172236 48%, #2A3548 58%, #4B5768 68%, #7C8798 78%, #B8C2CE 88%, #E4E9EF 96%, #F8FAFC 100%);" -->
@@ -570,7 +565,7 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
     </div>
 </section>
  
- <!-- SECTION 7 — CALL TO ACTION      -->
+ <!-- SECTION 7 — CALL TO ACTN (CTA)     -->
 <section
     id="cta"
     class="relative py-28 md:py-25 overflow-hidden"
@@ -580,7 +575,7 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
     <div class="absolute inset-0 z-0 bg-[#F8FAFC]">
         <img src="{{ asset('images/pangasinan-map.png') }}" alt="Map of Pangasinan" class="w-full h-full object-cover opacity-[0.3] mix-blend-multiply scale-105">
         <!-- Light overlay to fade and ensure text remains readable -->
-        <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/60 via-transparent to-[#F8FAFC]/60"></div>
+        <!-- <div class="absolute inset-0 bg-gradient-to-t from-[#F8FAFC]/50 via-transparent to-[#F8FAFC]/90"></div> -->
     </div>
  
     <!--  Grid pattern overlay -->
@@ -609,14 +604,14 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
             <a
                 href="{{ url('/volunteer') }}"
                 id="cta-volunteer"
-                class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#132D6B] text-white text-sm font-bold tracking-[0.1em] uppercase transition-all duration-300 shadow-lg shadow-[#132D6B]/30 hover:bg-[#2FA7FF] hover:-translate-y-1 rounded-sm"
+                class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#132D6B] text-white text-sm font-bold tracking-[0.1em] uppercase transition-all duration-300 shadow-lg shadow-[#132D6B]/30 hover:bg-[#2FA7FF] hover:-translate-y-1 rounded-none"
             >
                 <span>Volunteer With Us</span>
             </a>
             <a
                 href="{{ url('/donate') }}"
                 id="cta-donate"
-                class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#F97316] border border-[#F97316]/30 text-sm font-bold tracking-[0.1em] uppercase transition-all duration-300 shadow-sm hover:border-[#F97316] hover:bg-[#F97316]/5 hover:-translate-y-1 rounded-sm"
+                class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#F97316] border border-[#F97316]/0 text-sm font-bold tracking-[0.1em] uppercase transition-all duration-300 shadow-sm hover:border-[#F97316] hover:bg-[#ffffff] hover:-translate-y-1 rounded-none"
             >
                 <span>Donate Now</span>
             </a>
@@ -631,3 +626,4 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
 </x-slot:scripts>
 
 </x-layout>
+

@@ -18,7 +18,7 @@
     <meta property="og:image"       content="{{ asset('images/hero-home.jpg') }}" />
 
     {{-- Favicon --}}
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('images/gobike-logo.png') }}" />
 
     {{-- Fonts (preconnect for performance) --}}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -90,7 +90,7 @@
                     </a>
                     <a
                         href="{{ url('/donate') }}"
-                        class="inline-flex items-center gap-1.5 px-5 py-2.5 text-sm font-bold tracking-wide bg-[#F97316] text-white hover:bg-[#fb923c] transition-all duration-200 shadow-sm hover:shadow-md rounded-sm"
+                        class="inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold tracking-[0.15em] uppercase bg-[#F97316] text-white hover:bg-[#fb923c] shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 rounded-none"
                     >
                         Donate
                     </a>
@@ -100,7 +100,7 @@
                 <button
                     id="mobile-menu-toggle"
                     type="button"
-                    class="md:hidden p-2 rounded-sm text-white hover:bg-white/10 transition-colors duration-200"
+                    class="md:hidden p-2 rounded-none text-white hover:bg-white/10 transition-colors duration-200"
                     :aria-expanded="mobileOpen"
                     aria-controls="mobile-menu"
                     aria-label="Toggle mobile menu"
@@ -135,13 +135,13 @@
         >
             <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1" aria-label="Mobile navigation">
                 <div x-data="{ open: false }" class="flex flex-col">
-                    <button type="button" @click="open = !open" class="flex items-center justify-between w-full px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 text-white/90 hover:bg-white/10 hover:text-white">
+                    <button type="button" @click="open = !open" class="flex items-center justify-between w-full px-4 py-3 text-base font-medium rounded-none transition-colors duration-200 text-white/90 hover:bg-white/10 hover:text-white">
                         <span>Who We Are</span>
                         <svg class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
                     </button>
                     <div x-show="open" x-cloak x-collapse class="flex flex-col gap-1 pl-6 pr-4 py-1">
-                        <a href="{{ url('/about') }}" @click="mobileOpen = false" class="block px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors">About Us</a>
-                        <a href="{{ url('/org-structure') }}" @click="mobileOpen = false" class="block px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors">Org Structure &amp; History</a>
+                        <a href="{{ url('/about') }}" @click="mobileOpen = false" class="block px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-none transition-colors">About Us</a>
+                        <a href="{{ url('/org-structure') }}" @click="mobileOpen = false" class="block px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-none transition-colors">Org Structure &amp; History</a>
                     </div>
                 </div>
                 <x-nav-link :mobile="true" href="{{ url('/programs') }}"   @click="mobileOpen = false">Programs</x-nav-link>
@@ -151,9 +151,10 @@
                 <div class="mt-3 pt-3 border-t border-white/10">
                     <a
                         href="{{ url('/donate') }}"
-                        class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-sm text-sm font-semibold bg-white text-[#132D6B]"
+                        class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-none text-xs font-bold tracking-[0.15em] uppercase bg-[#F97316] text-white shadow-md"
                         @click="mobileOpen = false"
                     >
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
                         Donate Now
                     </a>
                 </div>
@@ -168,15 +169,12 @@
 
     
     <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="{{ asset('js/alpine-intersect.min.js') }}"></script>
+    <script defer src="{{ asset('js/alpine-collapse.min.js') }}"></script>
+    <script defer src="{{ asset('js/alpine.min.js') }}"></script>
 
     <!-- Footer -->
     <footer class="bg-[#0D1B2A] text-white relative overflow-hidden" aria-label="Site footer">
-
-        <!-- Subtle top gradient separator -->
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2FA7FF]/20 to-transparent"></div>
 
         <!-- Decorative background accent -->
         <div class="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#132D6B]/15 blur-3xl pointer-events-none"></div>
@@ -206,16 +204,16 @@
                     </div>
                     <!-- Social Icons -->
                     <div class="flex items-center gap-2.5 mt-2" role="list" aria-label="Social media links">
-                        <a href="#" role="listitem" class="w-9 h-9 rounded-sm bg-white/8 border border-white/10 flex items-center justify-center hover:bg-[#2FA7FF] hover:border-[#2FA7FF] transition-all duration-200" aria-label="Facebook">
+                        <a href="#" role="listitem" class="w-9 h-9 rounded-none bg-white/8 border border-white/10 flex items-center justify-center hover:bg-[#2FA7FF] hover:border-[#2FA7FF] transition-all duration-200" aria-label="Facebook">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
-                        <a href="#" role="listitem" class="w-9 h-9 rounded-sm bg-white/8 border border-white/10 flex items-center justify-center hover:bg-[#2FA7FF] hover:border-[#2FA7FF] transition-all duration-200" aria-label="Instagram">
+                        <a href="#" role="listitem" class="w-9 h-9 rounded-none bg-white/8 border border-white/10 flex items-center justify-center hover:bg-[#2FA7FF] hover:border-[#2FA7FF] transition-all duration-200" aria-label="Instagram">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
                         </a>
-                        <a href="#" role="listitem" class="w-9 h-9 rounded-sm bg-white/8 border border-white/10 flex items-center justify-center hover:bg-[#2FA7FF] hover:border-[#2FA7FF] transition-all duration-200" aria-label="Twitter / X">
+                        <a href="#" role="listitem" class="w-9 h-9 rounded-none bg-white/8 border border-white/10 flex items-center justify-center hover:bg-[#2FA7FF] hover:border-[#2FA7FF] transition-all duration-200" aria-label="Twitter / X">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         </a>
-                        <a href="#" role="listitem" class="w-9 h-9 rounded-sm bg-white/8 border border-white/10 flex items-center justify-center hover:bg-[#2FA7FF] hover:border-[#2FA7FF] transition-all duration-200" aria-label="YouTube">
+                        <a href="#" role="listitem" class="w-9 h-9 rounded-none bg-white/8 border border-white/10 flex items-center justify-center hover:bg-[#2FA7FF] hover:border-[#2FA7FF] transition-all duration-200" aria-label="YouTube">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         </a>
                     </div>
@@ -284,7 +282,7 @@
         type="button"
         aria-label="Back to top"
         onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-        class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-sm bg-[#132D6B] text-white shadow-md flex items-center justify-center hover:bg-[#2FA7FF] hover:-translate-y-1 transition-all duration-300"
+        class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-none bg-[#132D6B] text-white shadow-md flex items-center justify-center hover:bg-[#2FA7FF] hover:-translate-y-1 transition-all duration-300"
     >
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
@@ -299,3 +297,4 @@
 
 </body>
 </html>
+

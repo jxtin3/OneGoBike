@@ -1,5 +1,5 @@
 
-//  Mantra word flipper (bottom-to-top rectangle flip) 
+//  Mantra 
 (function () {
     const words = ['Power of Youth', 'Community Action', 'Local Leadership', 'Collective Purpose'];
     let index = 0;
@@ -36,15 +36,13 @@ function counterSection() {
             { target: 2500, suffix: '+', display: '0+' },
             { target: 45, suffix: '', display: '0' },
             { target: 18000, suffix: '+', display: '0+' },
-            { target: 2019, suffix: '', display: '2019' },
+            { target: 2019, suffix: '', display: '0' },
         ],
         startCounters() {
             if (this.started) return;
             this.started = true;
 
             this.counts.forEach((stat, idx) => {
-                if (idx === 3) return; // "Active Since" — static
-
                 const duration = 3000;
                 const startTime = performance.now();
 
@@ -54,7 +52,8 @@ function counterSection() {
                     const elapsed = now - startTime;
                     const progress = Math.min(elapsed / duration, 1);
                     const value = Math.round(easeOut(progress) * stat.target);
-                    this.counts[idx].display = value.toLocaleString() + stat.suffix;
+                    const formattedValue = idx === 3 ? value.toString() : value.toLocaleString();
+                    this.counts[idx].display = formattedValue + stat.suffix;
                     if (progress < 1) requestAnimationFrame(step);
                 };
                 requestAnimationFrame(step);
@@ -68,7 +67,7 @@ function programSlider() {
     return {
         active: 0,
         interval: null,
-        intervalMs: 3000,
+        intervalMs: 5000,
         progress: 0,
         progressInterval: null,
         programs: [

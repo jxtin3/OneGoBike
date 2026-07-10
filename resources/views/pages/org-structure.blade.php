@@ -42,7 +42,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
                 @php
                 $board = [
-                    ['role'=>'Founder & President','name'=>'Engr. Rodel Delfin','badge'=>'Founder'],
+                    ['role'=>'Founder & Executive Director','name'=>'Hon. Edren M. LLanilo','badge'=>'Founder'],
                     ['role'=>'Vice President, Operations','name'=>'Maria Santos','badge'=>'Operations'],
                     ['role'=>'Secretary General','name'=>'Jonathan Cruz','badge'=>'Governance'],
                 ];
@@ -52,7 +52,6 @@
                     <div class="w-16 h-16 rounded-full bg-[#132D6B] flex items-center justify-center text-white font-heading font-bold text-xl mx-auto mb-4">
                         {{ strtoupper(substr($member['name'], 0, 1)) }}
                     </div>
-                    <span class="inline-block text-[9px] font-bold tracking-[0.16em] uppercase px-2.5 py-1 bg-[#F97316]/10 text-[#F97316] rounded-sm mb-3">{{ $member['badge'] }}</span>
                     <h4 class="font-heading font-bold text-[#111827] uppercase tracking-wide text-sm mb-1">{{ $member['name'] }}</h4>
                     <p class="text-xs text-[#64748B]">{{ $member['role'] }}</p>
                 </div>
@@ -127,20 +126,23 @@
 </section>
 
 <!-- STATS STRIP -->
-<section class="py-14 bg-[#132D6B]">
+<section class="py-14 bg-[#0D1B2A]"
+    x-data="orgCounter()"
+    x-intersect.once="startCounters()"
+>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             @php
             $stats = [
-                ['value'=>'2,500+','label'=>'Trained Volunteers'],
-                ['value'=>'45','label'=>'Barangays Served'],
-                ['value'=>'6+','label'=>'Years of Service'],
-                ['value'=>'3','label'=>"Gov't Accreditations"],
+                ['label'=>'Trained Volunteers'],
+                ['label'=>'Barangays Served'],
+                ['label'=>'Years of Service'],
+                ['label'=>"Government Accreditations"],
             ];
             @endphp
-            @foreach ($stats as $stat)
+            @foreach ($stats as $idx => $stat)
             <div class="reveal">
-                <p class="text-4xl md:text-5xl font-heading font-black text-white mb-1">{{ $stat['value'] }}</p>
+                <p class="text-4xl md:text-5xl font-heading font-black text-white mb-1" x-text="counts[{{ $idx }}].display">0</p>
                 <p class="text-xs font-medium tracking-widest uppercase text-white/45">{{ $stat['label'] }}</p>
             </div>
             @endforeach
@@ -149,20 +151,29 @@
 </section>
 
 <!-- CTA -->
-<section class="py-20 bg-[#F8FAFC] text-center px-4">
-    <div class="max-w-2xl mx-auto reveal">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-[#111827] mb-4 uppercase tracking-tight">Join the Movement</h2>
-        <p class="text-[#64748B] mb-8 leading-relaxed">The next chapter of OneGoBike's story is waiting to be written — and it could be yours.</p>
+<section class="relative py-40 text-center px-4 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="{{ asset('images/1.jpg') }}" alt="volunteers background" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#132D6B]/20 to-[#0D1B2A]/80"></div>
+    </div>
+    <div class="relative z-10 max-w-2xl mx-auto reveal">
+        <h2 class="text-4xl md:text-4xl font-heading font-bold text-white mb-5 uppercase tracking-tight">Join the Movement</h2>
+        <p class="text-white/80 mb-10 leading-relaxed">The next chapter of OneGoBike's story is waiting to be written — and it could be yours.</p>
         <div class="flex flex-wrap items-center justify-center gap-4">
             <a href="{{ url('/volunteer') }}" class="btn-wbr btn-wbr-orange">
                 <span>Volunteer Now</span>
                 <svg class="w-5 h-5 arrow" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
             </a>
-            <a href="{{ url('/about') }}" class="btn-wbr btn-wbr-dark">
+            <!-- <a href="{{ url('/about') }}" class="btn-wbr btn-wbr-dark">
                 <span>Back to About</span>
-            </a>
+            </a> -->
         </div>
     </div>
 </section>
 
+<x-slot:scripts>
+    <script src="{{ asset('js/org-structure.js') }}"></script>
+</x-slot:scripts>
+
 </x-layout>
+

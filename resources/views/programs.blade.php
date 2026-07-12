@@ -3,9 +3,7 @@
     description="Discover how our programs in health, disaster preparedness, and community outreach make an impact."
 >
 
-<!-- ═══════════════════════════════════════════════════════════
-     HERO SECTION
-     ═══════════════════════════════════════════════════════════ -->
+<!-- HERO SECTION -->
 <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-[#0D1B2A]">
     <!-- Background image -->
     <div class="absolute inset-0 z-0">
@@ -19,10 +17,10 @@
 
     <!-- Content -->
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-        <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[#F97316] mb-4">
+        <!-- <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[#F97316] mb-4">
             <span class="w-2 h-2 rounded-full bg-[#F97316]"></span>
             Our Initiatives
-        </span>
+        </span> -->
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase tracking-tight leading-none drop-shadow-lg">
             Impact In<br/>
             <span class="text-[#2FA7FF]">Motion.</span>
@@ -33,9 +31,7 @@
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════
-     PROGRAMS GRID
-     ═══════════════════════════════════════════════════════════ -->
+<!-- PROGRAMS GRID -->
 <section class="py-20 md:py-28 bg-[#F8FAFC]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         

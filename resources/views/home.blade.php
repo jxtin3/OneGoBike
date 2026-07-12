@@ -5,7 +5,7 @@
      <!-- SECTION 1 — HERO -->
 <section
     id="hero"
-class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hidden"
+    class="relative h-[80vh] min-h-[650px] flex flex-col justify-center overflow-hidden"
     aria-labelledby="hero-headline"
 >
     <!-- bg video -->
@@ -29,7 +29,7 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
     <div class="absolute inset-0 z-10 opacity-[0.025] bg-noise" aria-hidden="true"></div>
 
     <!-- Bottom fade for smooth transition into next section -->
-    <div class="absolute bottom-0 left-0 right-0 h-40 z-10 bg-gradient-to-t from-[#111827]/60 to-transparent" aria-hidden="true"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-50 z-10 bg-gradient-to-t from-[#111827]/60 to-transparent" aria-hidden="true"></div>
 
     <!-- Content -->
     <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -75,6 +75,7 @@ class="relative h-[80vh] min-h-[600px] flex flex-col justify-center overflow-hid
                     class="btn-ghost-fill"
                 >
                     <span>Explore Programs</span>
+                    <svg class="w-3.5 h-3.5 relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                 </a>
             </div>
 

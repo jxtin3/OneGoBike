@@ -24,7 +24,7 @@
             <span class="text-[#2FA7FF]">Built for Pangasinan.</span>
         </h1>
         <p class="text-base md:text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
-            OneGoBike started with a simple idea: that a bicycle can be an instrument of change. Today, we are a recognized force of community responders serving dozens of barangays across Pangasinan.
+            OneGoBike started with a simple idea that can be an instrument of change. Today, we are a recognized force of community responders serving dozens of people.
         </p>
         <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a href="{{ url('/org-structure') }}" class="btn-wbr btn-wbr-light text-sm px-7 py-3">
@@ -106,7 +106,7 @@
                             {!! $obj['icon'] !!}
                         </svg>
                     </div>
-                    <span class="text-4xl font-heading font-black text-[#F97316]/10 leading-none select-none">{{ $obj['num'] }}</span>
+                    <!-- <span class="text-4xl font-heading font-black text-[#F97316]/10 leading-none select-none">{{ $obj['num'] }}</span> -->
                 </div>
                 <h3 class="text-base font-heading font-bold text-[#111827] uppercase tracking-wide mb-2">{{ $obj['title'] }}</h3>
                 <p class="text-sm text-[#64748B] leading-relaxed">{{ $obj['desc'] }}</p>

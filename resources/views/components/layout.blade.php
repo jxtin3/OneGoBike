@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0D1B2A" />
 
-    {{-- SEO --}}
-    <title>{{ $title ?? 'OneGoBike — Youth-Led Community Responders, Pangasinan' }}</title>
+     <!-- SEO  seacrh engine opti -->
+    <title>{{ $title ?? 'OneGoBike — Youth-Led Community Health Responders' }}</title>
     <meta name="description" content="{{ $description ?? 'OneGoBike mobilizes youth volunteers, cyclists, and responders to improve health, resilience, disaster preparedness, and community engagement throughout Pangasinan.' }}" />
-    <meta name="keywords" content="OneGoBike, Pangasinan, youth volunteers, community responders, cyclists, disaster preparedness, health outreach" />
+    <meta name="keywords" content="OneGoBike,,Go Bike Project, Pangasinan, youth volunteers, community responders, Go Bikers, disaster preparedness, health outreach" />
 
-    {{-- Open Graph --}}
+     <!-- Open Graph for sharing socmed -->
     <meta property="og:type"        content="website" />
     <meta property="og:url"         content="{{ url()->current() }}" />
     <meta property="og:title"       content="{{ $title ?? 'OneGoBike — Youth-Led Community Responders' }}" />
-    <meta property="og:description" content="{{ $description ?? 'Mobilizing volunteers, cyclists, and community leaders across Pangasinan.' }}" />
-    <meta property="og:image"       content="{{ asset('images/hero-home.jpg') }}" />
+    <meta property="og:description" content="{{ $description ?? 'Promotes community engagement and educational initiatives, empowering communities to build a healthier, greener, and sustainable future' }}" />
+    <meta property="og:image"       content="{{ asset('images/gobike-logo.png') }}" />
 
     {{-- Favicon --}}
     <link rel="icon" type="image/png" href="{{ asset('images/gobike-logo.png') }}" />
@@ -65,6 +65,7 @@
 
                 <!-- Desktop Navigation  -->
                 <nav class="hidden md:flex items-center gap-7" aria-label="Primary navigation">
+                    <!-- home -->
                     <div x-data="{ open: false }" class="relative" @mouseenter="open = true" @mouseleave="open = false">
                         <button type="button" class="nav-underline text-sm font-medium tracking-wide transition-colors duration-200 text-white/90 hover:text-white flex items-center gap-1 pb-1">
                             Who We Are
@@ -75,12 +76,18 @@
                             <a href="{{ url('/org-structure') }}" class="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Org Structure &amp; History</a>
                         </div>
                     </div>
-                    <x-nav-link href="{{ url('/programs') }}">Programs</x-nav-link>
-                    <x-nav-link href="{{ url('/community') }}">Community</x-nav-link>
-                    <x-nav-link href="{{ url('/contact') }}">Contact</x-nav-link>
+
+                    <!-- programs -->
+                    <x-nav-link href="{{ url('/programs') }}">What We Do</x-nav-link> 
+
+                    <!-- community -->
+                    <x-nav-link href="{{ url('/community') }}">Join The Movement</x-nav-link>
+                    
+                    <!-- contact -->
+                    <x-nav-link href="{{ url('/contact') }}">Reach Us</x-nav-link>
                 </nav>
 
-                <!-- Right Side CTAs  -->
+                <!-- Right Side call to action (cta)  -->
                 <div class="hidden md:flex items-center gap-3">
                     <a
                         href="{{ url('/volunteer') }}"

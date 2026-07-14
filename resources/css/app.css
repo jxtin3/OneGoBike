@@ -24,4 +24,9 @@
 
 /*  Partials */
 @import './base.css';
+
+/*  Page CSS — each page has its own folder, one file per section  */
 @import './pages/home.css';
+@import './pages/about.css';
+@import './pages/programs.css';
+@import './pages/org-structure.css';

@@ -1,0 +1,7 @@
+/* PROGRAMS / Section 1 — Hero */
+
+.programs-hero-title {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+}

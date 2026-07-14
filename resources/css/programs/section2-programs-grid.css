@@ -1,0 +1,29 @@
+/* PROGRAMS / Section 2 — Programs Grid */
+
+.program-grid-card {
+    transition: box-shadow 0.3s ease;
+}
+
+.program-grid-card:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.program-number-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+}
+
+.program-number-badge span {
+    font-family: 'Oswald', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 1.25rem;
+}

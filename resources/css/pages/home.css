@@ -1,25 +1,12 @@
-/* 
-   Home Page — Partials
-   Each file covers one logical section of the page.
- */
+/* HOME PAGE */
 
 @import '../home/animations.css';
-/* @keyframes — pulse-dot, flip3d, ticker-scroll   */
-@import '../home/hero.css';
-/* Hero overlay, title, accreditation badge          */
-@import '../home/trust-bar.css';
-/* Trust bar, badges, affiliation track              */
-@import '../home/typography.css';
-/* Section eyebrow, text-stat, section title sizes   */
-@import '../home/decorations.css';
-/* Dot grid, CTA blobs, grid pattern                 */
-@import '../home/mantra.css';
-/* Mantra quote, box, word, flip classes             */
-@import '../home/cards.css';
-/* Story cards, quick-access cards, impact-stat      */
-@import '../home/sections.css';
-/* Stat strip, programs slider, news ticker          */
-@import '../home/partners.css';
-/* Partnership logo grayscale/hover                  */
 @import '../home/reveal.css';
-/* Scroll-reveal animation delay variants            */
+@import '../home/section1-hero.css';
+@import '../home/section1b-trust-bar.css';
+@import '../home/section2-stories.css';
+@import '../home/section3-programs.css';
+@import '../home/section4-quick-access.css';
+@import '../home/section5-featured-impact.css';
+@import '../home/section6-impact-stats.css';
+@import '../home/section7-cta.css';

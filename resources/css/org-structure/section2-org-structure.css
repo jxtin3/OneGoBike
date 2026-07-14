@@ -1,0 +1,24 @@
+/* ORG-STRUCTURE / Section 2 — Organizational Structure */
+
+.board-member-avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: white;
+    background-color: #132D6B;
+    margin: 0 auto 1rem;
+}
+
+.dept-icon-wrap {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dept-card:hover .dept-icon-wrap {
+    transform: scale(1.1);
+}

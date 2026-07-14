@@ -1,0 +1,46 @@
+/* ORG-STRUCTURE / Section 4 — Stats Strip */
+
+.org-stat-number {
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    line-height: 1;
+}
+
+.news-ticker {
+    background: #132D6B;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.news-ticker-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #F97316;
+    padding: 0.55rem 1rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.news-ticker-track {
+    display: inline-flex;
+    gap: 4rem;
+    padding: 0.55rem 0 0.55rem 11rem;
+    animation: ticker-scroll 30s linear infinite;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.04em;
+}
+
+.news-ticker-track:hover {
+    animation-play-state: paused;
+}

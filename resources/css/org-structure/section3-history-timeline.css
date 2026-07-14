@@ -1,0 +1,32 @@
+/* ORG-STRUCTURE / Section 3 — History Timeline */
+
+.timeline-spine {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: linear-gradient(to bottom, #F97316, rgba(19, 45, 107, 0.20), transparent);
+}
+
+.timeline-dot {
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 50%;
+    background: #F97316;
+    flex-shrink: 0;
+}
+
+.timeline-year-watermark {
+    font-family: 'Oswald', ui-sans-serif, system-ui, sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(19, 45, 107, 0.08);
+    position: absolute;
+    top: 0.75rem;
+    right: 1.25rem;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+}

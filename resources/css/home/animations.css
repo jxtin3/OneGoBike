@@ -1,65 +1,24 @@
-/*
-   Keyframe Animations
- */
+/* HOME / Keyframe Animations */
 
 @keyframes pulse-dot {
-
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.5;
-        transform: scale(0.8);
-    }
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.8); }
 }
 
-/* Mantra flip animations */
 @keyframes flip3dOut {
-    0% {
-        transform: rotateX(0deg);
-        opacity: 1;
-    }
-
-    100% {
-        transform: rotateX(90deg);
-        opacity: 0;
-    }
+    0%   { transform: rotateX(0deg); opacity: 1; }
+    100% { transform: rotateX(90deg); opacity: 0; }
 }
 
 @keyframes flip3d {
-    0% {
-        transform: rotateX(-90deg);
-        opacity: 0;
-    }
-
-    60% {
-        opacity: 1;
-    }
-
-    80% {
-        transform: rotateX(6deg);
-    }
-
-    90% {
-        transform: rotateX(-3deg);
-    }
-
-    100% {
-        transform: rotateX(0deg);
-        opacity: 1;
-    }
+    0%   { transform: rotateX(-90deg); opacity: 0; }
+    60%  { opacity: 1; }
+    80%  { transform: rotateX(6deg); }
+    90%  { transform: rotateX(-3deg); }
+    100% { transform: rotateX(0deg); opacity: 1; }
 }
 
-/* Ticker scroll (shared by trust bar & news ticker) */
 @keyframes ticker-scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }

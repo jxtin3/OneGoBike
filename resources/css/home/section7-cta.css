@@ -1,0 +1,28 @@
+/* HOME / Section 7 — Call To Action */
+
+.text-cta-title {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.08;
+}
+
+.dot-grid {
+    background-image: radial-gradient(circle, rgba(47, 167, 255, 0.5) 1px, transparent 1px);
+    background-size: 10px 10px;
+}
+
+.cta-blob-blue {
+    background: radial-gradient(circle, rgba(47, 167, 255, 0.22) 0%, transparent 70%);
+    transform: translate(-30%, -30%);
+}
+
+.cta-blob-orange {
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.18) 0%, transparent 70%);
+    transform: translate(30%, 30%);
+}
+
+.cta-grid-pattern {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+}

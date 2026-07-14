@@ -1,0 +1,86 @@
+/* HOME / Section 1 — Hero */
+
+.hero-overlay {
+    background: linear-gradient(115deg,
+            rgba(13, 27, 42, 0.88) 0%,
+            rgba(13, 27, 42, 0.60) 50%,
+            rgba(13, 27, 42, 0.10) 100%);
+}
+
+.text-hero-title {
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+}
+
+.hero-accreditation {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 2px;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1.5rem;
+}
+
+.hero-accreditation-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2FA7FF;
+    animation: pulse-dot 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.btn-ghost-fill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    overflow: hidden;
+    transition: border-color 0.35s ease, color 0.35s ease;
+    text-decoration: none;
+}
+
+.btn-ghost-fill::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    z-index: 0;
+}
+
+.btn-ghost-fill:hover {
+    border-color: rgba(255, 255, 255, 0.9);
+    color: #111827;
+}
+
+.btn-ghost-fill:hover::before {
+    transform: scaleX(1);
+}
+
+.btn-ghost-fill span {
+    position: relative;
+    z-index: 1;
+}

@@ -2,8 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/news', [NewsController::class, 'index']);
+Route::get('/gallery', function () {
+    return view('pages.gallery');
 });
 
 Route::get('/about', function () {

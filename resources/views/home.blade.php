@@ -583,6 +583,54 @@
     </div>
 </section>
  
+<!-- SECTION 8 — LATEST NEWS -->
+<section
+    id="latest-news"
+    class="py-20 md:py-28 bg-white"
+    aria-labelledby="news-heading"
+>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 reveal">
+            <div>
+                <span class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.22em] uppercase text-[#F97316] mb-3">
+                    Stay Informed
+                </span>
+                <h2 id="news-heading" class="text-4xl md:text-5xl font-heading font-bold text-[#111827] uppercase leading-tight">
+                    Latest News<br/>& Updates
+                </h2>
+            </div>
+            <a href="{{ url('/news') }}" class="text-sm font-bold text-[#132D6B] hover:text-[#2FA7FF] transition-colors flex items-center gap-2 pb-2 tracking-wide group">
+                View All News
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            @if(isset($latestNews) && $latestNews->count() > 0)
+                @foreach($latestNews as $i => $newsItem)
+                <div class="news-card reveal reveal-delay-{{ $i + 1 }}">
+                    <div class="news-card-image-wrap">
+                        <div class="news-category-badge">{{ $newsItem->category }}</div>
+                        <img src="{{ $newsItem->image_path ? asset($newsItem->image_path) : asset('images/gobike-logo.png') }}" alt="{{ $newsItem->title }}" class="news-card-image" loading="lazy">
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">{{ $newsItem->published_at->format('F d, Y') }}</div>
+                        <h3 class="news-card-title">{{ $newsItem->title }}</h3>
+                        <p class="news-card-excerpt">{{ $newsItem->excerpt }}</p>
+                        <a href="{{ url('/news') }}" class="news-card-link mt-auto group">
+                            Read More
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+            @else
+                <p class="text-[#64748B]">No news available at the moment.</p>
+            @endif
+        </div>
+    </div>
+</section>
+
  <!-- SECTION 7 — CALL TO ACTN (CTA)     -->
 <section
     id="cta"

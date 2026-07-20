@@ -81,7 +81,16 @@
                     <x-nav-link href="{{ url('/programs') }}">What We Do</x-nav-link> 
 
                     <!-- community -->
-                    <x-nav-link href="{{ url('/community') }}">Join The Movement</x-nav-link>
+                    <div x-data="{ open: false }" class="relative" @mouseenter="open = true" @mouseleave="open = false">
+                        <button type="button" class="nav-underline text-sm font-medium tracking-wide transition-colors duration-200 text-white/90 hover:text-white flex items-center gap-1 pb-1">
+                            Join The Movement
+                            <svg class="w-3.5 h-3.5 opacity-70" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                        </button>
+                        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-1" class="absolute top-full left-0 mt-1 w-52 bg-[#0D1B2A]/95 backdrop-blur-lg border border-white/10 rounded-sm shadow-xl py-2 z-50">
+                            <a href="{{ url('/news') }}" class="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">News &amp; Updates</a>
+                            <a href="{{ url('/gallery') }}" class="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Gallery Showcase</a>
+                        </div>
+                    </div>
                     
                     <!-- contact -->
                     <x-nav-link href="{{ url('/contact') }}">Reach Us</x-nav-link>
@@ -152,7 +161,16 @@
                     </div>
                 </div>
                 <x-nav-link :mobile="true" href="{{ url('/programs') }}"   @click="mobileOpen = false">Programs</x-nav-link>
-                <x-nav-link :mobile="true" href="{{ url('/community') }}"  @click="mobileOpen = false">Community</x-nav-link>
+                <div x-data="{ open: false }" class="flex flex-col">
+                    <button type="button" @click="open = !open" class="flex items-center justify-between w-full px-4 py-3 text-base font-medium rounded-none transition-colors duration-200 text-white/90 hover:bg-white/10 hover:text-white">
+                        <span>Join The Movement</span>
+                        <svg class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                    </button>
+                    <div x-show="open" x-cloak x-collapse class="flex flex-col gap-1 pl-6 pr-4 py-1">
+                        <a href="{{ url('/news') }}" @click="mobileOpen = false" class="block px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-none transition-colors">News &amp; Updates</a>
+                        <a href="{{ url('/gallery') }}" @click="mobileOpen = false" class="block px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-none transition-colors">Gallery Showcase</a>
+                    </div>
+                </div>
                 <x-nav-link :mobile="true" href="{{ url('/contact') }}"    @click="mobileOpen = false">Contact</x-nav-link>
 
                 <div class="mt-3 pt-3 border-t border-white/10">
@@ -161,7 +179,7 @@
                         class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-none text-xs font-bold tracking-[0.15em] uppercase bg-[#F97316] text-white shadow-md"
                         @click="mobileOpen = false"
                     >
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg>
+                        <!-- <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/></svg> -->
                         Donate Now
                     </a>
                 </div>

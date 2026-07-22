@@ -76,28 +76,28 @@ function programSlider() {
                 accent: '#F97316',
                 title: 'Go Bike',
                 desc: 'Promoting health, mobility, and sustainable livelihoods on two wheels.',
-                href: '/programs/health'
+                href: '/what-we-do'
             },
             {
                 img: '/images/story-2.jpg',
                 accent: '#2FA7FF',
                 title: 'Community Outreach',
                 desc: 'Engaging local communities through livelihood programs, nutrition drives, and educational workshops that build long-term capacity and self-reliance.',
-                href: '/programs/outreach'
+                href: '/what-we-do'
             },
             {
                 img: '/images/story-3.jpg',
                 accent: '#F97316',
                 title: 'Volunteer Mobilization',
                 desc: 'Recruiting, training, and deploying youth cyclists as community responders — building a network ready to act during emergencies and routine service.',
-                href: '/programs/volunteer'
+                href: '/what-we-do'
             },
             {
                 img: '/images/home.jpg',
                 accent: '#132D6B',
                 title: 'Disaster Preparedness',
                 desc: 'Equipping communities with the knowledge, tools, and confidence to prepare for, respond to, and recover from natural disasters — before they strike.',
-                href: '/programs/disaster'
+                href: '/what-we-do'
             }
         ],
         init() {

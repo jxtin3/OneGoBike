@@ -1,0 +1,416 @@
+<x-layout
+    title="Reach Us - OneGoBike"
+    description="Get in touch with OneGoBike. Whether you want to volunteer, partner, or simply ask a question, we'd love to hear from you."
+>
+
+<!-- HERO SECTION -->
+<section class="relative pt-36 pb-28 md:pt-52 md:pb-40 overflow-hidden bg-[#0D1B2A]">
+
+    <!-- Background image -->
+    <div class="absolute inset-0 z-0">
+        <img
+            src="{{ asset('images/story-3.jpg') }}"
+            alt="OneGoBike community"
+            class="w-full h-full object-cover object-center opacity-20"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0D1B2A]/70 via-[#0D1B2A]/50 to-[#0D1B2A]"></div>
+    </div>
+
+    <!-- Decorative orbs -->
+    <div class="absolute top-20 left-10 w-72 h-72 rounded-full bg-[#2FA7FF]/8 blur-3xl pointer-events-none z-0"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-[#F97316]/8 blur-3xl pointer-events-none z-0"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.25em] uppercase text-[#2FA7FF] mb-5">
+            <span class="w-5 h-px bg-[#2FA7FF]"></span>
+            Get In Touch
+            <span class="w-5 h-px bg-[#2FA7FF]"></span>
+        </span>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase tracking-tight leading-none drop-shadow-lg">
+            We'd Love To<br/>
+            <span class="text-[#F97316]">Hear From You.</span>
+        </h1>
+        <p class="text-base md:text-lg text-white/60 max-w-xl mx-auto leading-relaxed">
+            Have a question, a partnership idea, or want to get involved? Reach out — our team is always ready to connect.
+        </p>
+
+        <!-- Quick stats -->
+        <div class="mt-14 grid grid-cols-3 gap-4 max-w-lg mx-auto">
+            @foreach([
+                ['value' => '24h',   'label' => 'Response Time'],
+                ['value' => '100+',  'label' => 'Volunteers'],
+                ['value' => '6+',    'label' => 'Years Active'],
+            ] as $stat)
+            <div class="bg-white/5 border border-white/10 rounded-sm px-4 py-5 backdrop-blur-sm">
+                <p class="text-2xl font-heading font-bold text-white mb-1">{{ $stat['value'] }}</p>
+                <p class="text-[10px] font-semibold tracking-[0.15em] uppercase text-white/40">{{ $stat['label'] }}</p>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT CARDS -->
+<section class="py-20 md:py-28 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-14 reveal">
+            <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[#F97316] mb-3">Ways To Connect</span>
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-[#111827] uppercase tracking-tight">Find Us Anywhere</h2>
+            <p class="mt-3 text-[#64748B] max-w-xl mx-auto text-sm leading-relaxed">
+                Choose the channel that works best for you. We're across multiple platforms and always happy to connect.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+            <!-- Location -->
+            <div class="group relative p-8 bg-[#F8FAFC] border border-[#E2E8F0] rounded-sm overflow-hidden reveal card-lift hover:border-[#2FA7FF]/40 transition-all duration-300">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-[#2FA7FF]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#2FA7FF]/10 transition-colors duration-500"></div>
+                <div class="w-12 h-12 rounded-sm bg-[#2FA7FF]/10 flex items-center justify-center mb-5 group-hover:bg-[#2FA7FF]/20 transition-colors duration-300">
+                    <svg class="w-5 h-5 text-[#2FA7FF]" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
+                    </svg>
+                </div>
+                <span class="text-[9px] font-bold tracking-[0.2em] uppercase text-[#2FA7FF] mb-2 block">Location</span>
+                <h3 class="text-base font-heading font-bold text-[#111827] mb-2 uppercase tracking-wide">Visit Us</h3>
+                <p class="text-sm text-[#64748B] leading-relaxed">Pangasinan, Philippines</p>
+                <a href="https://maps.google.com/?q=Pangasinan,Philippines" target="_blank" rel="noopener"
+                   class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#2FA7FF] hover:gap-2.5 transition-all duration-200">
+                    Open Map
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Email -->
+            <div class="group relative p-8 bg-[#F8FAFC] border border-[#E2E8F0] rounded-sm overflow-hidden reveal reveal-delay-1 card-lift hover:border-[#F97316]/40 transition-all duration-300">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-[#F97316]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#F97316]/10 transition-colors duration-500"></div>
+                <div class="w-12 h-12 rounded-sm bg-[#F97316]/10 flex items-center justify-center mb-5 group-hover:bg-[#F97316]/20 transition-colors duration-300">
+                    <svg class="w-5 h-5 text-[#F97316]" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
+                    </svg>
+                </div>
+                <span class="text-[9px] font-bold tracking-[0.2em] uppercase text-[#F97316] mb-2 block">Email</span>
+                <h3 class="text-base font-heading font-bold text-[#111827] mb-2 uppercase tracking-wide">Write To Us</h3>
+                <p class="text-sm text-[#64748B] leading-relaxed break-all">onegobike@gmail.com</p>
+                <a href="mailto:onegobike@gmail.com"
+                   class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#F97316] hover:gap-2.5 transition-all duration-200">
+                    Send Email
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Facebook -->
+            <div class="group relative p-8 bg-[#F8FAFC] border border-[#E2E8F0] rounded-sm overflow-hidden reveal reveal-delay-2 card-lift hover:border-[#2FA7FF]/40 transition-all duration-300">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-[#2FA7FF]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#2FA7FF]/10 transition-colors duration-500"></div>
+                <div class="w-12 h-12 rounded-sm bg-[#2FA7FF]/10 flex items-center justify-center mb-5 group-hover:bg-[#2FA7FF]/20 transition-colors duration-300">
+                    <svg class="w-5 h-5 text-[#2FA7FF]" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </div>
+                <span class="text-[9px] font-bold tracking-[0.2em] uppercase text-[#2FA7FF] mb-2 block">Facebook</span>
+                <h3 class="text-base font-heading font-bold text-[#111827] mb-2 uppercase tracking-wide">Follow Us</h3>
+                <p class="text-sm text-[#64748B] leading-relaxed">@gobikeprojectofficial</p>
+                <a href="https://www.facebook.com/gobikeprojectofficial" target="_blank" rel="noopener"
+                   class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#2FA7FF] hover:gap-2.5 transition-all duration-200">
+                    View Page
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Hotline -->
+            <div class="group relative p-8 bg-[#132D6B] text-white rounded-sm overflow-hidden reveal reveal-delay-3 card-lift">
+                <div class="absolute top-0 right-0 w-40 h-40 bg-[#2FA7FF]/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="w-12 h-12 rounded-sm bg-white/10 flex items-center justify-center mb-5 group-hover:bg-white/20 transition-colors duration-300">
+                    <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/>
+                    </svg>
+                </div>
+                <span class="text-[9px] font-bold tracking-[0.2em] uppercase text-[#2FA7FF] mb-2 block relative z-10">Emergency / Hotline</span>
+                <h3 class="text-base font-heading font-bold text-white mb-2 uppercase tracking-wide relative z-10">Call Us</h3>
+                <p class="text-sm text-white/70 leading-relaxed relative z-10">Available for urgent community needs</p>
+                <a href="tel:+63" class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#2FA7FF] hover:gap-2.5 transition-all duration-200 relative z-10">
+                    View Number
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- MESSAGE FORM + SIDEBAR -->
+<section class="py-20 md:py-28 bg-[#F8FAFC] relative">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-[#132D6B]/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-72 h-72 bg-[#F97316]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-start">
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-2 reveal">
+                <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[#F97316] mb-4">Send A Message</span>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-[#111827] uppercase tracking-tight leading-tight mb-6">
+                    Let's Start<br/>
+                    <span class="text-[#132D6B]">A Conversation.</span>
+                </h2>
+                <p class="text-sm text-[#64748B] leading-relaxed mb-8">
+                    Whether you're looking to volunteer, explore partnership opportunities, or just want to learn more about our programs - we'd love to hear your story.
+                </p>
+
+                <!-- What to expect -->
+                <div class="space-y-5">
+                    @foreach([
+                        [
+                            'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>',
+                            'title' => 'Quick Response',
+                            'desc'  => 'We aim to respond to all messages within 24 hours.',
+                        ],
+                        [
+                            'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>',
+                            'title' => 'Personal Reply',
+                            'desc'  => 'Every inquiry is handled by a real team member.',
+                        ],
+                        [
+                            'icon' => '<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/>',
+                            'title' => 'Confidential',
+                            'desc'  => 'Your information is kept private and secure.',
+                        ],
+                    ] as $item)
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-sm bg-[#132D6B]/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <svg class="w-4.5 h-4.5 text-[#132D6B]" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+                                {!! $item['icon'] !!}
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-[#111827] tracking-wide uppercase">{{ $item['title'] }}</p>
+                            <p class="text-xs text-[#64748B] leading-relaxed mt-0.5">{{ $item['desc'] }}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
+                <!-- Social quick links -->
+                <div class="mt-10 pt-8 border-t border-[#E2E8F0]">
+                    <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-[#64748B] mb-4">Also Find Us On</p>
+                    <div class="flex items-center gap-3">
+                        <a href="https://www.facebook.com/gobikeprojectofficial" target="_blank" rel="noopener"
+                           class="w-9 h-9 rounded-none bg-[#132D6B] text-white flex items-center justify-center hover:bg-[#2FA7FF] transition-colors duration-200" aria-label="Facebook">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener"
+                           class="w-9 h-9 rounded-none bg-[#132D6B] text-white flex items-center justify-center hover:bg-[#2FA7FF] transition-colors duration-200" aria-label="Instagram">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener"
+                           class="w-9 h-9 rounded-none bg-[#132D6B] text-white flex items-center justify-center hover:bg-[#2FA7FF] transition-colors duration-200" aria-label="YouTube">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="lg:col-span-3 reveal reveal-delay-1">
+                <div class="bg-white border border-[#E2E8F0] rounded-sm p-8 md:p-10 shadow-sm">
+
+                    <h3 class="text-lg font-heading font-bold text-[#111827] uppercase tracking-wide mb-7">
+                        Send Us A Message
+                    </h3>
+
+                    <!-- Success / Error messages (shown via Alpine) -->
+                    <div x-data="contactForm()" @submit.prevent="submitForm">
+
+                        <div x-show="submitted && !error" x-cloak
+                             x-transition:enter="transition ease-out duration-300"
+                             x-transition:enter-start="opacity-0 translate-y-2"
+                             x-transition:enter-end="opacity-100 translate-y-0"
+                             class="flex flex-col items-center justify-center py-16 gap-5 text-center">
+                            <div class="w-16 h-16 rounded-sm bg-green-50 border border-green-200 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-lg font-heading font-bold text-[#111827] uppercase tracking-wide mb-2">Message Sent!</p>
+                                <p class="text-sm text-[#64748B]">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                            </div>
+                            <button @click="submitted = false; error = false"
+                                    class="text-xs font-semibold text-[#2FA7FF] underline underline-offset-2 hover:text-[#132D6B] transition-colors">
+                                Send another message
+                            </button>
+                        </div>
+
+                        <form x-show="!submitted" @submit.prevent="submitForm" class="space-y-5">
+
+                            <!-- Name + Email row -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="contact-name" class="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#64748B] mb-2">Full Name <span class="text-[#F97316]">*</span></label>
+                                    <input
+                                        id="contact-name"
+                                        x-model="form.name"
+                                        type="text"
+                                        required
+                                        placeholder="Juan dela Cruz"
+                                        class="w-full px-4 py-3 text-sm text-[#111827] bg-[#F8FAFC] border border-[#E2E8F0] rounded-none focus:outline-none focus:ring-2 focus:ring-[#2FA7FF]/30 focus:border-[#2FA7FF] transition-all duration-200 placeholder:text-[#CBD5E1]"
+                                    />
+                                </div>
+                                <div>
+                                    <label for="contact-email" class="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#64748B] mb-2">Email Address <span class="text-[#F97316]">*</span></label>
+                                    <input
+                                        id="contact-email"
+                                        x-model="form.email"
+                                        type="email"
+                                        required
+                                        placeholder="juan@example.com"
+                                        class="w-full px-4 py-3 text-sm text-[#111827] bg-[#F8FAFC] border border-[#E2E8F0] rounded-none focus:outline-none focus:ring-2 focus:ring-[#2FA7FF]/30 focus:border-[#2FA7FF] transition-all duration-200 placeholder:text-[#CBD5E1]"
+                                    />
+                                </div>
+                            </div>
+
+                            <!-- Subject / Topic -->
+                            <div>
+                                <label for="contact-subject" class="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#64748B] mb-2">Subject / Topic <span class="text-[#F97316]">*</span></label>
+                                <select
+                                    id="contact-subject"
+                                    x-model="form.subject"
+                                    required
+                                    class="w-full px-4 py-3 text-sm text-[#111827] bg-[#F8FAFC] border border-[#E2E8F0] rounded-none focus:outline-none focus:ring-2 focus:ring-[#2FA7FF]/30 focus:border-[#2FA7FF] transition-all duration-200 appearance-none cursor-pointer"
+                                >
+                                    <option value="" disabled selected>Select a topic…</option>
+                                    <option value="volunteer">Volunteer Inquiry</option>
+                                    <option value="partnership">Partnership / Sponsorship</option>
+                                    <option value="media">Media / Press Inquiry</option>
+                                    <option value="donation">Donation Question</option>
+                                    <option value="program">Program Information</option>
+                                    <option value="other">Other / General Question</option>
+                                </select>
+                            </div>
+
+                            <!-- Phone (optional) -->
+                            <div>
+                                <label for="contact-phone" class="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#64748B] mb-2">
+                                    Phone Number <span class="text-[#94A3B8] font-normal normal-case tracking-normal">(optional)</span>
+                                </label>
+                                <input
+                                    id="contact-phone"
+                                    x-model="form.phone"
+                                    type="tel"
+                                    placeholder="+63 9XX XXX XXXX"
+                                    class="w-full px-4 py-3 text-sm text-[#111827] bg-[#F8FAFC] border border-[#E2E8F0] rounded-none focus:outline-none focus:ring-2 focus:ring-[#2FA7FF]/30 focus:border-[#2FA7FF] transition-all duration-200 placeholder:text-[#CBD5E1]"
+                                />
+                            </div>
+
+                            <!-- Message -->
+                            <div>
+                                <label for="contact-message" class="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#64748B] mb-2">Your Message <span class="text-[#F97316]">*</span></label>
+                                <textarea
+                                    id="contact-message"
+                                    x-model="form.message"
+                                    required
+                                    rows="5"
+                                    placeholder="Tell us how we can help, or share your idea with us…"
+                                    class="w-full px-4 py-3 text-sm text-[#111827] bg-[#F8FAFC] border border-[#E2E8F0] rounded-none focus:outline-none focus:ring-2 focus:ring-[#2FA7FF]/30 focus:border-[#2FA7FF] transition-all duration-200 placeholder:text-[#CBD5E1] resize-none"
+                                ></textarea>
+                                <p class="text-[10px] text-[#94A3B8] mt-1 text-right" x-text="(form.message || '').length + ' / 1000 chars'"></p>
+                            </div>
+
+                            <!-- Error message -->
+                            <div x-show="error" x-cloak class="flex items-center gap-3 bg-red-50 border border-red-200 rounded-sm px-4 py-3 text-sm text-red-600">
+                                <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>
+                                <span x-text="errorMessage"></span>
+                            </div>
+
+                            <!-- Submit -->
+                            <div class="flex items-center justify-between gap-4 pt-2">
+                                <p class="text-[10px] text-[#94A3B8] leading-relaxed max-w-xs">
+                                    By submitting, you agree to our
+                                    <a href="{{ url('/privacy-policy') }}" class="text-[#2FA7FF] hover:underline">Privacy Policy</a>.
+                                </p>
+                                <button
+                                    type="submit"
+                                    :disabled="loading"
+                                    class="inline-flex items-center justify-center gap-2 px-7 py-3 text-xs font-bold tracking-[0.15em] uppercase bg-[#132D6B] text-white hover:bg-[#2FA7FF] shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 rounded-none disabled:opacity-60 disabled:cursor-not-allowed"
+                                >
+                                    <span x-show="!loading">Send Message</span>
+                                    <span x-show="loading" x-cloak class="flex items-center gap-2">
+                                        <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                                        </svg>
+                                        Sending…
+                                    </span>
+                                    <svg x-show="!loading" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- MAP / LOCATION EMBED -->
+<section class="relative bg-[#0D1B2A] overflow-hidden">
+    <div class="relative h-72 md:h-130 w-full">
+        <iframe
+            title="Go Bike Location — Pangasinan, Philippines"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244767.07891946714!2d119.86557870428943!3d15.893520736700673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33919fc0c2e9e67b%3A0x13e2c7c7d99e9e5!2sPangasinan%2C%20Philippines!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+            class="w-full h-full grayscale opacity-80 border-0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+        ></iframe>
+        <div class="absolute inset-0 bg-[#132D6B]/20 pointer-events-none mix-blend-multiply"></div>
+
+        <!-- Location badge -->
+        <div class="absolute top-4 right-4 z-10">
+            <div class="contact-location-badge">
+                <div class="contact-location-dot"></div>
+                <span class="text-[9px] font-bold text-white/85 tracking-widest uppercase">Pangasinan, Philippines</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="py-20 md:py-24 bg-[#132D6B] relative overflow-hidden">
+    <div class="absolute inset-0">
+        <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#2FA7FF]/10 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#F97316]/10 blur-3xl"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white uppercase tracking-tight leading-tight mb-6">
+            Ready To Make A<br/>
+            <span class="text-[#F97316]">Difference?</span>
+        </h2>
+        <p class="text-sm md:text-base text-white/60 max-w-xl mx-auto leading-relaxed mb-10">
+            Join hundreds of volunteers and community members who are already making an impact across Pangasinan.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+            <a href="{{ url('/what-we-do') }}"
+               class="inline-flex items-center gap-2 px-8 py-3.5 text-xs font-bold tracking-[0.15em] uppercase bg-[#F97316] text-white hover:bg-[#fb923c] shadow-lg hover:-translate-y-0.5 transition-all duration-300 rounded-none">
+                See Our Programs
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+            </a>
+            <a href="{{ url('/about') }}"
+               class="inline-flex items-center gap-2 px-8 py-3.5 text-xs font-bold tracking-[0.15em] uppercase border border-white/25 text-white hover:bg-white/10 hover:-translate-y-0.5 transition-all duration-300 rounded-none">
+                Learn About Us
+            </a>
+        </div>
+    </div>
+</section>
+
+<x-slot:scripts>
+    <script src="{{ asset('js/contact.js') }}"></script>
+</x-slot:scripts>
+
+</x-layout>

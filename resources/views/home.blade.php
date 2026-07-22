@@ -70,7 +70,7 @@
             <!-- CTA(call to action) -->
             <div class="flex flex-col sm:flex-row gap-4 mt-2 reveal">
                 <a
-                    href="{{ url('/programs') }}"
+                    href="{{ url('/what-we-do') }}"
                     id="hero-cta-programs"
                     class="btn-ghost-fill"
                 >
@@ -168,7 +168,7 @@
                 <p class="text-white/65 text-sm md:text-base leading-relaxed mb-8 font-light">
                     In remote barangays, access to immediate care is limited. Our youth responders on bicycles bridge that gap, delivering first aid and critical supplies faster than traditional vehicles ever could.
                 </p>
-                <a href="{{ url('/programs') }}" class="text-sm font-semibold text-[#2FA7FF] hover:text-white transition-colors flex items-center gap-2 group">
+                <a href="{{ url('/what-we-do') }}" class="text-sm font-semibold text-[#2FA7FF] hover:text-white transition-colors flex items-center gap-2 group">
                     Learn about the program
                     <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                 </a>
@@ -243,7 +243,7 @@
                 What We Do
             </h2>
         </div>
-        <a href="{{ url('/programs') }}" class="text-sm font-bold text-white/70 hover:text-white transition-colors flex items-center gap-2 pb-2 tracking-wide group">
+        <a href="{{ url('/what-we-do') }}" class="text-sm font-bold text-white/70 hover:text-white transition-colors flex items-center gap-2 pb-2 tracking-wide group">
             View All Programs
             <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
         </a>
@@ -363,7 +363,7 @@
                 'accent' => '#081638ff',
                 'title'  => 'Programs',
                 'desc'   => 'Explore health, outreach, and disaster readiness initiatives.',
-                'href'   => '/programs',
+                'href'   => '/what-we-do',
                 'tag'    => 'Community Service',
             ],
             [

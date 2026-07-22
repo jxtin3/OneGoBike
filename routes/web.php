@@ -25,6 +25,10 @@ Route::get('/what-we-do', function () {
 
 Route::redirect('/programs', '/what-we-do');
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 Route::get('/privacy-policy', function () {
     return view('pages.privacy');
 });

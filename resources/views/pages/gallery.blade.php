@@ -1,4 +1,4 @@
-<x-layout title="Gallery Showcase - OneGoBike" description="View our gallery showcase of youth responders and community events in Pangasinan.">
+<x-layout title="Gallery - OneGoBike" description="View our gallery showcase of youth responders and community events in Pangasinan.">
     <!-- Header Spacing -->
     <div class="pt-24 md:pt-32 pb-12 bg-[#0D1B2A]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">

@@ -78,7 +78,7 @@
                     </div>
 
                     <!-- programs -->
-                    <x-nav-link href="{{ url('/programs') }}">What We Do</x-nav-link> 
+                    <x-nav-link href="{{ url('/what-we-do') }}">What We Do</x-nav-link> 
 
                     <!-- community -->
                     <div x-data="{ open: false }" class="relative" @mouseenter="open = true" @mouseleave="open = false">
@@ -98,12 +98,7 @@
 
                 <!-- Right Side call to action (cta)  -->
                 <div class="hidden md:flex items-center gap-3">
-                    <a
-                        href="{{ url('/volunteer') }}"
-                        class="text-sm font-semibold text-white/70 hover:text-white transition-colors duration-200 tracking-wide"
-                    >
-                        Volunteer
-                    </a>
+                   
                     <a
                         href="{{ url('/donate') }}"
                         class="inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold tracking-[0.15em] uppercase bg-[#F97316] text-white hover:bg-[#fb923c] shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 rounded-none"
@@ -160,7 +155,7 @@
                         <a href="{{ url('/org-structure') }}" @click="mobileOpen = false" class="block px-4 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-none transition-colors">Org Structure &amp; History</a>
                     </div>
                 </div>
-                <x-nav-link :mobile="true" href="{{ url('/programs') }}"   @click="mobileOpen = false">Programs</x-nav-link>
+                <x-nav-link :mobile="true" href="{{ url('/what-we-do') }}"   @click="mobileOpen = false">What We Do</x-nav-link>
                 <div x-data="{ open: false }" class="flex flex-col">
                     <button type="button" @click="open = !open" class="flex items-center justify-between w-full px-4 py-3 text-base font-medium rounded-none transition-colors duration-200 text-white/90 hover:bg-white/10 hover:text-white">
                         <span>Join The Movement</span>
@@ -250,7 +245,7 @@
                     <ul class="space-y-2" role="list">
                         @foreach ([
                             ['label' => 'About Us',   'href' => '/about'],
-                            ['label' => 'Programs',   'href' => '/programs'],
+                            ['label' => 'What We Do',   'href' => '/what-we-do'],
                             ['label' => 'Community',  'href' => '/community'],
                             ['label' => 'Contact',    'href' => '/contact'],
                         ] as $link)

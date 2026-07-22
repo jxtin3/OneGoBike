@@ -19,9 +19,11 @@ Route::get('/org-structure', function () {
     return view('pages.org-structure');
 });
 
-Route::get('/programs', function () {
+Route::get('/what-we-do', function () {
     return view('programs');
 });
+
+Route::redirect('/programs', '/what-we-do');
 
 Route::get('/privacy-policy', function () {
     return view('pages.privacy');

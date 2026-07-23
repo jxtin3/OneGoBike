@@ -214,8 +214,7 @@
                         </div>
                     </a>
                     <p class="text-sm text-white/55 leading-relaxed max-w-sm">
-                        A youth-led community organization mobilizing volunteers, responders, cyclists, and local communities to improve health, resilience, and disaster preparedness throughout Pangasinan.
-                    </p>
+                        Empowering communities through health initiatives, disaster preparedness, volunteer engagement, and community-driven services that create lasting impact.                    </p>
                     <!-- Government accreditation note -->
                     <div class="flex flex-wrap gap-2 mt-1">
                         <span class="inline-block text-[9px] font-bold tracking-[0.14em] uppercase px-2.5 py-1 border border-white/10 text-white/40 rounded-sm">DILG Accredited</span>

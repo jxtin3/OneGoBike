@@ -4,7 +4,7 @@
 >
 
 <!-- HERO SECTION -->
-<section class="relative pt-36 pb-28 md:pt-52 md:pb-40 overflow-hidden bg-[#0D1B2A]">
+<section class="relative pt-36 pb-28 md:pt-36 md:pb-40 overflow-hidden bg-[#0D1B2A]">
 
     <!-- Background image -->
     <div class="absolute inset-0 z-0">
@@ -21,11 +21,7 @@
     <div class="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-[#F97316]/8 blur-3xl pointer-events-none z-0"></div>
 
     <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-        <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.25em] uppercase text-[#2FA7FF] mb-5">
-            <span class="w-5 h-px bg-[#2FA7FF]"></span>
-            Get In Touch
-            <span class="w-5 h-px bg-[#2FA7FF]"></span>
-        </span>
+        
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase tracking-tight leading-none drop-shadow-lg">
             We'd Love To<br/>
             <span class="text-[#F97316]">Hear From You.</span>
@@ -51,7 +47,7 @@
 </section>
 
 <!-- CONTACT CARDS -->
-<section class="py-20 md:py-28 bg-white relative">
+<section class="py-10 md:py-15 bg-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center mb-14 reveal">
@@ -141,7 +137,7 @@
 </section>
 
 <!-- MESSAGE FORM + SIDEBAR -->
-<section class="py-20 md:py-28 bg-[#F8FAFC] relative">
+<section class="py-10 md:py-15 bg-[#F8FAFC] relative">
     <div class="absolute top-0 left-0 w-96 h-96 bg-[#132D6B]/5 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute bottom-0 right-0 w-72 h-72 bg-[#F97316]/5 rounded-full blur-3xl pointer-events-none"></div>
 

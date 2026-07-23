@@ -1,6 +1,6 @@
 <x-layout
     title="About Us - OneGoBike"
-    description="Discover the vision, mission, objectives, theory of change, and core values driving OneGoBike Pangasinan's youth-led community response."
+    description="Discover the vision, mission, objectives, theory of change, and core values driving Go Bike Pangasinan's youth-led community response."
 >
 
 <!-- HERO -->
@@ -21,10 +21,10 @@
         </span> -->
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase tracking-tight leading-none drop-shadow-lg">
             Driven by Youth.<br/>
-            <span class="text-[#2FA7FF]">Built for Pangasinan.</span>
+            <span class="text-[#2FA7FF]">Powered by Service.</span>
         </h1>
         <p class="text-base md:text-lg text-white/65 max-w-2xl mx-auto leading-relaxed">
-            OneGoBike started with a simple idea that can be an instrument of change. Today, we are a recognized force of community responders serving dozens of people.
+            Go Bike started with a simple idea that can be an instrument of change. Today, we are a recognized force of community responders serving dozens of people.
         </p>
         <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a href="{{ url('/org-structure') }}" class="btn-wbr btn-wbr-light text-sm px-7 py-3">
@@ -36,7 +36,7 @@
 </section>
 
 <!-- VISION & MISSION -->
-<section id="mission-vision" class="py-20 md:py-28 bg-white">
+<section id="mission-vision" class="py-20 md:py-15 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14 reveal">
             <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[#F97316] mb-3">Foundation</span>
@@ -79,7 +79,7 @@
 </section>
 
 <!-- OBJECTIVES -->
-<section class="py-20 md:py-28 bg-[#F8FAFC]">
+<section class="py-10 md:py-25 bg-[#F8FAFC]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14 reveal">
             <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[#F97316] mb-3">What We Set Out to Do</span>
@@ -117,7 +117,7 @@
 </section>
 
 <!-- THEORY OF CHANGE -->
-<section class="py-20 md:py-28 bg-white">
+<section class="py-10 md:py-10 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -167,7 +167,21 @@
     </div>
 </section>
 
-<!-- MANTRA / CORE VALUES -->
+<!-- MANTRA -->
+<section class="py-5 md:py-20 bg-white relative overflow-hidden flex items-center justify-center border-t border-b border-gray-100">
+    <div class="absolute inset-0 bg-noise opacity-[0.02] pointer-events-none"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <span class="inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-[#F97316] mb-6">Our Core Mantra</span>
+        <blockquote class="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-[#111827] uppercase tracking-tighter leading-[1.1]">
+            " Saving Lives <br class="hidden sm:block" />
+            <span class="text-[#2FA7FF] inline-block mt-2">One Ride</span> At A Time "
+        </blockquote>
+        <div class="w-16 h-1 bg-[#F97316] mx-auto mt-10 mb-6"></div>
+        <p class="text-[#64748B] text-lg font-medium tracking-wide">— Go Bike Project</p>
+    </div>
+</section>
+
+<!-- CORE VALUES -->
 <section class="py-20 md:py-28 bg-[#0D1B2A] relative overflow-hidden">
     <div class="absolute inset-0 pointer-events-none">
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#132D6B]/40 rounded-full blur-3xl"></div>
@@ -177,17 +191,7 @@
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14 reveal">
             <h2 class="text-3xl md:text-4xl font-heading font-bold text-white uppercase tracking-tight mb-4">What We Stand For</h2>
-            <p class="text-white/50 max-w-xl mx-auto text-sm leading-relaxed">These are not just words on a wall — they are the living code every OneGoBike member carries on every ride, every mission, every day.</p>
-        </div>
-
-        <div class="text-center mb-16 reveal">
-            <div class="inline-block border border-[#F97316]/30 rounded-sm px-10 py-8 bg-[#F97316]/5 backdrop-blur-sm">
-                <!-- <p class="text-[11px] font-bold tracking-[0.3em] uppercase text-[#F97316] mb-3">Our Mantra</p> -->
-                <blockquote class="text-3xl md:text-4xl font-heading font-bold text-white uppercase tracking-tight leading-tight">
-                    "Saving Lives <span class="text-[#F97316]">One Ride</span> At A Time"
-                </blockquote>
-                <p class="text-white/20 text-sm mt-3 italic">— Go Bike Project</p>
-            </div>
+            <p class="text-white/50 max-w-xl mx-auto text-sm leading-relaxed">More than a statement, these values shape every decision, every mission, and every act of service carried out by every Go Biker.</p>
         </div>
 
         @php

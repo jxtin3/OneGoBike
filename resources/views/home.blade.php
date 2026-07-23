@@ -1,6 +1,6 @@
 <x-layout
     title="OneGoBike"
-    description="Mobilizing volunteers, cyclists, responders, and local leaders to strengthen health, preparedness, and resilience across Pangasinan."
+    description="Mobilizing volunteers, responders, and community leaders to strengthen health, preparedness, and community resilience."
 >
      <!-- SECTION 1 — HERO -->
 <section
@@ -64,8 +64,7 @@
 
             <!-- Body text -->
             <p class="text-base md:text-lg text-white/60 leading-relaxed mb-10 max-w-xl reveal">
-                Mobilizing volunteers, responders, and local leaders to strengthen health, preparedness, and resilience across Pangasinan.
-            </p>
+                Mobilizing volunteers, responders, and community leaders to strengthen health, preparedness, and community resilience.            </p>
 
             <!-- CTA(call to action) -->
             <div class="flex flex-col sm:flex-row gap-4 mt-2 reveal">
@@ -138,8 +137,7 @@
             To Transform Communities.
         </h2>
         <p class="mt-8 text-[#64748B] text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            From barangay to barangay, one bicycle at a time — we are building a generation of servant leaders committed to the Filipino community.
-        </p>
+            One bicycle. One community. One mission. Empowering a generation of servant leaders dedicated to improving lives through service, compassion, and action.        </p>
     </div>
 
     <!-- Story Cards -->
@@ -436,8 +434,65 @@
 </section>
 
 
+<!-- SECTION 5 impact stat -->
+
+    <!-- for section below (gradient style)-->
+     <!-- style="background: linear-gradient(to bottom, #0D1B2A 0%, #0D1B2A 38%, #172236 48%, #2A3548 58%, #4B5768 68%, #7C8798 78%, #B8C2CE 88%, #E4E9EF 96%, #F8FAFC 100%);" -->
+
+<section
+    id="impact"
+    class="relative overflow-hidden pb-10 md:pb-5"
+    aria-label="Impact statistics"
+    x-data="counterSection()"
+    x-intersect.once="startCounters()"
+>
+
+ 
+<div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 grid grid-cols-1 md:grid-cols-4 divide-y-2 md:divide-y-0 md:divide-x-2 divide-[#0D1B2A]/30"> 
+        <!-- Stat 1 -->
+        <div class="flex flex-col items-center justify-center text-center py-10">
+            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm12 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15v-2.25l3-4.5h3.75L18 15M9 15h9M9 15H4.5l1.9-5.7a1.5 1.5 0 0 1 1.425-1.05H9"/>
+            </svg>
+            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[0].display">0</span>
+            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Trained Youth Volunteers</span>
+        </div>
+ 
+        <!-- Stat 2 -->
+        <div class="flex flex-col items-center justify-center text-center py-10">
+            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
+            </svg>
+            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[1].display">0</span>
+            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Barangays Served</span>
+        </div>
+ 
+        <!-- Stat 3 -->
+        <div class="flex flex-col items-center justify-center text-center py-10">
+            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+            </svg>
+            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[2].display">0</span>
+            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Volunteer Hours</span>
+        </div>
+ 
+        <!-- Stat 4 -->
+        <div class="flex flex-col items-center justify-center text-center py-10">
+            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3.75 8.25h16.5M4.5 6h15a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75h-15a.75.75 0 0 1-.75-.75V6.75A.75.75 0 0 1 4.5 6Z"/>
+            </svg>
+            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[3].display">2019</span>
+            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Active Since</span>
+        </div>
+ 
+    </div>
+</section>
+ 
 <!-- 
-     SECTION 5 — featured impact -->
+     SECTION 6 — featured impact -->
    
 <section
     id="featured-impact"
@@ -526,75 +581,18 @@
     </div>
 </section>
 
-<!-- SECTION 6 impact stat -->
-
-    <!-- for section below (gradient style)-->
-     <!-- style="background: linear-gradient(to bottom, #0D1B2A 0%, #0D1B2A 38%, #172236 48%, #2A3548 58%, #4B5768 68%, #7C8798 78%, #B8C2CE 88%, #E4E9EF 96%, #F8FAFC 100%);" -->
-
-<section
-    id="impact"
-    class="relative overflow-hidden pb-10 md:pb-5"
-    aria-label="Impact statistics"
-    x-data="counterSection()"
-    x-intersect.once="startCounters()"
->
-
- 
-<div class="max-w-2xl mx-auto px-4 sm:px-6 relative z-10 divide-y-2 divide-[#0D1B2A]/30"> 
-        <!-- Stat 1 -->
-        <div class="flex flex-col items-center justify-center text-center py-10">
-            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm12 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15v-2.25l3-4.5h3.75L18 15M9 15h9M9 15H4.5l1.9-5.7a1.5 1.5 0 0 1 1.425-1.05H9"/>
-            </svg>
-            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[0].display">0</span>
-            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Trained Youth Volunteers</span>
-        </div>
- 
-        <!-- Stat 2 -->
-        <div class="flex flex-col items-center justify-center text-center py-10">
-            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
-            </svg>
-            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[1].display">0</span>
-            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Barangays Served</span>
-        </div>
- 
-        <!-- Stat 3 -->
-        <div class="flex flex-col items-center justify-center text-center py-10">
-            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-            </svg>
-            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[2].display">0</span>
-            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Volunteer Hours</span>
-        </div>
- 
-        <!-- Stat 4 -->
-        <div class="flex flex-col items-center justify-center text-center py-10">
-            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3.75 8.25h16.5M4.5 6h15a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75h-15a.75.75 0 0 1-.75-.75V6.75A.75.75 0 0 1 4.5 6Z"/>
-            </svg>
-            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[3].display">2019</span>
-            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Active Since</span>
-        </div>
- 
-    </div>
-</section>
- 
-<!-- SECTION 8 — LATEST NEWS -->
+<!-- SECTION 7 — LATEST NEWS -->
 <section
     id="latest-news"
-    class="py-20 md:py-28 bg-white"
+    class="py-20 md:py-10 bg-white"
     aria-labelledby="news-heading"
 >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 reveal">
             <div>
-                <span class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.22em] uppercase text-[#F97316] mb-3">
+                <!-- <span class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.22em] uppercase text-[#F97316] mb-3">
                     Stay Informed
-                </span>
+                </span> -->
                 <h2 id="news-heading" class="text-4xl md:text-5xl font-heading font-bold text-[#111827] uppercase leading-tight">
                     Latest News<br/>& Updates
                 </h2>
@@ -610,7 +608,6 @@
                 @foreach($latestNews as $i => $newsItem)
                 <div class="news-card reveal reveal-delay-{{ $i + 1 }}">
                     <div class="news-card-image-wrap">
-                        <div class="news-category-badge">{{ $newsItem->category }}</div>
                         <img src="{{ $newsItem->image_path ? asset($newsItem->image_path) : asset('images/gobike-logo.png') }}" alt="{{ $newsItem->title }}" class="news-card-image" loading="lazy">
                     </div>
                     <div class="news-card-content">
@@ -631,10 +628,10 @@
     </div>
 </section>
 
- <!-- SECTION 7 — CALL TO ACTN (CTA)     -->
+ <!-- SECTION 8 — CALL TO ACTN (CTA)     -->
 <section
     id="cta"
-    class="relative py-28 md:py-25 overflow-hidden"
+    class="relative py-10 md:py-50 overflow-hidden"
     aria-labelledby="cta-heading"
 >
     <!-- Background Map -->
@@ -650,10 +647,6 @@
  
     <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
  
-        <span class="inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.22em] uppercase text-[#F97316] mb-5">
-            Get Involved
-        </span>
- 
         <h2
             id="cta-heading"
             class="text-cta-title font-heading font-bold text-[#111827] mb-6 leading-tight"
@@ -663,8 +656,7 @@
         </h2>
  
         <p class="text-base md:text-lg text-[#64748B] font-medium leading-relaxed mb-10 max-w-2xl mx-auto">
-            Join volunteers, partners, and community leaders creating meaningful change throughout Pangasinan. Every contribution — time, skills, or resources, it helps build a stronger community.
-        </p>
+            Every act of service creates lasting impact. Join volunteers, partners, and community leaders working together to build healthier, safer, and more resilient communities.        </p>
  
         <div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
             <a

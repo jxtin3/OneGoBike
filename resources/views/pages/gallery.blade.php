@@ -1,6 +1,6 @@
 <x-layout title="Gallery - OneGoBike" description="View our gallery showcase of youth responders and community events in Pangasinan.">
     <!-- Header Spacing -->
-    <div class="pt-24 md:pt-32 pb-12 bg-[#0D1B2A]">
+    <div class="pt-24 md:pt-32 pb-30 bg-[#0D1B2A]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
             <h1 class="text-4xl md:text-5xl font-heading font-bold text-white uppercase mb-4">Community Gallery</h1>
             <p class="text-white/70 max-w-2xl mx-auto">Explore moments of impact, community resilience, and volunteer dedication captured during our field operations.</p>

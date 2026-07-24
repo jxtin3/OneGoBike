@@ -1,3 +1,5 @@
+<!-- WHAT WE DO -->
+
 <x-layout
     title="What we Do - OneGoBike"
     description="Discover how our programs in health, disaster preparedness, and community outreach make an impact."
@@ -71,14 +73,11 @@
                 <div class="h-64 overflow-hidden relative">
                     <img src="{{ asset('images/' . $prog['img']) }}" alt="{{ $prog['title'] }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300"></div>
-                    <div class="absolute top-4 left-4 w-10 h-10 bg-white shadow-md flex items-center justify-center rounded-sm">
-                        <span class="font-heading font-black text-xl" style="color: {{ $prog['accent'] }}">{{ sprintf('%02d', $idx + 1) }}</span>
-                    </div>
                 </div>
                 <div class="p-8">
                     <h3 class="text-2xl font-heading font-bold text-[#111827] mb-3 group-hover:text-[#132D6B] transition-colors">{{ $prog['title'] }}</h3>
                     <p class="text-[#64748B] leading-relaxed mb-6">{{ $prog['desc'] }}</p>
-                    <a href="#" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest transition-colors hover:opacity-80" style="color: {{ $prog['accent'] }}">
+                    <a href="#" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#F97316] transition-colors hover:opacity-80">
                         View Details
                         <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                     </a>
@@ -91,219 +90,264 @@
     </div>
 </section>
 
-<!-- TRAINING TIERS -->
-<section class="py-20 md:py-28 bg-white border-t border-[#F1F5F9]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- TRAINING TIERS and REQUEST FORM  -->
+<section
+    class="py-20 md:py-15 bg-[#0D1B2A] relative overflow-hidden"
+    x-data="{
+        selected: null,
+        formVisible: false,
+        tiers: [
+            {
+                key: 'basic',
+                name: 'Basic',
+                price: 'Free',
+                sub: 'No cost for qualifying families',
+                desc: 'Core first-aid awareness for households wanting essential emergency preparedness.',
+                accent: '#16A34A',
+                accentBg: 'from-[#16A34A] to-[#15803D]',
+                features: ['Basic wound care & CPR demo', 'Emergency contact setup', 'Household safety checklist', '1-session onsite visit']
+            },
+            {
+                key: 'standard',
+                name: 'Standard',
+                price: '₱499',
+                sub: 'Per household / session',
+                desc: 'Comprehensive training for families wanting hands-on skills and readiness planning.',
+                accent: '#132D6B',
+                accentBg: 'from-[#132D6B] to-[#1e3a8a]',
+                features: ['Everything in Basic', 'CPR & BLS certification', 'Disaster readiness planning', 'Emergency kit assembly guide', '3-session onsite training', 'Responder group access'],
+                popular: true
+            },
+            {
+                key: 'advance',
+                name: 'Advance',
+                price: '₱999',
+                sub: 'Per household / full module',
+                desc: 'Full responder module for those who want to be community-level health advocates.',
+                accent: '#9A3412',
+                accentBg: 'from-[#9A3412] to-[#c2410c]',
+                features: ['Everything in Standard', 'Advanced first aid module', 'Volunteer facilitator track', 'Barangay coordination training', '6-session extended program', 'Certificate of completion', 'Priority dispatch access']
+            }
+        ],
+        selectTier(key) {
+            const wasVisible = this.formVisible;
+            this.selected = key;
+            this.formVisible = true;
+            if (!wasVisible) {
+                this.$nextTick(() => {
+                    const el = document.getElementById('training-request-form');
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+        }
+    }"
+>
+    <!-- Subtle grid overlay -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 48px 48px;" aria-hidden="true"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
         <div class="mb-16 reveal">
-            <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[#F97316] mb-3">
-                Step 1 - Choose Your Plan
-            </span>
-            <h2 class="text-4xl md:text-5xl font-heading font-bold text-[#111827] mb-4">House-to-House Training Tiers</h2>
-            <p class="text-[#64748B] text-lg max-w-3xl">
-                Request our trained youth responders to conduct first-aid and emergency preparedness training directly at your home.
-            </p>
-        </div>        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Basic Tier -->
-            <div class="relative bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col reveal reveal-delay-1">
-                <!-- Gradient Background -->
-                <div class="absolute top-0 left-0 w-full h-[45%] bg-gradient-to-b from-[#16a34a] via-[#16a34a]/90 to-transparent pointer-events-none"></div>
-                
-                <div class="relative p-10 flex flex-col h-full">
-                    <div class="mb-12 mt-2">
-                        <span class="text-xs font-bold tracking-widest text-white uppercase mb-3 block drop-shadow-sm">Basic</span>
-                        <div class="text-5xl font-heading font-bold text-white mb-3 drop-shadow-sm">Free</div>
-                        <p class="text-white/90 text-sm font-medium">No cost for qualifying families</p>
-                    </div>
-                    
-                    <div class="flex-grow flex flex-col">
-                        <p class="text-gray-600 text-sm mb-8 leading-relaxed">
-                            Core first-aid awareness for households wanting essential emergency preparedness.
-                        </p>
-                        <ul class="space-y-4 mb-10 flex-grow">
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#16A34A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Basic wound care & CPR demo
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#16A34A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Emergency contact setup
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#16A34A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Household safety checklist
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#16A34A] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                1-session onsite visit
-                            </li>
-                        </ul>
-                        <a href="#request-form" class="block w-full py-2.5 text-center text-sm font-bold tracking-wide uppercase text-[#16A34A] bg-white border-2 border-[#16A34A] rounded-full hover:bg-[#16A34A] hover:text-white transition-colors">Select BASIC</a>                    </div>
-                </div>
+            <div class="flex items-center gap-3 mb-5">
+                <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-[#F97316]">House-to-House Training</span>
             </div>
-
-            <!-- Standard Tier -->
-            <div class="relative bg-white rounded-3xl border border-[#2a2468]/20 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col transform lg:-translate-y-4 reveal reveal-delay-2">
-                <!-- Gradient Background -->
-                <div class="absolute top-0 left-0 w-full h-[55%] bg-gradient-to-b from-[#2a2468] via-[#2a2468]/90 to-transparent pointer-events-none"></div>
-                
-                
-                <div class="relative p-10 flex flex-col h-full">
-                    <div class="mb-12 mt-2">
-                        <span class="text-xs font-bold tracking-widest text-white uppercase mb-3 block drop-shadow-sm">Standard</span>
-                        <div class="text-5xl font-heading font-bold text-white mb-3 drop-shadow-sm flex items-baseline gap-2">
-                            <span>₱ 499</span>
-                        </div>
-                        <p class="text-white/90 text-sm font-medium">Per household / session</p>
-                    </div>
-                    
-                    <div class="flex-grow flex flex-col">
-                        <p class="text-[#2a2468] font-medium text-sm mb-8 leading-relaxed">
-                            Comprehensive training for families wanting hands-on skills and readiness planning.
-                        </p>
-                        <ul class="space-y-4 mb-10 flex-grow">
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#2a2468] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Everything in Basic
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#2a2468] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                CPR & BLS certification
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#2a2468] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Disaster readiness planning
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#2a2468] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Emergency kit assembly guide
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#2a2468] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                3-session onsite training
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#2a2468] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Responder group access
-                            </li>
-                        </ul>
-                        <a href="#request-form" class="block w-full py-2.5 text-center text-sm font-bold tracking-wide uppercase text-[#2a2468] bg-white border-2 border-[#2a2468] rounded-full hover:bg-[#2a2468] hover:text-white transition-colors">Select STANDARD</a>                    </div>
-                </div>
-            </div>
-
-            <!-- Advance Tier -->
-            <div class="relative bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col reveal reveal-delay-3">
-                <!-- Gradient Background -->
-                <div class="absolute top-0 left-0 w-full h-[60%] bg-gradient-to-b from-[#7a2b2b] via-[#7a2b2b]/90 to-transparent pointer-events-none"></div>
-                
-                <div class="relative p-10 flex flex-col h-full">
-                    <div class="mb-12 mt-2">
-                        <span class="text-xs font-bold tracking-widest text-white uppercase mb-3 block drop-shadow-sm">Advance</span>
-                        <div class="text-5xl font-heading font-bold text-white mb-3 drop-shadow-sm flex items-baseline gap-2">
-                            <span>₱ 999</span>
-                        </div>
-                        <p class="text-white/90 text-sm font-medium">Per household / full module</p>
-                    </div>
-                    
-                    <div class="flex-grow flex flex-col">
-                        <p class="text-white/90 font-medium text-sm mb-8 leading-relaxed">
-                            Full responder module for those who want to be community-level health advocates.
-                        </p>
-                        <ul class="space-y-4 mb-10 flex-grow">
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#7a2b2b] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Everything in Standard
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#7a2b2b] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Advanced first aid module
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#7a2b2b] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Volunteer facilitator track
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#7a2b2b] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Barangay coordination training
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#7a2b2b] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                6-session extended program
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#7a2b2b] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Certificate of completion
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-[#7a2b2b] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-                                Priority dispatch access
-                            </li>
-                        </ul>
-                        <a href="#request-form" class="block w-full py-2.5 text-center text-sm font-bold tracking-wide uppercase text-[#7a2b2b] bg-white border-2 border-[#7a2b2b] rounded-full hover:bg-[#7a2b2b] hover:text-white transition-colors">Select ADVANCE</a>                    </div>
-                </div>
-            </div>
-        </div></div>
-    </div>
-</section>
-
-<!-- REQUEST FORM -->
-<section id="request-form" class="py-16 md:py-24 bg-[#F8FAFC]">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-        
-        <div class="mb-10 text-left">
-            <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[#F97316] mb-3">
-                Step 2 - Submit Your Info
-            </span>
-            <h2 class="text-3xl md:text-4xl font-heading font-bold text-[#111827] mb-3">Request a Training Session</h2>
-            <p class="text-[#64748B] text-base max-w-lg">
-                Fill out the form below and our dispatch team will contact you to schedule your selected plan.
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white uppercase tracking-tight leading-none mb-5">
+                Choose Your<br/><span class="text-[#2FA7FF]">Training Plan</span>
+            </h2>
+            <p class="text-white/50 text-base max-w-xl leading-relaxed">
+                Request our trained youth responders to conduct first-aid and emergency preparedness training directly at your home. Select a tier below to get started.
             </p>
         </div>
 
-        <div class="bg-[#FAFAFA] rounded-[2rem] border border-gray-200 shadow-sm p-8 md:p-12">
-            <form action="#" method="POST" class="space-y-8">
-                @csrf
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Full Name -->
-                    <div>
-                        <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Full Name <span class="text-red-500">*</span></label>
-                        <input type="text" id="name" name="name" placeholder="Juan dela Cruz" class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#132D6B] focus:border-transparent transition-shadow text-gray-800" required>
-                    </div>
-                    
-                    <!-- Address -->
-                    <div>
-                        <label for="address" class="block text-sm font-semibold text-gray-700 mb-2">Address <span class="text-red-500">*</span></label>
-                        <input type="text" id="address" name="address" placeholder="juan@gmail.com" class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#132D6B] focus:border-transparent transition-shadow text-gray-800" required>
-                    </div>
-
-                    <!-- Phone Number -->
-                    <div>
-                        <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+63 900 000 0000" class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#132D6B] focus:border-transparent transition-shadow text-gray-800">
+        <!-- Tier Cards -->
+        <div id="tier-cards-section" class="grid grid-cols-1 lg:grid-cols-3 gap-6 reveal scroll-mt-24">
+            <template x-for="tier in tiers" :key="tier.key">
+                <div
+                    @click="selectTier(tier.key)"
+                    class="relative cursor-pointer flex flex-col transition-all duration-300 overflow-hidden"
+                    :class="selected === tier.key
+                        ? 'ring-2 ring-offset-4 ring-offset-[#0D1B2A] scale-[1.02]'
+                        : 'ring-1 ring-white/10 hover:ring-white/25 hover:-translate-y-1'"
+                    :style="selected === tier.key ? 'ring-color:' + tier.accent : ''"
+                >
+                    <!-- Card ring color override via CSS var hack -->
+                    <div class="absolute inset-0 rounded-none transition-all duration-300 pointer-events-none z-20"
+                         :style="selected === tier.key ? 'box-shadow: 0 0 0 2px ' + tier.accent + ', 0 0 0 6px #0D1B2A' : ''">
                     </div>
 
-                    <!-- Email Address -->
-                    <div>
-                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address <span class="text-red-500">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="juan@gmail.com" class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#132D6B] focus:border-transparent transition-shadow text-gray-800" required>
+                    <!-- Popular badge -->
+                    <template x-if="tier.popular">
+                        <div class="absolute top-4 right-4 z-30 text-[9px] font-black tracking-widest uppercase bg-[#F97316] text-white px-2.5 py-1">
+                            Most Popular
+                        </div>
+                    </template>
+
+                    <!-- Selected badge -->
+                    <div
+                        class="absolute top-4 left-4 z-30 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300"
+                        :style="selected === tier.key ? 'background:' + tier.accent : 'background: rgba(255,255,255,0.08)'"
+                    >
+                        <svg class="w-3.5 h-3.5 text-white transition-opacity duration-300" :class="selected === tier.key ? 'opacity-100' : 'opacity-30'" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
+                        </svg>
+                    </div>
+
+                    <!-- Header gradient -->
+                    <div class="h-36 flex flex-col justify-end p-6 relative" :class="'bg-gradient-to-br ' + tier.accentBg">
+                        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 70% 20%, white 0%, transparent 60%);"></div>
+                        <span class="text-xs font-bold tracking-[0.2em] uppercase text-white/70 mb-1" x-text="tier.name"></span>
+                        <div class="text-4xl font-heading font-black text-white tracking-tight" x-text="tier.price"></div>
+                        <p class="text-white/60 text-xs mt-1" x-text="tier.sub"></p>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="flex-grow flex flex-col p-6 bg-[#111827]">
+                        <p class="text-white/50 text-sm leading-relaxed mb-6" x-text="tier.desc"></p>
+                        <ul class="space-y-3 flex-grow mb-8">
+                            <template x-for="(feat, fi) in tier.features" :key="fi">
+                                <li class="flex items-start gap-3 text-sm text-white/70">
+                                    <span class="w-4 h-4 shrink-0 mt-0.5 rounded-full flex items-center justify-center" :style="'background:' + tier.accent + '22'">
+                                        <svg class="w-2.5 h-2.5" :style="'color:' + tier.accent" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </span>
+                                    <span x-text="feat"></span>
+                                </li>
+                            </template>
+                        </ul>
+
+                        <!-- CTA Button -->
+                        <button
+                            type="button"
+                            class="w-full py-3 text-xs font-black tracking-widest uppercase transition-all duration-300 border"
+                            :style="selected === tier.key
+                                ? 'background:' + tier.accent + '; color: white; border-color:' + tier.accent
+                                : 'background: transparent; color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.15)'"
+                            x-text="selected === tier.key ? '✓ Selected' : 'Select ' + tier.name"
+                        ></button>
                     </div>
                 </div>
-
-                <!-- Additional Message -->
-                <div>
-                    <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Additional Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Any special requirements, preferred schedule or questions..." class="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#132D6B] focus:border-transparent transition-shadow resize-none text-gray-800"></textarea>
-                </div>
-
-                <div class="flex justify-center pt-6">
-                    <button type="submit" class="inline-flex items-center justify-center gap-2 px-20 py-3.5 bg-[#1e293b] text-white text-sm font-bold rounded-full hover:bg-black transition-colors shadow-sm w-full md:w-auto">
-                        Submit Training Request
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                    </button>
-                </div>
-            </form>
+            </template>
         </div>
+
+        <!-- Step 2: Request Form — only visible after tier selected -->
+        <div
+            id="training-request-form"
+            x-show="formVisible"
+            x-transition:enter="transition ease-out duration-500"
+            x-transition:enter-start="opacity-0 translate-y-10"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            class="mt-16 scroll-mt-24"
+            style="display:none;"
+        >
+            <!-- Divider -->
+            <div class="flex items-center gap-5 mb-12">
+                <div class="flex-1 h-px bg-white/10"></div>
+                <span class="text-[10px] font-bold tracking-widest uppercase text-white/25">Schedule Your Training</span>
+                <div class="flex-1 h-px bg-white/10"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+
+                <!-- Left: form context -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-3xl font-heading font-bold text-white uppercase tracking-tight mb-4 leading-tight">
+                        Schedule Your<br/>Training Session
+                    </h3>
+                    <p class="text-white/45 text-sm leading-relaxed mb-8">
+                        Fill out the form and our dispatch team will contact you within 24–48 hours to confirm your schedule.
+                    </p>
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-sm bg-[#F97316]/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <svg class="w-4 h-4 text-[#F97316]" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m6-2a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-semibold mb-0.5">Response within 48 hours</div>
+                                <div class="text-white/40 text-xs">Our team reviews all requests quickly</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-sm bg-[#F97316]/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <svg class="w-4 h-4 text-[#F97316]" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-semibold mb-0.5">On-site at your home</div>
+                                <div class="text-white/40 text-xs">We come to you, anywhere in Pangasinan</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-sm bg-[#F97316]/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <svg class="w-4 h-4 text-[#F97316]" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-semibold mb-0.5">Certified youth responders</div>
+                                <div class="text-white/40 text-xs">Trained, vetted, and accredited volunteers</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: form -->
+                <div class="lg:col-span-3">
+                    <form action="#" method="POST" class="space-y-5">
+                        @csrf
+                        <input type="hidden" name="tier" :value="selected">
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-[10px] font-bold tracking-widest uppercase text-white/40 mb-2">Full Name <span class="text-[#F97316]">*</span></label>
+                                <input type="text" name="name" placeholder="Juan dela Cruz" required
+                                    class="w-full px-4 py-3.5 bg-white/5 border border-white/10 text-sm text-white placeholder-white/25 focus:outline-none focus:border-[#2FA7FF] focus:bg-white/8 transition-all duration-200">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold tracking-widest uppercase text-white/40 mb-2">Phone Number</label>
+                                <input type="tel" name="phone" placeholder="+63 900 000 0000"
+                                    class="w-full px-4 py-3.5 bg-white/5 border border-white/10 text-sm text-white placeholder-white/25 focus:outline-none focus:border-[#2FA7FF] focus:bg-white/8 transition-all duration-200">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-bold tracking-widest uppercase text-white/40 mb-2">Email Address <span class="text-[#F97316]">*</span></label>
+                            <input type="email" name="email" placeholder="juan@gmail.com" required
+                                class="w-full px-4 py-3.5 bg-white/5 border border-white/10 text-sm text-white placeholder-white/25 focus:outline-none focus:border-[#2FA7FF] focus:bg-white/8 transition-all duration-200">
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-bold tracking-widest uppercase text-white/40 mb-2">Home Address <span class="text-[#F97316]">*</span></label>
+                            <input type="text" name="address" placeholder="Barangay, Municipality, Pangasinan" required
+                                class="w-full px-4 py-3.5 bg-white/5 border border-white/10 text-sm text-white placeholder-white/25 focus:outline-none focus:border-[#2FA7FF] focus:bg-white/8 transition-all duration-200">
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-bold tracking-widest uppercase text-white/40 mb-2">Message / Preferred Schedule</label>
+                            <textarea name="message" rows="4" placeholder="Any special requirements, preferred schedule or questions..."
+                                class="w-full px-4 py-3.5 bg-white/5 border border-white/10 text-sm text-white placeholder-white/25 focus:outline-none focus:border-[#2FA7FF] focus:bg-white/8 transition-all duration-200 resize-none"></textarea>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center pt-2">
+                            <button type="submit"
+                                class="inline-flex items-center justify-center gap-2.5 px-10 py-4 text-xs font-black tracking-widest uppercase bg-[#F97316] text-white hover:bg-[#ea6a0e] transition-colors duration-200">
+                                Submit Request
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </button>
+                            <button type="button" @click="selected = null; $nextTick(() => { const el = document.getElementById('tier-cards-section'); if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); })"
+                                class="text-xs font-semibold text-white/35 hover:text-white/70 tracking-wider transition-colors underline underline-offset-4">
+                                Change Plan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 </section>
+
+
+
 
 <!-- 
      CTA

@@ -63,7 +63,7 @@
 .btn-ghost-fill::before {
     content: '';
     position: absolute;
-    inset: 0;
+    inset: -2px;
     background: #fff;
     transform: scaleX(0);
     transform-origin: left center;

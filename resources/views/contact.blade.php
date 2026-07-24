@@ -4,7 +4,7 @@
 >
 
 <!-- HERO SECTION -->
-<section class="relative pt-36 pb-28 md:pt-36 md:pb-40 overflow-hidden bg-[#0D1B2A]">
+<section class="relative pt-10 pb-28 md:pt-35 md:pb-15 overflow-hidden bg-[#0D1B2A]">
 
     <!-- Background image -->
     <div class="absolute inset-0 z-0">

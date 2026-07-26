@@ -29,6 +29,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/donate', function () {
+    return view('donate');
+});
+
 Route::get('/privacy-policy', function () {
     return view('pages.privacy');
 });

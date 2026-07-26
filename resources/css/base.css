@@ -251,3 +251,28 @@ body {
     background: linear-gradient(90deg, #F97316 0%, #fb923c 60%, transparent 100%);
     border: none;
 }
+
+
+/*  ─── Site Header — smooth scroll transition ───────────────────────────
+    The border-b is always present but starts fully transparent.
+    All properties ease together over 500ms so the border never
+    "snaps in" before the background has faded.
+*/
+.site-header {
+    background-color: rgba(13, 27, 42, 0);
+    backdrop-filter: blur(0px);
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0);
+    transition:
+        background-color 0.50s cubic-bezier(0.4, 0, 0.2, 1),
+        backdrop-filter  0.50s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color     0.50s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow       0.50s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-header.is-scrolled {
+    background-color: rgba(13, 27, 42, 0.96);
+    backdrop-filter: blur(20px);
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.30);
+}

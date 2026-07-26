@@ -35,15 +35,15 @@
     <!-- Header -->
     <header
         id="site-header"
-        class="fixed top-0 inset-x-0 z-50 transition-all duration-200"
-        :class="scrolled
-            ? 'bg-[#0D1B2A]/96 backdrop-blur-xl shadow-2xl shadow-black/30 border-b border-white/[0.06]'
-            : 'bg-transparent'"
+        class="site-header fixed top-0 inset-x-0 z-50 border-b"
         x-init="
             window.addEventListener('scroll', () => {
                 scrolled = window.scrollY > 60;
-            });
+            }, { passive: true });
         "
+        :class="scrolled
+            ? 'is-scrolled'
+            : ''"
     >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 md:h-20">
@@ -70,7 +70,7 @@
                             Who We Are
                             <svg class="w-3.5 h-3.5 opacity-70" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
                         </button>
-                        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-1" class="absolute top-full left-0 mt-1 w-52 bg-[#0D1B2A]/95 backdrop-blur-lg border border-white/10 rounded-sm shadow-xl py-2 z-50">
+                        <div x-show="open" x-cloak class="absolute top-full left-0 mt-1 w-52 bg-[#0D1B2A]/95 backdrop-blur-lg border border-white/10 rounded-sm shadow-xl py-2 z-50">
                             <a href="{{ url('/about') }}" class="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">About Us</a>
                             <a href="{{ url('/org-structure') }}" class="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Org Structure &amp; History</a>
                         </div>
@@ -85,7 +85,7 @@
                             Join The Movement
                             <svg class="w-3.5 h-3.5 opacity-70" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
                         </button>
-                        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-1" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-1" class="absolute top-full left-0 mt-1 w-52 bg-[#0D1B2A]/95 backdrop-blur-lg border border-white/10 rounded-sm shadow-xl py-2 z-50">
+                        <div x-show="open" x-cloak class="absolute top-full left-0 mt-1 w-52 bg-[#0D1B2A]/95 backdrop-blur-lg border border-white/10 rounded-sm shadow-xl py-2 z-50">
                             <a href="{{ url('/news') }}" class="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">News &amp; Updates</a>
                             <a href="{{ url('/gallery') }}" class="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Gallery Showcase</a>
                         </div>

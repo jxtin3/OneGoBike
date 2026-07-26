@@ -187,6 +187,9 @@
     </main>
 
     
+    <!-- Shared helpers -->
+    <script defer src="{{ asset('js/counter.js') }}"></script>
+
     <!-- Alpine.js -->
     <script defer src="{{ asset('js/alpine-intersect.min.js') }}"></script>
     <script defer src="{{ asset('js/alpine-collapse.min.js') }}"></script>

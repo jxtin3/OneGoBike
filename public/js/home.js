@@ -29,37 +29,12 @@
 
 // stat
 function counterSection() {
-    return {
-        started: false,
-        // Change target numbers here
-        counts: [
-            { target: 2500, suffix: '+', display: '0+' },
-            { target: 45, suffix: '', display: '0' },
-            { target: 18000, suffix: '+', display: '0+' },
-            { target: 2019, suffix: '', display: '0' },
-        ],
-        startCounters() {
-            if (this.started) return;
-            this.started = true;
-
-            this.counts.forEach((stat, idx) => {
-                const duration = 3000;
-                const startTime = performance.now();
-
-                const easeOut = t => 1 - Math.pow(1 - t, 3);
-
-                const step = (now) => {
-                    const elapsed = now - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const value = Math.round(easeOut(progress) * stat.target);
-                    const formattedValue = idx === 3 ? value.toString() : value.toLocaleString();
-                    this.counts[idx].display = formattedValue + stat.suffix;
-                    if (progress < 1) requestAnimationFrame(step);
-                };
-                requestAnimationFrame(step);
-            });
-        }
-    };
+    return createCounterAnimation([
+        { target: 2500, suffix: '+', display: '0+' },
+        { target: 45, suffix: '', display: '0' },
+        { target: 18000, suffix: '+', display: '0+' },
+        { target: 2019, suffix: '', display: '0', raw: true },
+    ]);
 }
 
 //  program slider  

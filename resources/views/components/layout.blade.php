@@ -20,9 +20,8 @@
     {{-- Favicon --}}
     <link rel="icon" type="image/png" href="{{ asset('images/gobike-logo.png') }}" />
 
-    {{-- Fonts (preconnect for performance) --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    {{-- Self-hosted fonts (Inter + Oswald) --}}
+    @fonts
 
     {{-- Vite assets (Tailwind CSS + JS) --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])

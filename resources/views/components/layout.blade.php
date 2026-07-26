@@ -13,20 +13,20 @@
      <!-- Open Graph for sharing socmed -->
     <meta property="og:type"        content="website" />
     <meta property="og:url"         content="{{ url()->current() }}" />
-    <meta property="og:title"       content="{{ $title ?? 'OneGoBike — Youth-Led Community Responders' }}" />
+    <meta property="og:title"       content="{{ $title ?? 'OneGoBike — Youth-Led Community Health Responders' }}" />
     <meta property="og:description" content="{{ $description ?? 'Promotes community engagement and educational initiatives, empowering communities to build a healthier, greener, and sustainable future' }}" />
     <meta property="og:image"       content="{{ asset('images/gobike-logo.png') }}" />
 
-    {{-- Favicon --}}
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/gobike-logo.png') }}" />
 
-    {{-- Self-hosted fonts (Inter + Oswald) --}}
+    <!-- Self-hosted fonts (Inter + Oswald) -->
     @fonts
 
-    {{-- Vite assets (Tailwind CSS + JS) --}}
+    <!-- Vite assets (Tailwind CSS + JS) -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    {{-- Additional head slot --}}
+    <!-- Additional head slot -->
     {{ $head ?? '' }}
 </head>
 

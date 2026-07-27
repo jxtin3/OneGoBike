@@ -15,12 +15,14 @@
             src="{{ asset('images/c5.jpg') }}"
             alt="Bicycle rider on a dusty path"
             class="donate-bg__img"
+            :class="{ 'is-zoomed': donorType === 'organization' }"
         />
         <div class="donate-bg__overlay"></div>
     </div>
 
-         <!-- LEFT  — Hero text -->
-    <div class="donate-hero">
+    <div class="donate-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row justify-between items-stretch relative z-10">
+        <!-- LEFT  — Hero text -->
+        <div class="donate-hero">
         <div class="donate-hero__content">
             <h1 class="donate-hero__title">Give The Power<br>Of Bicycles</h1>
             <p class="donate-hero__sub">
@@ -154,6 +156,15 @@
                 </div>
 
                 <div class="donate-form">
+                    <div 
+                        x-show="donorType === 'organization'"
+                        x-collapse
+                    >
+                        <div class="donate-form__group" style="margin-bottom: 1.5rem; padding-top: 0.1rem;">
+                            <label class="donate-form__label" for="org-name">Organization Name <span class="req">*</span></label>
+                            <input id="org-name" type="text" class="donate-form__input" x-model="form.orgName" autocomplete="organization" />
+                        </div>
+                    </div>
                     <div class="donate-form__row">
                         <div class="donate-form__group">
                             <label class="donate-form__label" for="first-name">First Name <span class="req">*</span></label>
@@ -242,11 +253,25 @@
                     <p class="donate-card__sub">This donation is in USD</p>
                 </div>
 
-                {{-- Secure badge --}}
-                <div class="donate-secure">
+                {{-- Secure badge / Email Receipt Toggle --}}
+                <button 
+                    class="donate-secure" 
+                    type="button"
+                    @click="showEmailReceipt = !showEmailReceipt"
+                    :aria-expanded="showEmailReceipt.toString()"
+                >
                     <svg class="donate-secure__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C7 2 3 6 3 6v6c0 5.25 3.75 9.74 9 11 5.25-1.26 9-5.75 9-11V6s-4-4-9-4z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/></svg>
                     <span>Secure, fast checkout with Link</span>
-                    <svg class="donate-secure__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                    <svg class="donate-secure__chevron" :class="{ 'is-rotated': showEmailReceipt }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                </button>
+                
+                <div x-show="showEmailReceipt" x-collapse>
+                    <div class="donate-receipt-box">
+                        <div class="donate-form__group" style="margin-bottom: 0;">
+                            <label class="donate-form__label" for="receipt-email">Email Address for Receipt</label>
+                            <input id="receipt-email" type="email" class="donate-form__input" placeholder="Enter email address" x-model="receiptEmail" />
+                        </div>
+                    </div>
                 </div>
 
                 <div class="donate-form">
@@ -265,10 +290,7 @@
                                 @input="formatCard($event)"
                             />
                             <div class="donate-form__card-brands">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/800px-Mastercard-logo.svg.png" alt="Mastercard" class="donate-brand-icon">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/800px-Visa_Inc._logo.svg.png" alt="Visa" class="donate-brand-icon">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/800px-American_Express_logo_%282018%29.svg.png" alt="Amex" class="donate-brand-icon">
-                                <span class="donate-brand-jcb">JCB</span>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="donate-brand-icon">
                             </div>
                         </div>
                     </div>
@@ -365,85 +387,12 @@
         </div>{{-- /donate-card --}}
     </div>{{-- /donate-card-wrap --}}
 
+    </div>{{-- /donate-container --}}
+
 </div>{{-- /donate-page --}}
 
 <x-slot:scripts>
-<script>
-function donateApp() {
-    return {
-        step:         1,
-        freq:         'once',
-        presets:      [25, 50, 165, 1000],
-        amount:       25,
-        customMode:   false,
-        customAmount: '',
-        donorType:    'individual',
-        platformFee:  1.88,
-        form: {
-            firstName: '', lastName: '', email: '',
-            phone: '', address1: '', address2: '',
-            city: '', postcode: '', state: '', country: 'PH',
-        },
-        card: {
-            number: '', expiry: '', cvc: '', country: 'PH',
-        },
-
-        init() {},
-
-        get effectiveAmount() {
-            return this.customMode ? (parseFloat(this.customAmount) || 0) : this.amount;
-        },
-
-        get totalAmount() {
-            return this.effectiveAmount + parseFloat(this.platformFee || 0);
-        },
-
-        selectPreset(amt) {
-            this.amount     = amt;
-            this.customMode = false;
-            this.customAmount = '';
-        },
-
-        goStep2() {
-            if (this.effectiveAmount > 0) this.step = 2;
-        },
-
-        goStep3() {
-            if (this.step2Valid()) this.step = 3;
-        },
-
-        step2Valid() {
-            const f = this.form;
-            return f.firstName && f.lastName && f.email && f.address1 && f.city && f.postcode && f.state;
-        },
-
-        step3Valid() {
-            const c = this.card;
-            return c.number.replace(/\s/g,'').length >= 13 && c.expiry.length >= 5 && c.cvc.length >= 3;
-        },
-
-        formatCard(e) {
-            let v = e.target.value.replace(/\D/g,'').slice(0,16);
-            this.card.number = v.replace(/(.{4})/g,'$1 ').trim();
-        },
-
-        formatExpiry(e) {
-            let v = e.target.value.replace(/\D/g,'').slice(0,4);
-            if (v.length >= 3) v = v.slice(0,2) + ' / ' + v.slice(2);
-            this.card.expiry = v;
-        },
-
-        submit() {
-            if (!this.step3Valid()) return;
-            this.step = 4;
-        },
-
-        copyLink() {
-            navigator.clipboard.writeText(window.location.href).catch(() => {});
-        },
-    };
-}
-</script>
+<script src="{{ asset('js/donate.js') }}"></script>
 </x-slot:scripts>
 
 </x-layout>

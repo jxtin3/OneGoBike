@@ -22,6 +22,13 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
+        User::factory()->create([
+            'name' => 'Admin User',
+            'email' => 'admin@onegobike.com',
+            'password' => bcrypt('admin123'),
+            'is_admin' => true,
+        ]);
+
         $this->call([
             NewsSeeder::class,
         ]);

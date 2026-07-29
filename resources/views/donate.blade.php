@@ -6,7 +6,13 @@
 {{-- Full-page donate wrapper --}}
 <div
     class="donate-page"
-    x-data="donateApp()"
+    x-data="donateApp({
+        usdToPhp: {{ config('donation.usd_to_php') }},
+        checkoutUrl: '{{ route('donate.checkout') }}',
+        paidDonation: @json($paidDonation ?? null),
+        cancelledDonation: @json($cancelledDonation ?? null),
+        cancelMessage: @json(session('error')),
+    })"
     x-init="init()"
 >
 
@@ -261,7 +267,7 @@
                     :aria-expanded="showEmailReceipt.toString()"
                 >
                     <svg class="donate-secure__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C7 2 3 6 3 6v6c0 5.25 3.75 9.74 9 11 5.25-1.26 9-5.75 9-11V6s-4-4-9-4z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/></svg>
-                    <span>Secure, fast checkout with Link</span>
+                    <span>Secure checkout — choose your payment method</span>
                     <svg class="donate-secure__chevron" :class="{ 'is-rotated': showEmailReceipt }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
                 </button>
                 
@@ -274,73 +280,113 @@
                     </div>
                 </div>
 
+                {{-- Payment method selector --}}
+                <div class="donate-freq donate-freq--3col">
+                    <button
+                        id="pay-gcash"
+                        type="button"
+                        class="donate-freq__btn donate-freq__btn--gcash"
+                        :class="{ 'is-active': paymentMethod === 'gcash' }"
+                        @click="paymentMethod = 'gcash'"
+                    >GCash</button>
+                    <button
+                        id="pay-paypal"
+                        type="button"
+                        class="donate-freq__btn donate-freq__btn--paypal"
+                        :class="{ 'is-active': paymentMethod === 'paypal' }"
+                        @click="paymentMethod = 'paypal'"
+                    >PayPal</button>
+                    <button
+                        id="pay-bank"
+                        type="button"
+                        class="donate-freq__btn donate-freq__btn--bank"
+                        :class="{ 'is-active': paymentMethod === 'bank' }"
+                        @click="paymentMethod = 'bank'"
+                    >ATM / Bank</button>
+                </div>
+
+                {{-- GCash panel --}}
+                <div x-show="paymentMethod === 'gcash'" x-collapse class="donate-form">
+                    <div class="donate-pay-panel donate-pay-panel--gcash">
+                        <p class="donate-pay-panel__title">Pay with GCash</p>
+                        <p class="donate-pay-panel__text">
+                            You will be redirected to a secure GCash checkout page to complete your donation.
+                        </p>
+                        <div class="donate-pay-summary">
+                            <div class="donate-pay-summary__row">
+                                <span>Donation</span>
+                                <span x-text="'$' + effectiveAmount.toFixed(2)"></span>
+                            </div>
+                            <div class="donate-pay-summary__row" x-show="parseFloat(platformFee) > 0">
+                                <span>Platform fee</span>
+                                <span x-text="'$' + parseFloat(platformFee).toFixed(2)"></span>
+                            </div>
+                            <div class="donate-pay-summary__row donate-pay-summary__row--total">
+                                <span>Total (USD)</span>
+                                <span x-text="'$' + totalAmount.toFixed(2)"></span>
+                            </div>
+                            <div class="donate-pay-summary__row donate-pay-summary__row--php">
+                                <span>Approx. in PHP</span>
+                                <span x-text="'₱' + amountPhp.toFixed(2)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- PayPal panel --}}
+                <div x-show="paymentMethod === 'paypal'" x-collapse class="donate-form">
+                    <div class="donate-pay-panel donate-pay-panel--paypal">
+                        <p class="donate-pay-panel__title">Pay with PayPal</p>
+                        <p class="donate-pay-panel__text">
+                            You will be redirected to PayPal to sign in and complete your donation securely.
+                        </p>
+                        <div class="donate-pay-summary">
+                            <div class="donate-pay-summary__row">
+                                <span>Donation</span>
+                                <span x-text="'$' + effectiveAmount.toFixed(2)"></span>
+                            </div>
+                            <div class="donate-pay-summary__row" x-show="parseFloat(platformFee) > 0">
+                                <span>Platform fee</span>
+                                <span x-text="'$' + parseFloat(platformFee).toFixed(2)"></span>
+                            </div>
+                            <div class="donate-pay-summary__row donate-pay-summary__row--total">
+                                <span>Total (USD)</span>
+                                <span x-text="'$' + totalAmount.toFixed(2)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Bank / ATM panel --}}
+                <div x-show="paymentMethod === 'bank'" x-collapse class="donate-form">
+                    <div class="donate-pay-panel donate-pay-panel--bank">
+                        <p class="donate-pay-panel__title">Pay via Bank / Online Banking</p>
+                        <p class="donate-pay-panel__text">
+                            You will be redirected to pay through your bank's online portal. Supported banks include BPI, UnionBank, BDO, Metrobank, and Landbank.
+                        </p>
+                        <div class="donate-pay-summary">
+                            <div class="donate-pay-summary__row">
+                                <span>Donation</span>
+                                <span x-text="'$' + effectiveAmount.toFixed(2)"></span>
+                            </div>
+                            <div class="donate-pay-summary__row" x-show="parseFloat(platformFee) > 0">
+                                <span>Platform fee</span>
+                                <span x-text="'$' + parseFloat(platformFee).toFixed(2)"></span>
+                            </div>
+                            <div class="donate-pay-summary__row donate-pay-summary__row--total">
+                                <span>Total (USD)</span>
+                                <span x-text="'$' + totalAmount.toFixed(2)"></span>
+                            </div>
+                            <div class="donate-pay-summary__row donate-pay-summary__row--php">
+                                <span>Approx. in PHP</span>
+                                <span x-text="'₱' + amountPhp.toFixed(2)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Platform cost cover --}}
                 <div class="donate-form">
-                    {{-- Card number --}}
-                    <div class="donate-form__group">
-                        <label class="donate-form__label" for="card-number">Card number</label>
-                        <div class="donate-form__card-wrap">
-                            <input
-                                id="card-number"
-                                type="text"
-                                inputmode="numeric"
-                                class="donate-form__input donate-form__input--card"
-                                placeholder="1234 1234 1234 1234"
-                                maxlength="19"
-                                x-model="card.number"
-                                @input="formatCard($event)"
-                            />
-                            <div class="donate-form__card-brands">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="donate-brand-icon">
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Expiry + CVV --}}
-                    <div class="donate-form__row">
-                        <div class="donate-form__group">
-                            <label class="donate-form__label" for="expiry">Expiration date</label>
-                            <input
-                                id="expiry"
-                                type="text"
-                                inputmode="numeric"
-                                class="donate-form__input"
-                                placeholder="MM / YY"
-                                maxlength="7"
-                                x-model="card.expiry"
-                                @input="formatExpiry($event)"
-                            />
-                        </div>
-                        <div class="donate-form__group">
-                            <label class="donate-form__label" for="cvc">Security code</label>
-                            <div class="donate-form__cvc-wrap">
-                                <input
-                                    id="cvc"
-                                    type="text"
-                                    inputmode="numeric"
-                                    class="donate-form__input donate-form__input--cvc"
-                                    placeholder="CVC"
-                                    maxlength="4"
-                                    x-model="card.cvc"
-                                />
-                                <svg class="donate-form__cvc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h3M11 15h2"/></svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Country --}}
-                    <div class="donate-form__group">
-                        <label class="donate-form__label" for="billing-country">Country</label>
-                        <select id="billing-country" class="donate-form__select" x-model="card.country">
-                            <option value="PH">Philippines</option>
-                            <option value="US">United States</option>
-                            <option value="GB">United Kingdom</option>
-                            <option value="AU">Australia</option>
-                            <option value="CA">Canada</option>
-                            <option value="SG">Singapore</option>
-                        </select>
-                    </div>
-
-                    {{-- Platform cost cover --}}
                     <div class="donate-platform">
                         <label class="donate-form__label" for="platform-cost">
                             Cover platform costs
@@ -350,6 +396,8 @@
                             <option value="0">No thanks</option>
                         </select>
                     </div>
+
+                    <p x-show="submitError" x-text="submitError" class="donate-pay-error" role="alert"></p>
                 </div>
 
                 {{-- Donate CTA --}}
@@ -363,8 +411,10 @@
                         @click="submit()"
                         :disabled="!step3Valid()"
                     >
-                        <span>Donate </span>
-                        <span x-text="'$' + totalAmount.toFixed(2)"></span>
+                        <span x-show="!isSubmitting">Donate with </span>
+                        <span x-show="!isSubmitting" x-text="paymentMethodLabel()"></span>
+                        <span x-show="isSubmitting">Redirecting…</span>
+                        <span x-show="!isSubmitting" x-text="'$' + totalAmount.toFixed(2)"></span>
                     </button>
                 </div>
             </div>

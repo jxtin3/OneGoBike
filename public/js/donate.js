@@ -1,4 +1,4 @@
-function donateApp() {
+function donateApp(config = {}) {
     return {
         step:         1,
         freq:         'once',
@@ -10,16 +10,52 @@ function donateApp() {
         platformFee:  1.88,
         showEmailReceipt: false,
         receiptEmail: '',
+        paymentMethod: 'gcash',
+        usdToPhp:     config.usdToPhp ?? 58,
+        checkoutUrl:  config.checkoutUrl ?? '/donate/checkout',
+        isSubmitting: false,
+        submitError:  '',
         form: {
             orgName: '', firstName: '', lastName: '', email: '',
             phone: '', address1: '', address2: '',
             city: '', postcode: '', state: '', country: 'PH',
         },
-        card: {
-            number: '', expiry: '', cvc: '', country: 'PH',
+
+        init() {
+            if (config.paidDonation) {
+                this.applyPaidDonation(config.paidDonation);
+            } else if (config.cancelledDonation) {
+                this.applyCancelledDonation(config.cancelledDonation);
+            }
         },
 
-        init() {},
+        applyPaidDonation(donation) {
+            this.amount = parseFloat(donation.amount_usd);
+            this.platformFee = parseFloat(donation.platform_fee_usd);
+            this.customMode = false;
+            this.step = 4;
+        },
+
+        applyCancelledDonation(donation) {
+            this.amount = parseFloat(donation.amount_usd);
+            this.platformFee = parseFloat(donation.platform_fee_usd);
+            this.paymentMethod = donation.payment_method;
+            this.freq = donation.frequency;
+            this.donorType = donation.donor_type;
+            this.form.orgName = donation.org_name ?? '';
+            this.form.firstName = donation.first_name;
+            this.form.lastName = donation.last_name;
+            this.form.email = donation.email;
+            this.form.phone = donation.phone ?? '';
+            this.form.address1 = donation.address1;
+            this.form.address2 = donation.address2 ?? '';
+            this.form.city = donation.city;
+            this.form.postcode = donation.postcode;
+            this.form.state = donation.state;
+            this.form.country = donation.country;
+            this.submitError = config.cancelMessage ?? 'Payment was cancelled. You can try again.';
+            this.step = 3;
+        },
 
         get effectiveAmount() {
             return this.customMode ? (parseFloat(this.customAmount) || 0) : this.amount;
@@ -27,6 +63,10 @@ function donateApp() {
 
         get totalAmount() {
             return this.effectiveAmount + parseFloat(this.platformFee || 0);
+        },
+
+        get amountPhp() {
+            return this.totalAmount * this.usdToPhp;
         },
 
         selectPreset(amt) {
@@ -50,24 +90,67 @@ function donateApp() {
         },
 
         step3Valid() {
-            const c = this.card;
-            return c.number.replace(/\s/g,'').length >= 13 && c.expiry.length >= 5 && c.cvc.length >= 3;
+            return !!this.paymentMethod && !this.isSubmitting;
         },
 
-        formatCard(e) {
-            let v = e.target.value.replace(/\D/g,'').slice(0,16);
-            this.card.number = v.replace(/(.{4})/g,'$1 ').trim();
+        paymentMethodLabel() {
+            const labels = { gcash: 'GCash', paypal: 'PayPal', bank: 'Bank / Online Banking' };
+            return labels[this.paymentMethod] ?? 'Payment';
         },
 
-        formatExpiry(e) {
-            let v = e.target.value.replace(/\D/g,'').slice(0,4);
-            if (v.length >= 3) v = v.slice(0,2) + ' / ' + v.slice(2);
-            this.card.expiry = v;
-        },
-
-        submit() {
+        async submit() {
             if (!this.step3Valid()) return;
-            this.step = 4;
+
+            this.isSubmitting = true;
+            this.submitError = '';
+
+            const payload = {
+                amount: this.effectiveAmount,
+                platform_fee: this.platformFee,
+                frequency: this.freq,
+                payment_method: this.paymentMethod,
+                donor_type: this.donorType,
+                org_name: this.form.orgName,
+                first_name: this.form.firstName,
+                last_name: this.form.lastName,
+                email: this.form.email,
+                phone: this.form.phone,
+                address1: this.form.address1,
+                address2: this.form.address2,
+                city: this.form.city,
+                postcode: this.form.postcode,
+                state: this.form.state,
+                country: this.form.country,
+                receipt_email: this.showEmailReceipt ? this.receiptEmail : null,
+            };
+
+            try {
+                const response = await fetch(this.checkoutUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content ?? '',
+                    },
+                    body: JSON.stringify(payload),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message ?? 'Checkout failed. Please try again.');
+                }
+
+                if (data.redirect_url) {
+                    window.location.href = data.redirect_url;
+                    return;
+                }
+
+                throw new Error('No redirect URL received.');
+            } catch (error) {
+                this.submitError = error.message ?? 'Something went wrong. Please try again.';
+                this.isSubmitting = false;
+            }
         },
 
         copyLink() {

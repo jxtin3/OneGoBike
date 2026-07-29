@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\Webhook\PayMongoWebhookController;
+use App\Http\Controllers\Webhook\PayPalWebhookController;
 use App\Http\Middleware\EnsureAdmin;
 use Illuminate\Support\Facades\Route;
 
@@ -31,9 +34,13 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/donate', function () {
-    return view('donate');
-});
+Route::get('/donate', [DonationController::class, 'show'])->name('donate');
+Route::post('/donate/checkout', [DonationController::class, 'checkout'])->name('donate.checkout');
+Route::get('/donate/success/{donation}', [DonationController::class, 'success'])->name('donate.success');
+Route::get('/donate/cancel/{donation}', [DonationController::class, 'cancel'])->name('donate.cancel');
+
+Route::post('/webhooks/paypal', [PayPalWebhookController::class, 'handle']);
+Route::post('/webhooks/paymongo', [PayMongoWebhookController::class, 'handle']);
 
 Route::get('/privacy-policy', function () {
     return view('pages.privacy');

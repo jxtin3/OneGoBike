@@ -302,6 +302,97 @@
     box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+.donate-freq--3col {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.donate-freq--3col .donate-freq__btn {
+    font-size: 0.78rem;
+    padding: 0.65rem 0.25rem;
+}
+
+.donate-freq__btn--gcash.is-active {
+    background: #007CFF;
+    border-color: #007CFF;
+}
+
+.donate-freq__btn--paypal.is-active {
+    background: #003087;
+    border-color: #003087;
+}
+
+.donate-freq__btn--bank.is-active {
+    background: #0D1B2A;
+    border-color: #0D1B2A;
+}
+
+/* -- Payment method panels -- */
+.donate-pay-panel {
+    margin-top: 0.25rem;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+.donate-pay-panel__title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.35rem;
+}
+
+.donate-pay-panel__text {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.55;
+    margin-bottom: 0.85rem;
+}
+
+.donate-pay-panel--gcash {
+    border-left: 3px solid #007CFF;
+}
+
+.donate-pay-panel--paypal {
+    border-left: 3px solid #003087;
+}
+
+.donate-pay-panel--bank {
+    border-left: 3px solid #0D1B2A;
+}
+
+.donate-pay-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.donate-pay-summary__row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #374151;
+}
+
+.donate-pay-summary__row--total {
+    font-weight: 700;
+    color: #111827;
+    padding-top: 0.35rem;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 0.15rem;
+}
+
+.donate-pay-summary__row--php {
+    font-size: 0.78rem;
+    color: #64748b;
+}
+
+.donate-pay-error {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: #DC2626;
+    font-weight: 600;
+}
+
 /* -- Amount presets -- */
 .donate-amounts {
     display: grid;
@@ -773,5 +864,9 @@
 
     .donate-card-wrap {
         padding: 0.5rem 0.75rem 2rem;
+    }
+
+    .donate-freq--3col {
+        grid-template-columns: 1fr;
     }
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0D1B2A" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
      <!-- SEO  seacrh engine opti -->
     <title>{{ $title ?? 'OneGoBike — Youth-Led Community Health Responders' }}</title>

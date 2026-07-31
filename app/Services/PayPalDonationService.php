@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Services;
-
+use Illuminate\Support\Facades\Log;
 use App\Models\Donation;
 use RuntimeException;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
@@ -49,8 +49,16 @@ class PayPalDonationService
         ]);
 
         if (($response['status'] ?? '') !== 'CREATED') {
-            throw new RuntimeException('PayPal order creation failed.');
-        }
+    Log::error('PayPal order creation failed', ['response' => $response]);
+
+    $reason = $response['message']
+        ?? $response['error_description']
+        ?? ($response['details'][0]['description'] ?? null)
+        ?? ($response['name'] ?? null)
+        ?? 'Unexpected response from PayPal.';
+
+    throw new RuntimeException("PayPal order creation failed: {$reason}");
+}
 
         $approvalUrl = collect($response['links'] ?? [])
             ->firstWhere('rel', 'approve')['href'] ?? null;

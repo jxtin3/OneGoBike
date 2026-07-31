@@ -267,14 +267,14 @@
                     :aria-expanded="showEmailReceipt.toString()"
                 >
                     <svg class="donate-secure__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C7 2 3 6 3 6v6c0 5.25 3.75 9.74 9 11 5.25-1.26 9-5.75 9-11V6s-4-4-9-4z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/></svg>
-                    <span>Secure checkout — choose your payment method</span>
+                    <span>Secure checkout - choose your payment method</span>
                     <svg class="donate-secure__chevron" :class="{ 'is-rotated': showEmailReceipt }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
                 </button>
                 
                 <div x-show="showEmailReceipt" x-collapse>
                     <div class="donate-receipt-box">
                         <div class="donate-form__group" style="margin-bottom: 0;">
-                            <label class="donate-form__label" for="receipt-email">Email Address for Receipt</label>
+                            <label class="donate-form__label" for="receipt-email">Email Address</label>
                             <input id="receipt-email" type="email" class="donate-form__input" placeholder="Enter email address" x-model="receiptEmail" />
                         </div>
                     </div>
@@ -392,8 +392,8 @@
                             Cover platform costs
                         </label>
                         <select id="platform-cost" class="donate-form__select" x-model="platformFee">
-                            <option value="1.88">$1.88</option>
-                            <option value="0">No thanks</option>
+                            <option value="1.88">$1.88</option> 
+                            <option value="0">I don't wish to cover platform costs</option>
                         </select>
                     </div>
 

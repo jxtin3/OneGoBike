@@ -65,374 +65,376 @@
     <div class="donate-card-wrap">
         <div class="donate-card">
 
-            {{-- Step indicator --}}
-            <div class="donate-steps">
-                <template x-for="n in 3" :key="n">
-                    <button
-                        class="donate-step"
-                        :class="{ 'is-active': step === n, 'is-done': step > n }"
-                        @click="step > n ? step = n : null"
-                        :disabled="step < n"
-                        :aria-label="'Step ' + n"
-                    >
-                        <span x-text="n"></span>
-                    </button>
-                </template>
-            </div>
-
-            {{-- ---- STEP 1: Amount ---- --}}
-            <div x-show="step === 1" x-transition:enter="donate-step-enter" x-transition:enter-start="donate-step-enter-start" x-transition:enter-end="donate-step-enter-end">
-                <div class="donate-card__header">
-                    <h2 class="donate-card__title">I'd like to make this donation</h2>
-                    <p class="donate-card__sub">This donation is in USD</p>
-                </div>
-
-                {{-- Once / Monthly toggle --}}
-                <div class="donate-freq">
-                    <button
-                        id="freq-once"
-                        class="donate-freq__btn"
-                        :class="{ 'is-active': freq === 'once' }"
-                        @click="freq = 'once'"
-                    >Once</button>
-                    <button
-                        id="freq-monthly"
-                        class="donate-freq__btn"
-                        :class="{ 'is-active': freq === 'monthly' }"
-                        @click="freq = 'monthly'"
-                    >Monthly</button>
-                </div>
-
-                {{-- Preset amounts --}}
-                <div class="donate-amounts">
-                    <template x-for="amt in presets" :key="amt">
+            @if(!isset($paidDonation))
+                {{-- Step indicator --}}
+                <div class="donate-steps" x-show="step < 4">
+                    <template x-for="n in 3" :key="n">
                         <button
-                            class="donate-amount__btn"
-                            :class="{ 'is-active': amount === amt && !customMode }"
-                            @click="selectPreset(amt)"
-                            x-text="'$' + amt"
-                        ></button>
+                            class="donate-step"
+                            :class="{ 'is-active': step === n, 'is-done': step > n }"
+                            @click="step > n ? step = n : null"
+                            :disabled="step < n"
+                            :aria-label="'Step ' + n"
+                        >
+                            <span x-text="n"></span>
+                        </button>
                     </template>
                 </div>
 
-                {{-- Custom amount --}}
-                <div class="donate-custom">
-                    <span class="donate-custom__symbol">$</span>
-                    <input
-                        id="custom-amount"
-                        type="number"
-                        min="1"
-                        placeholder="Other Amount"
-                        class="donate-custom__input"
-                        x-model="customAmount"
-                        @focus="customMode = true"
-                        @input="customMode = true; amount = parseFloat(customAmount) || 0"
-                    />
-                </div>
+                {{-- ---- STEP 1: Amount ---- --}}
+                <div x-show="step === 1" x-transition:enter="donate-step-enter" x-transition:enter-start="donate-step-enter-start" x-transition:enter-end="donate-step-enter-end">
+                    <div class="donate-card__header">
+                        <h2 class="donate-card__title">I'd like to make this donation</h2>
+                        <p class="donate-card__sub">This donation is in USD</p>
+                    </div>
 
-                <button
-                    id="donate-step1-btn"
-                    class="donate-cta"
-                    @click="goStep2()"
-                    :disabled="effectiveAmount <= 0"
-                >Donate</button>
-            </div>
+                    {{-- Once / Monthly toggle --}}
+                    <div class="donate-freq">
+                        <button
+                            id="freq-once"
+                            class="donate-freq__btn"
+                            :class="{ 'is-active': freq === 'once' }"
+                            @click="freq = 'once'"
+                        >Once</button>
+                        <button
+                            id="freq-monthly"
+                            class="donate-freq__btn"
+                            :class="{ 'is-active': freq === 'monthly' }"
+                            @click="freq = 'monthly'"
+                        >Monthly</button>
+                    </div>
 
-            {{-- ---- STEP 2: Your Details ---- --}}
-            <div x-show="step === 2" x-transition:enter="donate-step-enter" x-transition:enter-start="donate-step-enter-start" x-transition:enter-end="donate-step-enter-end">
-                <div class="donate-card__header">
-                    <h2 class="donate-card__title">Your Details</h2>
-                    <p class="donate-card__sub">This donation is in USD</p>
-                </div>
+                    {{-- Preset amounts --}}
+                    <div class="donate-amounts">
+                        <template x-for="amt in presets" :key="amt">
+                            <button
+                                class="donate-amount__btn"
+                                :class="{ 'is-active': amount === amt && !customMode }"
+                                @click="selectPreset(amt)"
+                                x-text="'$' + amt"
+                            ></button>
+                        </template>
+                    </div>
 
-                {{-- Individual / Organization --}}
-                <div class="donate-freq">
+                    {{-- Custom amount --}}
+                    <div class="donate-custom">
+                        <span class="donate-custom__symbol">$</span>
+                        <input
+                            id="custom-amount"
+                            type="number"
+                            min="1"
+                            placeholder="Other Amount"
+                            class="donate-custom__input"
+                            x-model="customAmount"
+                            @focus="customMode = true"
+                            @input="customMode = true; amount = parseFloat(customAmount) || 0"
+                        />
+                    </div>
+
                     <button
-                        id="donor-individual"
-                        class="donate-freq__btn"
-                        :class="{ 'is-active': donorType === 'individual' }"
-                        @click="donorType = 'individual'"
-                    >Individual</button>
-                    <button
-                        id="donor-organization"
-                        class="donate-freq__btn"
-                        :class="{ 'is-active': donorType === 'organization' }"
-                        @click="donorType = 'organization'"
-                    >Organization</button>
+                        id="donate-step1-btn"
+                        class="donate-cta"
+                        @click="goStep2()"
+                        :disabled="effectiveAmount <= 0"
+                    >Donate</button>
                 </div>
 
-                <div class="donate-form">
-                    <div 
-                        x-show="donorType === 'organization'"
-                        x-collapse
+                {{-- ---- STEP 2: Your Details ---- --}}
+                <div x-show="step === 2" x-transition:enter="donate-step-enter" x-transition:enter-start="donate-step-enter-start" x-transition:enter-end="donate-step-enter-end">
+                    <div class="donate-card__header">
+                        <h2 class="donate-card__title">Your Details</h2>
+                        <p class="donate-card__sub">This donation is in USD</p>
+                    </div>
+
+                    {{-- Individual / Organization --}}
+                    <div class="donate-freq">
+                        <button
+                            id="donor-individual"
+                            class="donate-freq__btn"
+                            :class="{ 'is-active': donorType === 'individual' }"
+                            @click="donorType = 'individual'"
+                        >Individual</button>
+                        <button
+                            id="donor-organization"
+                            class="donate-freq__btn"
+                            :class="{ 'is-active': donorType === 'organization' }"
+                            @click="donorType = 'organization'"
+                        >Organization</button>
+                    </div>
+
+                    <div class="donate-form">
+                        <div 
+                            x-show="donorType === 'organization'"
+                            x-collapse
+                        >
+                            <div class="donate-form__group" style="margin-bottom: 1.5rem; padding-top: 0.1rem;">
+                                <label class="donate-form__label" for="org-name">Organization Name <span class="req">*</span></label>
+                                <input id="org-name" type="text" class="donate-form__input" x-model="form.orgName" autocomplete="organization" />
+                            </div>
+                        </div>
+                        <div class="donate-form__row">
+                            <div class="donate-form__group">
+                                <label class="donate-form__label" for="first-name">First Name <span class="req">*</span></label>
+                                <input id="first-name" type="text" class="donate-form__input" x-model="form.firstName" autocomplete="given-name" />
+                            </div>
+                            <div class="donate-form__group">
+                                <label class="donate-form__label" for="last-name">Last Name <span class="req">*</span></label>
+                                <input id="last-name" type="text" class="donate-form__input" x-model="form.lastName" autocomplete="family-name" />
+                            </div>
+                        </div>
+
+                        <div class="donate-form__group">
+                            <label class="donate-form__label" for="email">Email <span class="req">*</span></label>
+                            <input id="email" type="email" class="donate-form__input" x-model="form.email" autocomplete="email" />
+                        </div>
+
+                        <div class="donate-form__group">
+                            <label class="donate-form__label" for="phone">Phone</label>
+                            <input id="phone" type="tel" class="donate-form__input" x-model="form.phone" autocomplete="tel" />
+                        </div>
+
+                        <h3 class="donate-form__section-title">Postal Address</h3>
+
+                        <div class="donate-form__row">
+                            <div class="donate-form__group">
+                                <label class="donate-form__label" for="addr1">Address Line 1 <span class="req">*</span></label>
+                                <input id="addr1" type="text" class="donate-form__input" placeholder="Street address, P.O. box" x-model="form.address1" autocomplete="address-line1" />
+                            </div>
+                            <div class="donate-form__group">
+                                <label class="donate-form__label" for="addr2">Address Line 2</label>
+                                <input id="addr2" type="text" class="donate-form__input" placeholder="Apartment, suite, unit, bldg" x-model="form.address2" autocomplete="address-line2" />
+                            </div>
+                        </div>
+
+                        <div class="donate-form__row">
+                            <div class="donate-form__group">
+                                <label class="donate-form__label" for="city">City <span class="req">*</span></label>
+                                <input id="city" type="text" class="donate-form__input" x-model="form.city" autocomplete="address-level2" />
+                            </div>
+                            <div class="donate-form__group">
+                                <label class="donate-form__label" for="postcode">Postcode <span class="req">*</span></label>
+                                <input id="postcode" type="text" class="donate-form__input" x-model="form.postcode" autocomplete="postal-code" />
+                            </div>
+                        </div>
+
+                        <div class="donate-form__row">
+                            <div class="donate-form__group">
+                                <label class="donate-form__label" for="state">State <span class="req">*</span></label>
+                                <input id="state" type="text" class="donate-form__input" x-model="form.state" autocomplete="address-level1" />
+                            </div>
+                            <div class="donate-form__group">
+                                <label class="donate-form__label" for="country">Country <span class="req">*</span></label>
+                                <select id="country" class="donate-form__select" x-model="form.country" autocomplete="country">
+                                    <option value="PH">Philippines</option>
+                                    <option value="US">United States</option>
+                                    <option value="GB">United Kingdom</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="SG">Singapore</option>
+                                    <option value="JP">Japan</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="FR">France</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="donate-card__actions">
+                        <button class="donate-back" @click="step = 1" aria-label="Back to step 1">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+                        </button>
+                        <button
+                            id="donate-step2-btn"
+                            class="donate-cta donate-cta--flex"
+                            @click="goStep3()"
+                            :disabled="!step2Valid()"
+                        >Payment Options</button>
+                    </div>
+                </div>
+
+                {{-- ---- STEP 3: Payment ---- --}}
+                <div x-show="step === 3" x-transition:enter="donate-step-enter" x-transition:enter-start="donate-step-enter-start" x-transition:enter-end="donate-step-enter-end">
+                    <div class="donate-card__header">
+                        <h2 class="donate-card__title">Payment Details</h2>
+                        <p class="donate-card__sub">This donation is in USD</p>
+                    </div>
+
+                    {{-- Secure badge / Email Receipt Toggle --}}
+                    <button 
+                        class="donate-secure" 
+                        type="button"
+                        @click="showEmailReceipt = !showEmailReceipt"
+                        :aria-expanded="showEmailReceipt.toString()"
                     >
-                        <div class="donate-form__group" style="margin-bottom: 1.5rem; padding-top: 0.1rem;">
-                            <label class="donate-form__label" for="org-name">Organization Name <span class="req">*</span></label>
-                            <input id="org-name" type="text" class="donate-form__input" x-model="form.orgName" autocomplete="organization" />
-                        </div>
-                    </div>
-                    <div class="donate-form__row">
-                        <div class="donate-form__group">
-                            <label class="donate-form__label" for="first-name">First Name <span class="req">*</span></label>
-                            <input id="first-name" type="text" class="donate-form__input" x-model="form.firstName" autocomplete="given-name" />
-                        </div>
-                        <div class="donate-form__group">
-                            <label class="donate-form__label" for="last-name">Last Name <span class="req">*</span></label>
-                            <input id="last-name" type="text" class="donate-form__input" x-model="form.lastName" autocomplete="family-name" />
-                        </div>
-                    </div>
-
-                    <div class="donate-form__group">
-                        <label class="donate-form__label" for="email">Email <span class="req">*</span></label>
-                        <input id="email" type="email" class="donate-form__input" x-model="form.email" autocomplete="email" />
-                    </div>
-
-                    <div class="donate-form__group">
-                        <label class="donate-form__label" for="phone">Phone</label>
-                        <input id="phone" type="tel" class="donate-form__input" x-model="form.phone" autocomplete="tel" />
-                    </div>
-
-                    <h3 class="donate-form__section-title">Postal Address</h3>
-
-                    <div class="donate-form__row">
-                        <div class="donate-form__group">
-                            <label class="donate-form__label" for="addr1">Address Line 1 <span class="req">*</span></label>
-                            <input id="addr1" type="text" class="donate-form__input" placeholder="Street address, P.O. box" x-model="form.address1" autocomplete="address-line1" />
-                        </div>
-                        <div class="donate-form__group">
-                            <label class="donate-form__label" for="addr2">Address Line 2</label>
-                            <input id="addr2" type="text" class="donate-form__input" placeholder="Apartment, suite, unit, bldg" x-model="form.address2" autocomplete="address-line2" />
+                        <svg class="donate-secure__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C7 2 3 6 3 6v6c0 5.25 3.75 9.74 9 11 5.25-1.26 9-5.75 9-11V6s-4-4-9-4z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/></svg>
+                        <span>Secure checkout - choose your payment method</span>
+                        <svg class="donate-secure__chevron" :class="{ 'is-rotated': showEmailReceipt }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                    </button>
+                    
+                    <div x-show="showEmailReceipt" x-collapse>
+                        <div class="donate-receipt-box">
+                            <div class="donate-form__group" style="margin-bottom: 0;">
+                                <label class="donate-form__label" for="receipt-email">Email Address</label>
+                                <input id="receipt-email" type="email" class="donate-form__input" placeholder="Enter email address" x-model="receiptEmail" />
+                            </div>
                         </div>
                     </div>
 
-                    <div class="donate-form__row">
-                        <div class="donate-form__group">
-                            <label class="donate-form__label" for="city">City <span class="req">*</span></label>
-                            <input id="city" type="text" class="donate-form__input" x-model="form.city" autocomplete="address-level2" />
-                        </div>
-                        <div class="donate-form__group">
-                            <label class="donate-form__label" for="postcode">Postcode <span class="req">*</span></label>
-                            <input id="postcode" type="text" class="donate-form__input" x-model="form.postcode" autocomplete="postal-code" />
+                    {{-- Payment method selector --}}
+                    <div class="donate-freq donate-freq--3col">
+                        <button
+                            id="pay-gcash"
+                            type="button"
+                            class="donate-freq__btn donate-freq__btn--gcash"
+                            :class="{ 'is-active': paymentMethod === 'gcash' }"
+                            @click="paymentMethod = 'gcash'"
+                        >GCash</button>
+                        <button
+                            id="pay-paypal"
+                            type="button"
+                            class="donate-freq__btn donate-freq__btn--paypal"
+                            :class="{ 'is-active': paymentMethod === 'paypal' }"
+                            @click="paymentMethod = 'paypal'"
+                        >PayPal</button>
+                        <button
+                            id="pay-bank"
+                            type="button"
+                            class="donate-freq__btn donate-freq__btn--bank"
+                            :class="{ 'is-active': paymentMethod === 'bank' }"
+                            @click="paymentMethod = 'bank'"
+                        >ATM / Bank</button>
+                    </div>
+
+                    {{-- GCash panel --}}
+                    <div x-show="paymentMethod === 'gcash'" x-collapse class="donate-form">
+                        <div class="donate-pay-panel donate-pay-panel--gcash">
+                            <p class="donate-pay-panel__title">Pay with GCash</p>
+                            <p class="donate-pay-panel__text">
+                                You will be redirected to a secure GCash checkout page to complete your donation.
+                            </p>
+                            <div class="donate-pay-summary">
+                                <div class="donate-pay-summary__row">
+                                    <span>Donation</span>
+                                    <span x-text="'$' + effectiveAmount.toFixed(2)"></span>
+                                </div>
+                                <div class="donate-pay-summary__row" x-show="parseFloat(platformFee) > 0">
+                                    <span>Platform fee</span>
+                                    <span x-text="'$' + parseFloat(platformFee).toFixed(2)"></span>
+                                </div>
+                                <div class="donate-pay-summary__row donate-pay-summary__row--total">
+                                    <span>Total (USD)</span>
+                                    <span x-text="'$' + totalAmount.toFixed(2)"></span>
+                                </div>
+                                <div class="donate-pay-summary__row donate-pay-summary__row--php">
+                                    <span>Approx. in PHP</span>
+                                    <span x-text="'₱' + amountPhp.toFixed(2)"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="donate-form__row">
-                        <div class="donate-form__group">
-                            <label class="donate-form__label" for="state">State <span class="req">*</span></label>
-                            <input id="state" type="text" class="donate-form__input" x-model="form.state" autocomplete="address-level1" />
+                    {{-- PayPal panel --}}
+                    <div x-show="paymentMethod === 'paypal'" x-collapse class="donate-form">
+                        <div class="donate-pay-panel donate-pay-panel--paypal">
+                            <p class="donate-pay-panel__title">Pay with PayPal</p>
+                            <p class="donate-pay-panel__text">
+                                You will be redirected to PayPal to sign in and complete your donation securely.
+                            </p>
+                            <div class="donate-pay-summary">
+                                <div class="donate-pay-summary__row">
+                                    <span>Donation</span>
+                                    <span x-text="'$' + effectiveAmount.toFixed(2)"></span>
+                                </div>
+                                <div class="donate-pay-summary__row" x-show="parseFloat(platformFee) > 0">
+                                    <span>Platform fee</span>
+                                    <span x-text="'$' + parseFloat(platformFee).toFixed(2)"></span>
+                                </div>
+                                <div class="donate-pay-summary__row donate-pay-summary__row--total">
+                                    <span>Total (USD)</span>
+                                    <span x-text="'$' + totalAmount.toFixed(2)"></span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="donate-form__group">
-                            <label class="donate-form__label" for="country">Country <span class="req">*</span></label>
-                            <select id="country" class="donate-form__select" x-model="form.country" autocomplete="country">
-                                <option value="PH">Philippines</option>
-                                <option value="US">United States</option>
-                                <option value="GB">United Kingdom</option>
-                                <option value="AU">Australia</option>
-                                <option value="CA">Canada</option>
-                                <option value="SG">Singapore</option>
-                                <option value="JP">Japan</option>
-                                <option value="DE">Germany</option>
-                                <option value="FR">France</option>
-                                <option value="other">Other</option>
+                    </div>
+
+                    {{-- Bank / ATM panel --}}
+                    <div x-show="paymentMethod === 'bank'" x-collapse class="donate-form">
+                        <div class="donate-pay-panel donate-pay-panel--bank">
+                            <p class="donate-pay-panel__title">Pay via Bank / Online Banking</p>
+                            <p class="donate-pay-panel__text">
+                                You will be redirected to pay through your bank's online portal. Supported banks include BPI, UnionBank, BDO, Metrobank, and Landbank.
+                            </p>
+                            <div class="donate-pay-summary">
+                                <div class="donate-pay-summary__row">
+                                    <span>Donation</span>
+                                    <span x-text="'$' + effectiveAmount.toFixed(2)"></span>
+                                </div>
+                                <div class="donate-pay-summary__row" x-show="parseFloat(platformFee) > 0">
+                                    <span>Platform fee</span>
+                                    <span x-text="'$' + parseFloat(platformFee).toFixed(2)"></span>
+                                </div>
+                                <div class="donate-pay-summary__row donate-pay-summary__row--total">
+                                    <span>Total (USD)</span>
+                                    <span x-text="'$' + totalAmount.toFixed(2)"></span>
+                                </div>
+                                <div class="donate-pay-summary__row donate-pay-summary__row--php">
+                                    <span>Approx. in PHP</span>
+                                    <span x-text="'₱' + amountPhp.toFixed(2)"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Platform cost cover --}}
+                    <div class="donate-form">
+                        <div class="donate-platform">
+                            <label class="donate-form__label" for="platform-cost">
+                                Cover platform costs
+                            </label>
+                            <select id="platform-cost" class="donate-form__select" x-model="platformFee">
+                                <option value="1.88">$1.88</option> 
+                                <option value="0">I don't wish to cover platform costs</option>
                             </select>
                         </div>
+
+                        <p x-show="submitError" x-text="submitError" class="donate-pay-error" role="alert"></p>
+                    </div>
+
+                    {{-- Donate CTA --}}
+                    <div class="donate-card__actions">
+                        <button class="donate-back" @click="step = 2" aria-label="Back to step 2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+                        </button>
+                        <button
+                            id="donate-submit-btn"
+                            class="donate-cta donate-cta--flex"
+                            @click="submit()"
+                            :disabled="!step3Valid()"
+                        >
+                            <span x-show="!isSubmitting">Donate with </span>
+                            <span x-show="!isSubmitting" x-text="paymentMethodLabel()"></span>
+                            <span x-show="isSubmitting">Redirecting…</span>
+                            <span x-show="!isSubmitting" x-text="'$' + totalAmount.toFixed(2)"></span>
+                        </button>
                     </div>
                 </div>
-
-                <div class="donate-card__actions">
-                    <button class="donate-back" @click="step = 1" aria-label="Back to step 1">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
-                    </button>
-                    <button
-                        id="donate-step2-btn"
-                        class="donate-cta donate-cta--flex"
-                        @click="goStep3()"
-                        :disabled="!step2Valid()"
-                    >Payment Options</button>
-                </div>
-            </div>
-
-            {{-- ---- STEP 3: Payment ---- --}}
-            <div x-show="step === 3" x-transition:enter="donate-step-enter" x-transition:enter-start="donate-step-enter-start" x-transition:enter-end="donate-step-enter-end">
-                <div class="donate-card__header">
-                    <h2 class="donate-card__title">Payment Details</h2>
-                    <p class="donate-card__sub">This donation is in USD</p>
-                </div>
-
-                {{-- Secure badge / Email Receipt Toggle --}}
-                <button 
-                    class="donate-secure" 
-                    type="button"
-                    @click="showEmailReceipt = !showEmailReceipt"
-                    :aria-expanded="showEmailReceipt.toString()"
-                >
-                    <svg class="donate-secure__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C7 2 3 6 3 6v6c0 5.25 3.75 9.74 9 11 5.25-1.26 9-5.75 9-11V6s-4-4-9-4z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/></svg>
-                    <span>Secure checkout - choose your payment method</span>
-                    <svg class="donate-secure__chevron" :class="{ 'is-rotated': showEmailReceipt }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
-                </button>
-                
-                <div x-show="showEmailReceipt" x-collapse>
-                    <div class="donate-receipt-box">
-                        <div class="donate-form__group" style="margin-bottom: 0;">
-                            <label class="donate-form__label" for="receipt-email">Email Address</label>
-                            <input id="receipt-email" type="email" class="donate-form__input" placeholder="Enter email address" x-model="receiptEmail" />
+            @else
+                {{-- ---- STEP 4: Thank-you ---- --}}
+                <div>
+                    <div class="donate-thankyou">
+                        <div class="donate-thankyou__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
                         </div>
-                    </div>
-                </div>
-
-                {{-- Payment method selector --}}
-                <div class="donate-freq donate-freq--3col">
-                    <button
-                        id="pay-gcash"
-                        type="button"
-                        class="donate-freq__btn donate-freq__btn--gcash"
-                        :class="{ 'is-active': paymentMethod === 'gcash' }"
-                        @click="paymentMethod = 'gcash'"
-                    >GCash</button>
-                    <button
-                        id="pay-paypal"
-                        type="button"
-                        class="donate-freq__btn donate-freq__btn--paypal"
-                        :class="{ 'is-active': paymentMethod === 'paypal' }"
-                        @click="paymentMethod = 'paypal'"
-                    >PayPal</button>
-                    <button
-                        id="pay-bank"
-                        type="button"
-                        class="donate-freq__btn donate-freq__btn--bank"
-                        :class="{ 'is-active': paymentMethod === 'bank' }"
-                        @click="paymentMethod = 'bank'"
-                    >ATM / Bank</button>
-                </div>
-
-                {{-- GCash panel --}}
-                <div x-show="paymentMethod === 'gcash'" x-collapse class="donate-form">
-                    <div class="donate-pay-panel donate-pay-panel--gcash">
-                        <p class="donate-pay-panel__title">Pay with GCash</p>
-                        <p class="donate-pay-panel__text">
-                            You will be redirected to a secure GCash checkout page to complete your donation.
+                        <h2 class="donate-thankyou__title">Thank You!</h2>
+                        <p class="donate-thankyou__sub">
+                            Your donation of <strong>${{ number_format($paidDonation->total_usd, 2) }}</strong> has been received.<br>
+                            Together, we're giving the power of bicycles to the world.
                         </p>
-                        <div class="donate-pay-summary">
-                            <div class="donate-pay-summary__row">
-                                <span>Donation</span>
-                                <span x-text="'$' + effectiveAmount.toFixed(2)"></span>
-                            </div>
-                            <div class="donate-pay-summary__row" x-show="parseFloat(platformFee) > 0">
-                                <span>Platform fee</span>
-                                <span x-text="'$' + parseFloat(platformFee).toFixed(2)"></span>
-                            </div>
-                            <div class="donate-pay-summary__row donate-pay-summary__row--total">
-                                <span>Total (USD)</span>
-                                <span x-text="'$' + totalAmount.toFixed(2)"></span>
-                            </div>
-                            <div class="donate-pay-summary__row donate-pay-summary__row--php">
-                                <span>Approx. in PHP</span>
-                                <span x-text="'₱' + amountPhp.toFixed(2)"></span>
-                            </div>
-                        </div>
+                        <a href="{{ url('/') }}" class="donate-cta donate-cta--center">Back to Home</a>
                     </div>
                 </div>
-
-                {{-- PayPal panel --}}
-                <div x-show="paymentMethod === 'paypal'" x-collapse class="donate-form">
-                    <div class="donate-pay-panel donate-pay-panel--paypal">
-                        <p class="donate-pay-panel__title">Pay with PayPal</p>
-                        <p class="donate-pay-panel__text">
-                            You will be redirected to PayPal to sign in and complete your donation securely.
-                        </p>
-                        <div class="donate-pay-summary">
-                            <div class="donate-pay-summary__row">
-                                <span>Donation</span>
-                                <span x-text="'$' + effectiveAmount.toFixed(2)"></span>
-                            </div>
-                            <div class="donate-pay-summary__row" x-show="parseFloat(platformFee) > 0">
-                                <span>Platform fee</span>
-                                <span x-text="'$' + parseFloat(platformFee).toFixed(2)"></span>
-                            </div>
-                            <div class="donate-pay-summary__row donate-pay-summary__row--total">
-                                <span>Total (USD)</span>
-                                <span x-text="'$' + totalAmount.toFixed(2)"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Bank / ATM panel --}}
-                <div x-show="paymentMethod === 'bank'" x-collapse class="donate-form">
-                    <div class="donate-pay-panel donate-pay-panel--bank">
-                        <p class="donate-pay-panel__title">Pay via Bank / Online Banking</p>
-                        <p class="donate-pay-panel__text">
-                            You will be redirected to pay through your bank's online portal. Supported banks include BPI, UnionBank, BDO, Metrobank, and Landbank.
-                        </p>
-                        <div class="donate-pay-summary">
-                            <div class="donate-pay-summary__row">
-                                <span>Donation</span>
-                                <span x-text="'$' + effectiveAmount.toFixed(2)"></span>
-                            </div>
-                            <div class="donate-pay-summary__row" x-show="parseFloat(platformFee) > 0">
-                                <span>Platform fee</span>
-                                <span x-text="'$' + parseFloat(platformFee).toFixed(2)"></span>
-                            </div>
-                            <div class="donate-pay-summary__row donate-pay-summary__row--total">
-                                <span>Total (USD)</span>
-                                <span x-text="'$' + totalAmount.toFixed(2)"></span>
-                            </div>
-                            <div class="donate-pay-summary__row donate-pay-summary__row--php">
-                                <span>Approx. in PHP</span>
-                                <span x-text="'₱' + amountPhp.toFixed(2)"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Platform cost cover --}}
-                <div class="donate-form">
-                    <div class="donate-platform">
-                        <label class="donate-form__label" for="platform-cost">
-                            Cover platform costs
-                        </label>
-                        <select id="platform-cost" class="donate-form__select" x-model="platformFee">
-                            <option value="1.88">$1.88</option> 
-                            <option value="0">I don't wish to cover platform costs</option>
-                        </select>
-                    </div>
-
-                    <p x-show="submitError" x-text="submitError" class="donate-pay-error" role="alert"></p>
-                </div>
-
-                {{-- Donate CTA --}}
-                <div class="donate-card__actions">
-                    <button class="donate-back" @click="step = 2" aria-label="Back to step 2">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
-                    </button>
-                    <button
-                        id="donate-submit-btn"
-                        class="donate-cta donate-cta--flex"
-                        @click="submit()"
-                        :disabled="!step3Valid()"
-                    >
-                        <span x-show="!isSubmitting">Donate with </span>
-                        <span x-show="!isSubmitting" x-text="paymentMethodLabel()"></span>
-                        <span x-show="isSubmitting">Redirecting…</span>
-                        <span x-show="!isSubmitting" x-text="'$' + totalAmount.toFixed(2)"></span>
-                    </button>
-                </div>
-            </div>
-
-            {{-- ---- STEP 4: Thank-you ---- --}}
-            <div x-show="step === 4" x-transition:enter="donate-step-enter" x-transition:enter-start="donate-step-enter-start" x-transition:enter-end="donate-step-enter-end">
-                <div class="donate-thankyou">
-                    <div class="donate-thankyou__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-                    </div>
-                    <h2 class="donate-thankyou__title">Thank You!</h2>
-                    <p class="donate-thankyou__sub">
-                        Your donation of <strong x-text="'$' + totalAmount.toFixed(2)"></strong> has been received.<br>
-                        Together, we're giving the power of bicycles to the world.
-                    </p>
-                    <a href="{{ url('/') }}" class="donate-cta donate-cta--center">Back to Home</a>
-                </div>
-            </div>
+            @endif
 
         </div>{{-- /donate-card --}}
     </div>{{-- /donate-card-wrap --}}

@@ -805,16 +805,16 @@
 }
 
 /* -- Alpine step transitions -- */
-[x-transition\:enter] {
+.donate-step-enter {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-[x-transition\:enter-start] {
+.donate-step-enter-start {
     opacity: 0;
     transform: translateX(12px);
 }
 
-[x-transition\:enter-end] {
+.donate-step-enter-end {
     opacity: 1;
     transform: translateX(0);
 }

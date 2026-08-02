@@ -265,9 +265,9 @@ body {
     border-color: rgba(255, 255, 255, 0);
     transition:
         background-color 0.50s cubic-bezier(0.4, 0, 0.2, 1),
-        backdrop-filter  0.50s cubic-bezier(0.4, 0, 0.2, 1),
-        border-color     0.50s cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow       0.50s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter 0.50s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.50s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.50s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-header.is-scrolled {

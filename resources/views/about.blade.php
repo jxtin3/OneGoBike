@@ -236,17 +236,16 @@
         <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[#F97316] mb-4">Take the Next Step</span>
         <h2 class="text-3xl md:text-5xl font-heading font-bold text-[#111827] mb-5 uppercase tracking-tight">Be Part of the Story</h2>
         <p class="text-[#64748B] mb-10 text-base max-w-xl mx-auto leading-relaxed">
-            Whether you ride, have medical training, or simply want to serve — there is a place for you here. Explore our
-            <a href="{{ url('/org-structure') }}" class="text-[#132D6B] font-semibold hover:text-[#2FA7FF] transition-colors">Org Structure &amp; History</a>.
+            Whether you ride, have medical training, or simply want to serve — there is a place for you here. Explore our organizations Structure &amp; History.
         </p>
         <div class="flex flex-wrap items-center justify-center gap-4">
             <a href="{{ url('/volunteer') }}" class="btn-wbr btn-wbr-orange">
                 <span>Join Our Team</span>
                 <svg class="w-5 h-5 arrow" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
             </a>
-            <a href="{{ url('/org-structure') }}" class="btn-wbr btn-wbr-dark">
+            <a href="{{ url('/org-structure') }}" class="group inline-flex items-center justify-center gap-2 px-10 py-4 font-bold uppercase tracking-[0.1em] text-[13px] border-2 border-[#111827] text-[#111827]">
                 <span>Org Structure</span>
-                <svg class="w-5 h-5 arrow" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-[5px]" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
             </a>
         </div>
     </div>

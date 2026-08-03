@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\HomeController;
@@ -42,6 +43,8 @@ Route::get('/donate/cancel/{donation}', [DonationController::class, 'cancel'])->
 Route::post('/webhooks/paypal', [PayPalWebhookController::class, 'handle']);
 Route::post('/webhooks/paymongo', [PayMongoWebhookController::class, 'handle']);
 
+
+// privacy / terms
 Route::get('/privacy-policy', function () {
     return view('pages.privacy');
 });
@@ -50,13 +53,18 @@ Route::get('/terms', function () {
     return view('pages.terms');
 });
 
+
+// Auth routes
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
 });
+
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware([EnsureAdmin::class])->group(function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/locations', [LocationController::class, 'index'])->name('admin.locations.index');
+    Route::post('/admin/locations', [LocationController::class, 'store'])->name('admin.locations.store');
 });

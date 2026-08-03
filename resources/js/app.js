@@ -1,1 +1,1 @@
-//
+import './admin/dashboard.js';

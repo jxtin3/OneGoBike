@@ -28,7 +28,10 @@
                 <h1 style="margin:0; font-size:1.6rem;">Real-Time Response Map</h1>
                 <p style="margin:.3rem 0 0; color:#94a3b8;">Welcome back, {{ auth()->user()->name ?? 'Admin' }}.</p>
             </div>
-            <a class="btn" href="{{ route('logout') }}">Logout</a>
+            <form action="{{ route('logout') }}" method="POST" style="margin:0;">
+                @csrf
+                <button type="submit" class="btn" style="border:none; cursor:pointer; padding:.7rem 1rem; background:#2FA7FF; color:white; border-radius:10px; font-weight:600;">Logout</button>
+            </form>
         </div>
 
         <div class="stat-grid">

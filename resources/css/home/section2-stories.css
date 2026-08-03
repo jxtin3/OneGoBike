@@ -64,3 +64,44 @@
 .story-card:hover .story-rule {
     width: 100%;
 }
+
+
+@keyframes storyCardSlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(64px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes storyCardSlideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-64px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.reveal-right {
+    transform: translateX(64px);
+}
+
+.reveal-left {
+    transform: translateX(-64px);
+}
+
+.reveal-right.visible {
+    animation: storyCardSlideRight 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal-left.visible {
+    animation: storyCardSlideLeft 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

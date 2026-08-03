@@ -137,44 +137,48 @@
             To Transform Communities.
         </h2>
         <p class="mt-8 text-[#64748B] text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            One bicycle. One community. One mission. Empowering a generation of servant leaders dedicated to improving lives through service, compassion, and action.        </p>
+            One bicycle. One community. One mission. Empowering a generation of servant leaders dedicated to improving lives through service, compassion, and action.        
+        </p>
     </div>
 
     <!-- Story Cards -->
-    <div class="w-full flex flex-col gap-8 md:gap-14 pb-12">
+    <div class="w-full flex flex-col gap-8 md:gap-14 pb-12 overflow-x-hidden">
 
         <!-- Story 1 -->
-        <div class="relative flex flex-col md:flex-row items-stretch reveal">
+        <div class="relative flex flex-col md:flex-row items-stretch">
             <div class="w-full md:w-[68%] relative h-[380px] md:h-[520px] overflow-hidden flex-shrink-0">
                 <img
                     src="{{ asset('images/story-1.jpg') }}"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    class="absolute inset-0 w-full h-full object-cover"
                     alt="Youth responders in action"
                     loading="lazy"
                 />
-                <!-- Image overlay for depth -->
-                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#1a1a1a]/30"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#1a1a1a]/30">
+                
+            </div>
             </div>
             <!-- Text panel -->
-            <div class="story-card w-full md:w-[44%] md:-ml-16 bg-[#1a1a1a] p-10 md:p-12 lg:p-16 flex flex-col justify-center text-white z-10 self-center md:my-12">
-                <div class="story-rule"></div>
-                <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F97316]/70 mb-3">Field Operations</span>
-                <h3 class="text-3xl md:text-4xl font-heading font-bold uppercase mb-5 leading-tight tracking-tight">
-                    Racing Against<br>
-                    The Clock
-                </h3>
-                <p class="text-white/65 text-sm md:text-base leading-relaxed mb-8 font-light">
-                    In remote barangays, access to immediate care is limited. Our youth responders on bicycles bridge that gap, delivering first aid and critical supplies faster than traditional vehicles ever could.
-                </p>
-                <a href="{{ url('/what-we-do') }}" class="text-sm font-semibold text-[#2FA7FF] hover:text-white transition-colors flex items-center gap-2 group">
-                    Learn about the program
-                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a>
+            <div class="reveal reveal-right w-full md:w-[44%] md:-ml-16 z-10 self-center md:my-12">
+                <div class="story-card bg-[#1a1a1a] p-10 md:p-12 lg:p-16 flex flex-col justify-center text-white h-full">
+                    <div class="story-rule"></div>
+                    <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F97316]/70 mb-3">Field Operations</span>
+                    <h3 class="text-3xl md:text-4xl font-heading font-bold uppercase mb-5 leading-tight tracking-tight">
+                        Racing Against<br>
+                The Clock
+            </h3>
+            <p class="text-white/65 text-sm md:text-base leading-relaxed mb-8 font-light">
+                In remote barangays, access to immediate care is limited. Our youth responders on bicycles bridge that gap, delivering first aid and critical supplies faster than traditional vehicles ever could.
+            </p>
+            <a href="{{ url('/what-we-do') }}" class="text-sm font-semibold text-[#2FA7FF] hover:text-white transition-colors flex items-center gap-2 group">
+                        Learn about the program
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- Story 2 -->
-        <div class="relative flex flex-col md:flex-row-reverse items-stretch reveal" x-data="{ playing: false }">
+        <div class="relative flex flex-col md:flex-row-reverse items-stretch" x-data="{ playing: false }">
             <div class="w-full md:w-[68%] relative h-[380px] md:h-[550px] overflow-hidden flex-shrink-0 group cursor-pointer"
                  @click="playing ? $refs.video.pause() : $refs.video.play(); playing = !playing">
                 <video
@@ -187,32 +191,30 @@
                     <source src="{{ asset('videos/story-2.mp4') }}" type="video/mp4">
                 </video>
                 <div class="absolute inset-0 bg-gradient-to-l from-transparent to-[#1a1a1a]/30 pointer-events-none"></div>
-                
+
                 <!-- Play/Pause Button -->
-                <button 
+                <button
                     @click.stop="playing ? $refs.video.pause() : $refs.video.play(); playing = !playing"
                     class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-14 h-14 md:w-16 md:h-16 bg-black/40 hover:bg-black/60 border border-white/20 backdrop-blur-md text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-40 group-hover:opacity-100"
                     aria-label="Play/Pause Video"
                 >
-                    <!-- Pause Icon -->
                     <svg x-show="playing" style="display: none;" class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z" clip-rule="evenodd" /></svg>
-                    <!-- Play Icon -->
                     <svg x-show="!playing" class="w-6 h-6 md:w-7 md:h-7 ml-0.5 md:ml-1" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" /></svg>
                 </button>
             </div>
             <!-- Text panel -->
-            <div class="story-card w-full md:w-[44%] bg-[#1a1a1a] p-10 
-            md:p-12 lg:p-16 flex flex-col justify-center text-white z-10 self-center md:my-12 transition-all duration-700 ease-in-out transform"
-            :class="playing ? 'md:mr-2 scale-95 md:-translate-x-6' : 'md:-mr-16 scale-100 translate-x-0'">
-                <div class="story-rule"></div>
-                <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F97316]/70 mb-3">Youth Leadership</span>
-                <h3 class="text-3xl md:text-4xl font-heading font-bold uppercase mb-5 leading-tight tracking-tight">
-                    Empowering The<br>
-                    Next Generation
-                </h3>
-                <p class="text-white/65 text-sm md:text-base leading-relaxed mb-8 font-light">
-                    Bicycles do more than transport; they unlock potential. We see young riders turning into community leaders, taking responsibility for the health and safety of their neighbors.
-                </p>
+            <div class="reveal reveal-left w-full md:w-[44%] z-10 self-center md:my-12">
+                <div class="story-card bg-[#1a1a1a] p-10 md:p-12 lg:p-16 flex flex-col justify-center text-white h-full transition-all duration-700 ease-in-out transform"
+                :class="playing ? 'md:mr-2 scale-95 md:-translate-x-6' : 'md:-mr-16 scale-100 translate-x-0'">
+                    <div class="story-rule"></div>
+                    <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-[#F97316]/70 mb-3">Youth Leadership</span>
+                    <h3 class="text-3xl md:text-4xl font-heading font-bold uppercase mb-5 leading-tight tracking-tight">
+                        Empowering The<br>
+                        Next Generation
+                    </h3>
+                    <p class="text-white/65 text-sm md:text-base leading-relaxed mb-8 font-light">
+                        Bicycles do more than transport; they unlock potential. We see young riders turning into community leaders, taking responsibility for the health and safety of their neighbors.
+                    </p>
                 <div>
                     <a href="{{ url('/news') }}" class="btn-wbr">
                         <span>Read Their Stories</span>
@@ -221,6 +223,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
 </section>

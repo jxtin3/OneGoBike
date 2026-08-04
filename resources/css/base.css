@@ -215,6 +215,20 @@ body {
     color: white;
 }
 
+/* Navy variant — matches #132D6B "Our Full Story" bg */
+.btn-wbr.btn-wbr-navy {
+    border-color: #132D6B;
+    color: #132D6B;
+}
+
+.btn-wbr.btn-wbr-navy::before {
+    background-color: #132D6B;
+}
+
+.btn-wbr.btn-wbr-navy:hover {
+    color: white;
+}
+
 /* Light variant (for dark backgrounds) */
 .btn-wbr.btn-wbr-light {
     border-color: rgba(255, 255, 255, 0.50);

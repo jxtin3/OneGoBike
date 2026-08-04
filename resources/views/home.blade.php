@@ -454,41 +454,41 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 grid grid-cols-1 md:grid-cols-4 divide-y-2 md:divide-y-0 md:divide-x-2 divide-[#0D1B2A]/30"> 
         <!-- Stat 1 -->
         <div class="flex flex-col items-center justify-center text-center py-10">
-            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <svg class="w-9 h-9 mb-5 opacity-80" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm12 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 15v-2.25l3-4.5h3.75L18 15M9 15h9M9 15H4.5l1.9-5.7a1.5 1.5 0 0 1 1.425-1.05H9"/>
             </svg>
-            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[0].display">0</span>
-            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Trained Youth Volunteers</span>
+            <span class="text-stat font-heading font-bold text-white mb-2" x-text="counts[0].display">0</span>
+            <span class="text-white font-bold text-xs tracking-widest uppercase">Trained Youth Volunteers</span>
         </div>
  
         <!-- Stat 2 -->
         <div class="flex flex-col items-center justify-center text-center py-10">
-            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <svg class="w-9 h-9 mb-5 opacity-80" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
             </svg>
-            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[1].display">0</span>
-            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Barangays Served</span>
+            <span class="text-stat font-heading font-bold text-white mb-2" x-text="counts[1].display">0</span>
+            <span class="text-white font-bold text-xs tracking-widest uppercase">Barangays Served</span>
         </div>
  
         <!-- Stat 3 -->
         <div class="flex flex-col items-center justify-center text-center py-10">
-            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <svg class="w-9 h-9 mb-5 opacity-80" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/>
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
             </svg>
-            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[2].display">0</span>
-            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Volunteer Hours</span>
+            <span class="text-stat font-heading font-bold text-white mb-2" x-text="counts[2].display">0</span>
+            <span class="text-white font-bold text-xs tracking-widest uppercase">Volunteer Hours</span>
         </div>
  
         <!-- Stat 4 -->
         <div class="flex flex-col items-center justify-center text-center py-10">
-            <svg class="w-9 h-9 text-[#0D1B2A] mb-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <svg class="w-9 h-9 mb-5 opacity-80" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3.75 8.25h16.5M4.5 6h15a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75h-15a.75.75 0 0 1-.75-.75V6.75A.75.75 0 0 1 4.5 6Z"/>
             </svg>
-            <span class="text-stat font-heading font-bold text-[#0D1B2A] mb-2" x-text="counts[3].display">2019</span>
-            <span class="text-[#0D1B2A] font-bold text-xs tracking-widest uppercase">Active Since</span>
+            <span class="text-stat font-heading font-bold text-white mb-2" x-text="counts[3].display">2019</span>
+            <span class="text-white font-bold text-xs tracking-widest uppercase">Active Since</span>
         </div>
  
     </div>
@@ -566,16 +566,14 @@
                 <div class="flex flex-col sm:flex-row gap-4 mt-1">
                     <a
                         href="{{ url('/about') }}"
-                        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold bg-[#132D6B] text-white hover:bg-[#2FA7FF] transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 rounded-none"
+                        class="group inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold bg-[#132D6B] text-white hover:bg-[#132D6B] transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 rounded-none"
                     >
                         Our Full Story
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                        <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                     </a>
-                    <a
-                        href="{{ url('/donate') }}"
-                        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold bg-white text-[#132D6B] border border-[#132D6B]/30 hover:bg-[#132D6B] hover:text-white transition-all duration-300 shadow-sm rounded-none"
-                    >
-                        Support Our Rides
+                    <a href="{{ url('/donate') }}" class="btn-wbr btn-wbr-navy">
+                        <span>Support Our Rides</span>
+                        <svg class="w-4 h-4 arrow" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                     </a>
                 </div>
             </div>
@@ -669,12 +667,9 @@
             >
                 <span>Volunteer With Us</span>
             </a>
-            <a
-                href="{{ url('/donate') }}"
-                id="cta-donate"
-                class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#F97316] border border-[#F97316]/0 text-sm font-bold tracking-[0.1em] uppercase transition-all duration-300 shadow-sm hover:border-[#F97316] hover:bg-[#ffffff] hover:-translate-y-1 rounded-none"
-            >
+            <a href="{{ url('/donate') }}" id="cta-donate" class="btn-wbr">
                 <span>Donate Now</span>
+                <svg class="w-4 h-4 arrow" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
             </a>
         </div>
  

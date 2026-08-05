@@ -249,7 +249,7 @@
                             class="donate-cta donate-cta--flex"
                             @click="goStep3()"
                             :disabled="!step2Valid()"
-                        >Payment Options</button>
+                        >Continue</button>
                     </div>
                 </div>
 
@@ -260,25 +260,10 @@
                         <p class="donate-card__sub">This donation is in USD</p>
                     </div>
 
-                    {{-- Secure badge / Email Receipt Toggle --}}
-                    <button 
-                        class="donate-secure" 
-                        type="button"
-                        @click="showEmailReceipt = !showEmailReceipt"
-                        :aria-expanded="showEmailReceipt.toString()"
-                    >
+                    {{-- Secure badge --}}
+                    <div class="donate-secure" style="cursor: default; pointer-events: none;">
                         <svg class="donate-secure__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C7 2 3 6 3 6v6c0 5.25 3.75 9.74 9 11 5.25-1.26 9-5.75 9-11V6s-4-4-9-4z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/></svg>
-                        <span>Secure checkout - choose your payment method</span>
-                        <svg class="donate-secure__chevron" :class="{ 'is-rotated': showEmailReceipt }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
-                    </button>
-                    
-                    <div x-show="showEmailReceipt" x-collapse>
-                        <div class="donate-receipt-box">
-                            <div class="donate-form__group" style="margin-bottom: 0;">
-                                <label class="donate-form__label" for="receipt-email">Email Address</label>
-                                <input id="receipt-email" type="email" class="donate-form__input" placeholder="Enter email address" x-model="receiptEmail" />
-                            </div>
-                        </div>
+                        <span>Secure checkout</span>
                     </div>
 
                     {{-- Payment method selector --}}
@@ -413,7 +398,7 @@
                             :disabled="!step3Valid()"
                         >
                             <span x-show="!isSubmitting">Donate with </span>
-                            <span x-show="!isSubmitting" x-text="paymentMethodLabel()"></span>
+                            <!-- <span x-show="!isSubmitting" x-text="paymentMethodLabel()"></span> -->
                             <span x-show="isSubmitting">Redirecting…</span>
                             <span x-show="!isSubmitting" x-text="'$' + totalAmount.toFixed(2)"></span>
                         </button>

@@ -31,6 +31,8 @@ Route::get('/what-we-do', function () {
 
 Route::redirect('/programs', '/what-we-do');
 
+Route::redirect('/community', '/news');
+
 Route::get('/contact', function () {
     return view('contact');
 });

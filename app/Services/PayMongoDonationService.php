@@ -28,7 +28,7 @@ class PayMongoDonationService
 
         $paymentMethodTypes = $donation->payment_method === 'gcash'
             ? ['gcash']
-            : ['dob', 'brankas'];
+            : ['dob'];
 
         $amountCentavos = (int) round((float) $donation->amount_php * 100);
 

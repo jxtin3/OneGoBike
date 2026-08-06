@@ -28,6 +28,8 @@ class PayPalWebhookController extends Controller
             $this->markPaidFromCapture($payload);
         } elseif ($eventType === 'CHECKOUT.ORDER.APPROVED') {
             $this->captureAndMarkPaid($payload, $paypal);
+        } elseif ($eventType === 'BILLING.SUBSCRIPTION.ACTIVATED' || $eventType === 'PAYMENT.SALE.COMPLETED') {
+            $this->markPaidFromSubscription($payload);
         }
 
         return response('OK', 200);
@@ -50,6 +52,25 @@ class PayPalWebhookController extends Controller
         }
     }
 
+
+    private function markPaidFromSubscription(array $payload): void
+    {
+        $resource = $payload['resource'] ?? [];
+
+        // BILLING.SUBSCRIPTION.ACTIVATED: resource.id is the subscription id.
+        // PAYMENT.SALE.COMPLETED: resource.billing_agreement_id is the subscription id.
+        $subscriptionId = $resource['billing_agreement_id'] ?? $resource['id'] ?? null;
+
+        if (! $subscriptionId) {
+            return;
+        }
+
+        $donation = Donation::where('paypal_subscription_id', $subscriptionId)->first();
+
+        if ($donation && $donation->status !== 'paid') {
+            $donation->update(['status' => 'paid']);
+        }
+    }
   
     private function captureAndMarkPaid(array $payload, PayPalDonationService $paypal): void
     {

@@ -1,20 +1,20 @@
 function donateApp(config = {}) {
     return {
-        step:         1,
-        freq:         'once',
-        presets:      [25, 50, 165, 1000],
-        amount:       25,
-        customMode:   false,
+        step: 1,
+        freq: 'once',
+        presets: [25, 50, 165, 1000],
+        amount: 25,
+        customMode: false,
         customAmount: '',
-        donorType:    'individual',
-        platformFee:  1.88,
+        donorType: 'individual',
+        platformFee: 1.88,
         showEmailReceipt: false,
         receiptEmail: '',
         paymentMethod: 'gcash',
-        usdToPhp:     config.usdToPhp ?? 58,
-        checkoutUrl:  config.checkoutUrl ?? '/donate/checkout',
+        usdToPhp: config.usdToPhp ?? 58,
+        checkoutUrl: config.checkoutUrl ?? '/donate/checkout',
         isSubmitting: false,
-        submitError:  '',
+        submitError: '',
         form: {
             orgName: '', firstName: '', lastName: '', email: '',
             phone: '', address1: '', address2: '',
@@ -70,9 +70,16 @@ function donateApp(config = {}) {
         },
 
         selectPreset(amt) {
-            this.amount     = amt;
+            this.amount = amt;
             this.customMode = false;
             this.customAmount = '';
+        },
+
+        setFrequency(value) {
+            this.freq = value;
+            if (value === 'monthly') {
+                this.paymentMethod = 'paypal';
+            }
         },
 
         goStep2() {
@@ -154,7 +161,7 @@ function donateApp(config = {}) {
         },
 
         copyLink() {
-            navigator.clipboard.writeText(window.location.href).catch(() => {});
+            navigator.clipboard.writeText(window.location.href).catch(() => { });
         },
     };
 }

@@ -21,7 +21,15 @@ class CheckoutDonationRequest extends FormRequest
             'amount' => ['required', 'numeric', 'min:1'],
             'platform_fee' => ['nullable', 'numeric', 'min:0'],
             'frequency' => ['required', Rule::in(['once', 'monthly'])],
-            'payment_method' => ['required', Rule::in(['gcash', 'paypal', 'bank'])],
+            'payment_method' => [
+                'required',
+                Rule::in(['gcash', 'paypal', 'bank']),
+                function (string $attribute, mixed $value, \Closure $fail) {
+                    if ($this->input('frequency') === 'monthly' && $value !== 'paypal') {
+                        $fail('Monthly donations are only available via PayPal.');
+                    }
+                },
+            ],
             'donor_type' => ['required', Rule::in(['individual', 'organization'])],
             'org_name' => ['required_if:donor_type,organization', 'nullable', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:100'],

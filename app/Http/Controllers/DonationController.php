@@ -51,7 +51,11 @@ class DonationController extends Controller
         ]);
 
         try {
-            if ($donation->payment_method === 'paypal') {
+            if ($donation->payment_method === 'paypal' && $donation->frequency === 'monthly') {
+                $result = $paypal->createSubscription($donation);
+                $donation->update(['paypal_subscription_id' => $result['subscription_id']]);
+                $redirectUrl = $result['approval_url'];
+            } elseif ($donation->payment_method === 'paypal') {
                 $result = $paypal->createOrder($donation);
                 $donation->update(['paypal_order_id' => $result['order_id']]);
                 $redirectUrl = $result['approval_url'];
@@ -80,22 +84,37 @@ class DonationController extends Controller
         PayMongoDonationService $paymongo,
     ): View|RedirectResponse {
         if ($donation->status !== 'paid') {
-            if ($donation->payment_method === 'paypal' && $request->filled('token')) {
-                try {
-                    $capture = $paypal->captureOrder($request->string('token')->toString());
+            if ($donation->payment_method === 'paypal' && $donation->frequency === 'monthly' && $request->filled('subscription_id')) {
+            try {
+                $subscription = $paypal->getSubscriptionDetails($request->string('subscription_id')->toString());
 
-                    if ($paypal->isCaptureSuccessful($capture)) {
-                        $donation->update([
-                            'status' => 'paid',
-                            'paypal_order_id' => $capture['id'] ?? $donation->paypal_order_id,
-                        ]);
-                    }
-                } catch (\Throwable) {
-                    return redirect()
-                        ->route('donate.cancel', $donation)
-                        ->with('error', 'Payment could not be confirmed. Please try again.');
+                if ($paypal->isSubscriptionActive($subscription)) {
+                    $donation->update([
+                        'status' => 'paid',
+                        'paypal_subscription_id' => $subscription['id'] ?? $donation->paypal_subscription_id,
+                    ]);
                 }
-            } elseif ($donation->paymongo_session_id) {
+            } catch (\Throwable) {
+                return redirect()
+                    ->route('donate.cancel', $donation)
+                    ->with('error', 'Subscription could not be confirmed. Please try again.');
+            }
+        } elseif ($donation->payment_method === 'paypal' && $request->filled('token')) {
+            try {
+                $capture = $paypal->captureOrder($request->string('token')->toString());
+
+                if ($paypal->isCaptureSuccessful($capture)) {
+                    $donation->update([
+                        'status' => 'paid',
+                        'paypal_order_id' => $capture['id'] ?? $donation->paypal_order_id,
+                    ]);
+                }
+            } catch (\Throwable) {
+                return redirect()
+                    ->route('donate.cancel', $donation)
+                    ->with('error', 'Payment could not be confirmed. Please try again.');
+            }
+        } elseif ($donation->paymongo_session_id) {
                 $session = $paymongo->retrieveCheckoutSession($donation->paymongo_session_id);
 
                 if ($paymongo->isSessionPaid($session)) {

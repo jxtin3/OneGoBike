@@ -195,6 +195,7 @@
     position: relative;
 }
 
+
 /* connector line */
 .donate-step+.donate-step::before {
     content: '';
@@ -246,6 +247,7 @@
     font-size: 0.8rem;
     color: #6b7280;
 }
+
 
 /* -- Frequency / donor toggle -- */
 .donate-freq {
@@ -325,6 +327,21 @@
     background: #0D1B2A;
     border-color: #0D1B2A;
 }
+
+.donate-freq__note {
+    font-size: 0.8rem;
+    color: var(--donate-muted, #6b7280);
+    line-height: 1.5;
+    text-align: center;
+    margin: 0 1.75rem 0.85rem;
+}
+
+.donate-freq__btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    /* pointer-events: none; */
+}
+
 
 /* -- Payment method panels -- */
 .donate-pay-panel {
@@ -535,6 +552,14 @@
 
 .donate-form__input::placeholder {
     color: #9ca3af;
+}
+
+.donate-form__input:-webkit-autofill,
+.donate-form__input:-webkit-autofill:hover,
+.donate-form__input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #111827;
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .donate-form__select {

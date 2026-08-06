@@ -94,14 +94,20 @@
                             id="freq-once"
                             class="donate-freq__btn"
                             :class="{ 'is-active': freq === 'once' }"
-                            @click="freq = 'once'"
+                            @click="setFrequency('once')"
                         >Once</button>
                         <button
                             id="freq-monthly"
                             class="donate-freq__btn"
                             :class="{ 'is-active': freq === 'monthly' }"
-                            @click="freq = 'monthly'"
+                            @click="setFrequency('monthly')"
                         >Monthly</button>
+                    </div>
+
+                    <div x-show="freq === 'monthly'" x-collapse>
+                        <p class="donate-freq__note" style="padding-top: 0.5rem;">
+                            Monthly donations are processed via PayPal.
+                        </p>
                     </div>
 
                     {{-- Preset amounts --}}
@@ -273,6 +279,7 @@
                             type="button"
                             class="donate-freq__btn donate-freq__btn--gcash"
                             :class="{ 'is-active': paymentMethod === 'gcash' }"
+                            :disabled="freq === 'monthly'"
                             @click="paymentMethod = 'gcash'"
                         >GCash</button>
                         <button
@@ -287,9 +294,14 @@
                             type="button"
                             class="donate-freq__btn donate-freq__btn--bank"
                             :class="{ 'is-active': paymentMethod === 'bank' }"
+                            :disabled="freq === 'monthly'"
                             @click="paymentMethod = 'bank'"
                         >ATM / Bank</button>
                     </div>
+
+                    <p class="donate-freq__note" x-show="freq === 'monthly'" x-cloak>
+                        You selected Monthly, so PayPal is used to process recurring donations.
+                    </p>
 
                     {{-- GCash panel --}}
                     <div x-show="paymentMethod === 'gcash'" x-collapse class="donate-form">
@@ -414,7 +426,7 @@
                         <h2 class="donate-thankyou__title">Thank You!</h2>
                         <p class="donate-thankyou__sub">
                             Your donation of <strong>${{ number_format($paidDonation->total_usd, 2) }}</strong> has been received.<br>
-                            Together, we're giving the power of bicycles to the world.
+                            Your gift is an investment in the next generation's potential.
                         </p>
                         <a href="{{ url('/') }}" class="donate-cta donate-cta--center">Back to Home</a>
                     </div>

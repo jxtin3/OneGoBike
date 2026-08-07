@@ -18,7 +18,7 @@ function donateApp(config = {}) {
         form: {
             orgName: '', firstName: '', lastName: '', email: '',
             phone: '', address1: '', address2: '',
-            city: '', postcode: '', state: '', country: 'PH',
+            city: '', postcode: '', state: '', country: 'PH', otherCountry: '',
         },
 
         init() {
@@ -53,6 +53,7 @@ function donateApp(config = {}) {
             this.form.postcode = donation.postcode;
             this.form.state = donation.state;
             this.form.country = donation.country;
+            this.form.otherCountry = donation.other_country ?? '';
             this.submitError = config.cancelMessage ?? 'Payment was cancelled. You can try again.';
             this.step = 3;
         },
@@ -93,6 +94,7 @@ function donateApp(config = {}) {
         step2Valid() {
             const f = this.form;
             if (this.donorType === 'organization' && !f.orgName) return false;
+            if (f.country === 'other' && !f.otherCountry) return false;
             return f.firstName && f.lastName && f.email && f.address1 && f.city && f.postcode && f.state;
         },
 
@@ -128,6 +130,7 @@ function donateApp(config = {}) {
                 postcode: this.form.postcode,
                 state: this.form.state,
                 country: this.form.country,
+                other_country: this.form.country === 'other' ? this.form.otherCountry : null,
                 receipt_email: this.showEmailReceipt ? this.receiptEmail : null,
             };
 

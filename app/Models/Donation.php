@@ -17,7 +17,7 @@ class Donation extends Model
         'address1', 'address2',
         'city',
         'postcode',
-        'state', 'country',
+        'state', 'country', 'other_country',
         'amount_usd', 'amount_php',
         'platform_fee_usd',
         'frequency',

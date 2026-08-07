@@ -41,6 +41,7 @@ class DonationController extends Controller
             'postcode' => $validated['postcode'],
             'state' => $validated['state'],
             'country' => $validated['country'],
+            'other_country' => $validated['other_country'] ?? null,
             'amount_usd' => $amountUsd,
             'amount_php' => round(($amountUsd + $platformFee) * $usdToPhp, 2),
             'platform_fee_usd' => $platformFee,

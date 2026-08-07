@@ -42,6 +42,7 @@ class CheckoutDonationRequest extends FormRequest
             'postcode' => ['required', 'string', 'max:20'],
             'state' => ['required', 'string', 'max:100'],
             'country' => ['required', 'string', 'max:10'],
+            'other_country' => ['nullable', 'required_if:country,other', 'string', 'max:100'],
             'receipt_email' => ['nullable', 'email', 'max:255'],
         ];
     }

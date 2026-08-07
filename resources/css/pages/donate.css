@@ -519,6 +519,34 @@
     margin-bottom: 0.6rem;
 }
 
+.donate-form__group--other_country {
+    margin-top: 0.6rem;
+    width: calc(50% - 0.3rem);
+    margin-left: auto;
+}
+
+.donate-form__input--other_country {
+    border: 1px solid #d1d5db;
+    border-radius: 0;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.85rem;
+    color: #111827;
+    outline: none;
+    width: 100%;
+    background: #fff;
+    transition: border-color 0.18s;
+}
+
+.donate-form__input--other_country:focus {
+    border-color: #0D1B2A;
+}
+
+@media (max-width: 640px) {
+    .donate-form__group--other_country {
+        width: 100%;
+    }
+}
+
 .donate-form__row .donate-form__group {
     margin-bottom: 0;
 }

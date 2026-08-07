@@ -246,6 +246,13 @@
                         </div>
                     </div>
 
+                    <div x-show="form.country === 'other'" x-collapse>
+                            <div class="donate-form__group donate-form__group--other_country">
+                                <label class="donate-form__label" for="other_country">Please specify your country <span class="req">*</span></label>
+                                <input id="other_country" type="text" class="donate-form__input donate-form__input--other-country" placeholder="Enter your country" x-model="form.otherCountry" />
+                            </div>
+                    </div>
+
                     <div class="donate-card__actions">
                         <button class="donate-back" @click="step = 1" aria-label="Back to step 1">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>

@@ -27,3 +27,30 @@
     font-weight: 900;
     font-size: 1.25rem;
 }
+
+/* Program card */
+.program-card-link {
+    color: #F97316;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: opacity 0.2s ease;
+}
+
+.program-card-link:hover {
+    opacity: 0.8;
+}
+
+.program-card-link__arrow {
+    width: 1rem;
+    height: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.program-card-link:hover .program-card-link__arrow {
+    transform: translateX(4px);
+}

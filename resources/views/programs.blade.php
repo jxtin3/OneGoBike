@@ -19,10 +19,6 @@
 
     <!-- Content -->
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-        <!-- <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[#F97316] mb-4">
-            <span class="w-2 h-2 rounded-full bg-[#F97316]"></span>
-            Our Initiatives
-        </span> -->
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase tracking-tight leading-none drop-shadow-lg">
             Impact In<br/>
             <span class="text-[#2FA7FF]">Motion.</span>
@@ -77,9 +73,9 @@
                 <div class="p-8">
                     <h3 class="text-2xl font-heading font-bold text-[#111827] mb-3 group-hover:text-[#132D6B] transition-colors">{{ $prog['title'] }}</h3>
                     <p class="text-[#64748B] leading-relaxed mb-6">{{ $prog['desc'] }}</p>
-                    <a href="#" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#F97316] transition-colors hover:opacity-80">
+                    <a href="#" class="program-card-link">
                         View Details
-                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                        <svg class="w-4 h-4 program-card-link__arrow" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                     </a>
                 </div>
             </div>
@@ -346,22 +342,17 @@
     </div>
 </section>
 
-
-
-
 <!-- 
      CTA
       -->
-<section class="py-24 bg-white text-center px-4 border-t border-[#F1F5F9]">
+<section class="py-30 bg-white text-center px-4 border-t border-[#F1F5F9]">
     <div class="max-w-2xl mx-auto reveal">
         <h2 class="text-3xl md:text-5xl font-heading font-bold text-[#111827] mb-6 uppercase tracking-tight">Support Our Work</h2>
         <p class="text-[#64748B] mb-10 text-lg">Our programs rely on the generosity of individuals and partners who believe in the power of youth.</p>
         <a href="{{ url('/donate') }}" class="btn-wbr btn-wbr-dark">
             <span>Make a Donation</span>
-            <!-- <svg class="w-5 h-5 arrow" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg> -->
         </a>
     </div>
 </section>
 
 </x-layout>
-

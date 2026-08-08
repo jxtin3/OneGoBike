@@ -244,17 +244,15 @@
                 What We Do
             </h2>
         </div>
-        <a href="{{ url('/what-we-do') }}" class="text-sm font-bold text-white/70 hover:text-white transition-colors flex items-center gap-2 pb-2 tracking-wide group">
+        <!-- <a href="{{ url('/what-we-do') }}" class="text-sm font-bold text-white/70 hover:text-white transition-colors flex items-center gap-2 pb-2 tracking-wide group">
             View All Programs
             <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-        </a>
+        </a> -->
     </div>
 
     <!-- Slider -->
     <div
         class="relative w-full overflow-hidden bg-[#111827] min-h-[580px] md:min-h-[640px]"
-        @mouseenter="resume()"
-        @mouseleave="resume()"
     >
         <!-- Background slides -->
         <template x-for="(prog, index) in programs" :key="index">
@@ -278,27 +276,29 @@
         </template>
 
         <!-- Content Area -->
-        <div class="absolute inset-0 z-20 flex items-end pb-20 px-4 sm:px-8 lg:px-16">
-            <div class="w-full max-w-4xl relative h-auto">
+        <div class="absolute inset-0 z-20 flex items-center md:items-end pb-12 md:pb-24 px-4 sm:px-8 lg:px-16">
+            <div class="w-full max-w-5xl relative h-auto">
                 <template x-for="(prog, index) in programs" :key="'c' + index">
                     <div
                         x-show="active === index"
                         x-transition:enter="transition ease-out duration-700 delay-200 z-10 relative"
-                        x-transition:enter-start="opacity-0 translate-y-6"
+                        x-transition:enter-start="opacity-0 translate-y-8"
                         x-transition:enter-end="opacity-100 translate-y-0"
                         x-transition:leave="transition ease-in duration-300 absolute inset-0 z-0"
                         x-transition:leave-start="opacity-100"
                         x-transition:leave-end="opacity-0"
-                        class="w-full"
+                        class="w-full max-w-sm bg-white/5 backdrop-blur-xl border border-white/10 py-10 px-6 md:py-12 md:px-8 rounded-sm shadow-2xl flex flex-col justify-center min-h-[400px]"
+                        @mouseenter="pause()"
+                        @mouseleave="resume()"
                     >
-                        <h3 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white mb-4 uppercase tracking-wider drop-shadow-md" x-text="prog.title"></h3>
-                        <p class="text-white/80 text-sm md:text-base font-light mb-8 max-w-xl leading-relaxed drop-shadow-sm" x-text="prog.desc"></p>
+                        <h3 class="text-3xl md:text-4xl font-heading font-extrabold text-white mb-6 uppercase tracking-wide drop-shadow-md leading-tight" x-text="prog.title"></h3>
+                        <p class="text-white/80 text-sm md:text-base font-light mb-10 leading-relaxed drop-shadow-sm max-w-sm" x-text="prog.desc"></p>
                         <a
                             :href="prog.href"
-                            class="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-bold text-white border border-white/30 hover:bg-white hover:text-[#111827] transition-all duration-300 tracking-widest uppercase rounded-none"
+                            class="group inline-flex items-center justify-center gap-3 px-6 py-3 text-xs md:text-sm font-bold text-white border border-white/30 transition-all duration-300 tracking-[0.15em] uppercase rounded-none shadow-lg"
                         >
                             Learn More
-                            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                         </a>
                     </div>
                 </template>
@@ -632,7 +632,7 @@
  <!-- SECTION 8 — CALL TO ACTN (CTA)     -->
 <section
     id="cta"
-    class="relative py-10 md:py-50 overflow-hidden"
+    class="relative py-5 md:py-30 overflow-hidden"
     aria-labelledby="cta-heading"
 >
     <!-- Background Map -->
@@ -667,10 +667,10 @@
             >
                 <span>Volunteer With Us</span>
             </a>
-            <a href="{{ url('/donate') }}" id="cta-donate" class="btn-wbr">
+            <!-- <a href="{{ url('/donate') }}" id="cta-donate" class="btn-wbr">
                 <span>Donate Now</span>
                 <svg class="w-4 h-4 arrow" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-            </a>
+            </a> -->
         </div>
  
     </div>

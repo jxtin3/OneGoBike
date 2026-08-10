@@ -12,5 +12,5 @@ class NewsController extends Controller
             ->orderBy('published_at', 'desc')
             ->paginate(9);
 
-        return view('pages.news', compact('news'));
+        return view('join-the-movement.news', compact('news'));
     }}

@@ -27,9 +27,8 @@
                             <div class="text-xs font-semibold text-slate-500 mb-2">{{ $newsItem->published_at->format('F d, Y') }}</div>
                             <h3 class="text-xl font-heading font-bold text-slate-900 leading-tight mb-3 line-clamp-2">{{ $newsItem->title }}</h3>
                             <p class="text-sm text-slate-600 mb-6 flex-grow line-clamp-3">{{ $newsItem->excerpt }}</p>
-                            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-bold text-[#132D6B] group-hover:text-[#2FA7FF] transition-colors uppercase tracking-wide mt-auto">
+                            <a href="#" class="flex justify-center text-sm font-bold text-white bg-[#2563EB] hover:bg-[#2FA7FF] no-underline px-5 py-2.5 rounded-full transition-all duration-300 uppercase tracking-wide mt-auto shadow-sm hover:shadow-md">
                                 Read More
-                                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
                             </a>
                         </div>
                     </div>

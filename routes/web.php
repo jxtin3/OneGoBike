@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/news', [NewsController::class, 'index']);
 Route::get('/gallery', function () {
-    return view('pages.gallery');
+    return view('join-the-movement.gallery');
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('who-we-are.about');
 });
 
 Route::get('/org-structure', function () {
-    return view('pages.org-structure');
+    return view('who-we-are.org-structure');
 });
 
 Route::get('/what-we-do', function () {

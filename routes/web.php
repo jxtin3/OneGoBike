@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Admin\OperationsController;
+use App\Http\Controllers\Admin\NewsController as AdminNewsController;
+use App\Http\Controllers\Admin\PictureController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\HomeController;
@@ -69,4 +73,8 @@ Route::middleware([EnsureAdmin::class])->group(function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/locations', [LocationController::class, 'index'])->name('admin.locations.index');
     Route::post('/admin/locations', [LocationController::class, 'store'])->name('admin.locations.store');
+    Route::get('/admin/operations', [OperationsController::class, 'index'])->name('admin.operations');
+    Route::resource('/admin/operations/news', AdminNewsController::class)->names('admin.operations.news');
+    Route::resource('/admin/operations/pictures', PictureController::class)->names('admin.operations.pictures');
+    Route::resource('/admin/operations/users', AdminUserController::class)->names('admin.operations.users');
 });

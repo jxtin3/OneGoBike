@@ -1,0 +1,1 @@
+@extends('admin.operations.layout') @section('title','Edit User') @section('heading','Edit user') @section('content')@include('admin.operations.users.form',['user'=>$user,'action'=>route('admin.operations.users.update',$user),'method'=>'PUT','button'=>'Update user'])@endsection

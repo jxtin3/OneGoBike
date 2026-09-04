@@ -28,7 +28,7 @@ class LoginController extends Controller
 
             $user = Auth::user();
 
-            if ($user && $user->is_admin) {
+            if ($user && $user->is_admin && ($user->status ?? 'Active') === 'Active') {
                 return redirect()->intended(route('admin.dashboard'));
             }
 

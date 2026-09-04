@@ -1,0 +1,1 @@
+@extends('admin.operations.layout') @section('title','Add User') @section('heading','Add user') @section('content')@include('admin.operations.users.form',['user'=>null,'action'=>route('admin.operations.users.store'),'method'=>'POST','button'=>'Create user'])@endsection

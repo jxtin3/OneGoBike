@@ -14,9 +14,13 @@ class Location extends Model
         'user_id',
         'name',
         'role',
+        'designated_barangay',
         'latitude',
         'longitude',
         'status',
+        'last_seen_at',
+        'active_start_time',
+        'active_end_time',
     ];
 
     /**
@@ -25,6 +29,9 @@ class Location extends Model
     protected $casts = [
         'latitude' => 'float',
         'longitude' => 'float',
+        'last_seen_at' => 'datetime',
+        'active_start_time' => 'datetime',
+        'active_end_time' => 'datetime',
     ];
 
     public function user(): BelongsTo

@@ -1,0 +1,1 @@
+@extends('admin.operations.layout') @section('title','Add Picture') @section('heading','Add picture') @section('content')@include('admin.operations.pictures.form',['picture'=>null,'action'=>route('admin.operations.pictures.store'),'method'=>'POST','button'=>'Upload picture'])@endsection

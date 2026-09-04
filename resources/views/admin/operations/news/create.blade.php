@@ -1,0 +1,1 @@
+@extends('admin.operations.layout') @section('title','Add News') @section('heading','Add news') @section('content') @include('admin.operations.news.form', ['news' => null, 'action' => route('admin.operations.news.store'), 'method' => 'POST', 'button' => 'Save news']) @endsection

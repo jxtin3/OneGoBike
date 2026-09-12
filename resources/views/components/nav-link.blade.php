@@ -28,11 +28,10 @@
         {{ $attributes->merge([
             'class' => 'nav-underline text-sm font-medium tracking-wide transition-colors duration-200 '
                      . ($isActive
-                         ? 'text-[#2FA7FF] active'
+                         ? 'text-white'
                          : 'text-white/90 hover:text-white')
         ]) }}
     >
         {{ $slot }}
     </a>
 @endif
-

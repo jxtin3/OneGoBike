@@ -107,6 +107,22 @@ body {
     position: relative;
 }
 
+/* Force nav links to never show browser visited green */
+header a {
+    color: inherit;
+}
+
+header a:visited {
+    color: inherit;
+}
+
+/* Active nav link — always blue, never green */
+.nav-underline.active,
+.nav-underline.active:visited,
+.nav-underline.active:hover {
+    color: #2FA7FF !important;
+}
+
 .nav-underline::after {
     content: '';
     position: absolute;

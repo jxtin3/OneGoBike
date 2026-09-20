@@ -342,7 +342,10 @@
     </div>
 </section>
 
+<!-- replicate card -->
 @include('partials.replicate-card')
+
+
 <!-- 
      CTA
       -->

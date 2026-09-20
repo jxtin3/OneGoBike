@@ -146,7 +146,7 @@
 
             <!-- Sidebar -->
             <div class="lg:col-span-2 reveal">
-                <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[#F97316] mb-4">Send A Message</span>
+                <!-- <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[#F97316] mb-4">Send A Message</span> -->
                 <h2 class="text-3xl md:text-4xl font-heading font-bold text-[#111827] uppercase tracking-tight leading-tight mb-6">
                     Let's Start<br/>
                     <span class="text-[#132D6B]">A Conversation.</span>
@@ -282,8 +282,23 @@
                                     <option value="media">Media / Press Inquiry</option>
                                     <option value="donation">Donation Question</option>
                                     <option value="program">Program Information</option>
-                                    <option value="other">Other / General Question</option>
+                                    <option value="others">Others</option>
                                 </select>
+                            </div>
+
+                            
+                            <!-- Other Concern (conditional) -->
+                            <div x-show="form.subject === 'others'" x-collapse>
+                                <div>
+                                    <label for="other_concern" class="block text-[10px] font-bold tracking-[0.15em] uppercase text-[#64748B] mb-2">Please specify your concern <span class="text-[#F97316]">*</span></label>
+                                    <input
+                                        id="other_concern"
+                                        x-model="form.otherConcern"
+                                        type="text"
+                                        placeholder="Enter your concern"
+                                        class="w-full px-4 py-3 text-sm text-[#111827] bg-[#F8FAFC] border border-[#E2E8F0] rounded-none focus:outline-none focus:ring-2 focus:ring-[#2FA7FF]/30 focus:border-[#2FA7FF] transition-all duration-200 placeholder:text-[#CBD5E1]"
+                                    />
+                                </div>
                             </div>
 
                             <!-- Phone (optional) -->

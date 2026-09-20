@@ -4,6 +4,7 @@ document.addEventListener('alpine:init', () => {
             name: '',
             email: '',
             subject: '',
+            otherConcern: '',
             phone: '',
             message: '',
         },
@@ -29,7 +30,7 @@ document.addEventListener('alpine:init', () => {
                 // if (!res.ok) throw new Error('Network error');
 
                 this.submitted = true;
-                this.form = { name: '', email: '', subject: '', phone: '', message: '' };
+                this.form = { name: '', email: '', subject: '', otherConcern: '', phone: '', message: '' };
             } catch (e) {
                 this.error = true;
                 this.errorMessage = 'Failed to send your message. Please try again later.';

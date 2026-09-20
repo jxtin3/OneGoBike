@@ -81,7 +81,7 @@
                     </template>
                 </div>
 
-                {{-- ---- STEP 1: Amount ---- --}}
+                <!--  ---- STEP 1: Amount ----  -->
                 <div x-show="step === 1" x-transition:enter="donate-step-enter" x-transition:enter-start="donate-step-enter-start" x-transition:enter-end="donate-step-enter-end">
                     <div class="donate-card__header">
                         <h2 class="donate-card__title">I'd like to make this donation</h2>
@@ -145,7 +145,7 @@
                     >Donate</button>
                 </div>
 
-                {{-- ---- STEP 2: Your Details ---- --}}
+                 <!-- ---- STEP 2: Your Details ----  -->
                 <div x-show="step === 2" x-transition:enter="donate-step-enter" x-transition:enter-start="donate-step-enter-start" x-transition:enter-end="donate-step-enter-end">
                     <div class="donate-card__header">
                         <h2 class="donate-card__title">Your Details</h2>
@@ -266,7 +266,7 @@
                     </div>
                 </div>
 
-                {{-- ---- STEP 3: Payment ---- --}}
+                 <!-- ---- STEP 3: Payment ----  -->
                 <div x-show="step === 3" x-transition:enter="donate-step-enter" x-transition:enter-start="donate-step-enter-start" x-transition:enter-end="donate-step-enter-end">
                     <div class="donate-card__header">
                         <h2 class="donate-card__title">Payment Details</h2>
@@ -424,7 +424,7 @@
                     </div>
                 </div>
             @else
-                {{-- ---- STEP 4: Thank-you ---- --}}
+                 <!-- ---- STEP 4: Thank-you ----  -->
                 <div>
                     <div class="donate-thankyou">
                         <div class="donate-thankyou__icon">
@@ -440,12 +440,12 @@
                 </div>
             @endif
 
-        </div>{{-- /donate-card --}}
-    </div>{{-- /donate-card-wrap --}}
+        </div> <!-- ---- /donate-card ----  -->
+    </div> <!-- ---- /donate-card-wrap ----  -->
 
-    </div>{{-- /donate-container --}}
+    </div> <!-- ---- /donate-container ----  -->
 
-</div>{{-- /donate-page --}}
+</div> <!-- ---- /donate-page ----  -->
 
 <x-slot:scripts>
 <script src="{{ asset('js/donate.js') }}"></script>

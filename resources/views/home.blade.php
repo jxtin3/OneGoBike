@@ -661,7 +661,7 @@
  
         <div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
             <a
-                href="{{ url('/volunteer') }}"
+                href="{{ url('/contact') }}"
                 id="cta-volunteer"
                 class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#132D6B] text-white text-sm font-bold tracking-[0.1em] uppercase transition-all duration-300 shadow-lg shadow-[#132D6B]/30 hover:bg-[#2FA7FF] hover:-translate-y-1 rounded-none"
             >

@@ -29,6 +29,10 @@ Route::get('/org-structure', function () {
     return view('who-we-are.org-structure');
 });
 
+Route::get('/replicate-go-bike', function () {
+    return view('what-we-do.replicate');
+})->name('replicate');
+
 Route::get('/what-we-do', function () {
     return view('what-we-do.programs');
 });

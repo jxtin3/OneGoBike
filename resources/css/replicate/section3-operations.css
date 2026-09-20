@@ -1,0 +1,93 @@
+/* REPLICATE / Section 3 — Operations: Roles, Activities, Unit, ALWAR */
+
+.gbp-oversight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 1.25rem;
+    background: var(--gbp-navy);
+    color: #fff;
+    line-height: 1.6;
+}
+.gbp-oversight strong { flex: none; color: var(--gbp-sky); }
+
+.gbp-grid-roles { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.gbp-card.is-wide { grid-column: 1 / -1; }
+
+/* Activities */
+.gbp-activity-top { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2.25rem; }
+
+.gbp-chain { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 1.5rem; }
+
+.gbp-chain-box {
+    position: relative;
+    padding: 1.25rem;
+    border: 2px solid var(--gbp-navy);
+    border-radius: 1.25rem;
+    background: #fff;
+}
+
+.gbp-chain-box:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    top: 50%;
+    right: -1.65rem;
+    transform: translateY(-50%);
+    color: var(--gbp-navy);
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.gbp-chain-box h3 {
+    margin: 0 0 0.5rem;
+    color: var(--gbp-navy);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.gbp-chain-box ul { margin: 0; padding: 0; list-style: none; font-size: 0.9rem; line-height: 1.75; }
+
+.gbp-chain-box.is-award { display: grid; place-items: center; border-color: var(--gbp-orange); background: var(--gbp-orange); text-align: center; }
+.gbp-chain-box.is-award h3 { margin: 0; color: #fff; }
+
+/* ALWAR */
+.gbp-alwar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.gbp-alwar .gbp-num { margin-bottom: 0.75rem; }
+
+.gbp-tag {
+    float: right;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: var(--gbp-orange);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 1000px) {
+    .gbp-chain { grid-template-columns: 1fr; gap: 2rem; }
+    .gbp-chain-box:not(:last-child)::after {
+        content: '↓';
+        top: auto;
+        right: 50%;
+        bottom: -1.75rem;
+        transform: translateX(50%);
+    }
+}
+
+@media (max-width: 700px) {
+    .gbp-activity-top { grid-template-columns: 1fr; }
+    .gbp-oversight { flex-direction: column; align-items: flex-start; }
+}

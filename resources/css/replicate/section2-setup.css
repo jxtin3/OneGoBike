@@ -1,0 +1,130 @@
+/* REPLICATE / Section 2 — Setup: Partnership, Training, Leadership */
+
+.gbp-split {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.gbp-flow { display: grid; gap: 1.6rem; margin: 0; padding: 0; list-style: none; }
+
+.gbp-flow-step {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--gbp-line);
+    border-radius: 1.25rem;
+    background: #fff;
+}
+
+.gbp-flow-step:not(:last-child)::after {
+    content: '↓';
+    position: absolute;
+    bottom: -1.05rem;
+    left: 50%;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: var(--gbp-navy);
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+/* Training inclusions */
+.gbp-check {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 0.75rem;
+    border-radius: 50%;
+    background: rgba(91, 192, 235, 0.22);
+    color: var(--gbp-blue);
+    font-weight: 800;
+}
+.gbp-check::before { content: '✓'; }
+
+.gbp-price {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin-top: 2rem;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+}
+
+.gbp-price > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.5rem;
+    background: var(--gbp-navy);
+}
+.gbp-price > div.is-main { background: var(--gbp-blue); }
+
+.gbp-price span {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+.gbp-price strong {
+    font-family: 'Oswald', 'Inter', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+.gbp-price-note {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 1rem 1.5rem;
+    background: var(--gbp-navy-deep);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Leadership timeline */
+.gbp-timeline { position: relative; max-width: 760px; margin: 0; padding: 0; list-style: none; }
+
+.gbp-timeline::before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    bottom: 1rem;
+    left: 1.1rem;
+    width: 2px;
+    background: var(--gbp-line);
+}
+
+.gbp-timeline li { position: relative; display: flex; align-items: center; gap: 1.25rem; padding: 0.6rem 0; }
+.gbp-timeline .gbp-num { position: relative; z-index: 1; }
+
+.gbp-timeline p {
+    flex: 1;
+    margin: 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--gbp-line);
+    border-radius: 1rem;
+    background: #fff;
+    color: var(--gbp-navy);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.gbp-timeline li:last-child p { border-color: var(--gbp-navy); background: var(--gbp-navy); color: #fff; }
+
+@media (max-width: 900px) {
+    .gbp-split { grid-template-columns: 1fr; }
+    .gbp-price { grid-template-columns: 1fr; }
+}

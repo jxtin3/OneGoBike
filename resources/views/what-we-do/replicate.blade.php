@@ -478,16 +478,16 @@
             <header class="gbp-head reveal">
                 <span class="gbp-kicker">Reference</span>
                 <h2 class="gbp-h2">Complete Programming Diagram</h2>
-                <p class="gbp-sub">The original ALWAR x Go Bike Project diagram. Click to enlarge.</p>
+                <p class="gbp-sub">The original ALWAR x Go Bike Project Programming.</p>
             </header>
 
             <button type="button" class="gbp-poster" x-on:click="open = true" aria-label="Open the full diagram">
                 <img src="{{ asset('images/programming.jpg') }}"
                      alt="ALWAR x Go Bike Project programming diagram" loading="lazy">
-                <span class="gbp-poster-hint">Click to enlarge</span>
+                <span class="gbp-poster-hint">Enlarge</span>
             </button>
 
-            <a href="{{ asset('images/programming.jpg') }}" download class="gbp-download">Download diagram</a>
+            <a href="{{ asset('images/programming.jpg') }}" download class="gbp-download">Download</a>
         </div>
 
         <div class="gbp-lightbox" x-show="open" x-cloak x-transition.opacity

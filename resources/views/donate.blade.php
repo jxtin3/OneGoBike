@@ -66,6 +66,30 @@
         <div class="donate-card">
 
             @if(!isset($paidDonation))
+
+                {{-- PayMongo session-expired retry banner --}}
+                @if(isset($cancelledDonation) && !empty($cancelledDonation->paymongo_session_id))
+                    <div class="donate-expired-banner" role="alert">
+                        <div class="donate-expired-banner__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v4m0 4h.01"/></svg>
+                        </div>
+                        <div class="donate-expired-banner__body">
+                            <p class="donate-expired-banner__title">Session expired</p>
+                            <p class="donate-expired-banner__text">
+                                Your BPI / online banking session timed out before the payment could be completed.
+                                Click below to get a fresh link — no need to re-enter your details.
+                            </p>
+                            <a
+                                href="{{ route('donate.retry', $cancelledDonation) }}"
+                                class="donate-expired-banner__btn"
+                            >
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                                Try Again
+                            </a>
+                        </div>
+                    </div>
+                @endif
+
                 {{-- Step indicator --}}
                 <div class="donate-steps" x-show="step < 4">
                     <template x-for="n in 3" :key="n">

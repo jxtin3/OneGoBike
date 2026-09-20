@@ -10,6 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Throwable;
 
 class DonationController extends Controller
 {
@@ -138,12 +139,44 @@ class DonationController extends Controller
 
     public function cancel(Donation $donation): View
     {
-        if ($donation->status === 'pending') {
+        // For PayMongo, landing on cancel often means the token expired —
+        // keep it as 'pending' so the user can retry via the retry route.
+        if ($donation->status === 'pending' && ! $donation->paymongo_session_id) {
             $donation->update(['status' => 'cancelled']);
         }
 
         return view('donate', [
             'cancelledDonation' => $donation,
         ]);
+    }
+
+    /**
+     * Retry a PayMongo payment by creating a fresh checkout session.
+     * Used when the previous session token expired ("Access token is invalid or expired").
+     */
+    public function retry(
+        Donation $donation,
+        PayMongoDonationService $paymongo,
+    ): RedirectResponse {
+        // Only allow retry for pending PayMongo donations
+        if (! in_array($donation->status, ['pending', 'cancelled'], true) || ! $donation->paymongo_session_id) {
+            return redirect()->route('donate')->with('error', 'This donation cannot be retried.');
+        }
+
+        try {
+            // Create a brand-new checkout session with a fresh token
+            $result = $paymongo->createCheckoutSession($donation);
+
+            $donation->update([
+                'paymongo_session_id' => $result['session_id'],
+                'status' => 'pending',
+            ]);
+
+            return redirect()->away($result['checkout_url']);
+        } catch (Throwable $e) {
+            return redirect()
+                ->route('donate.cancel', $donation)
+                ->with('error', 'Could not create a new payment session: '.$e->getMessage());
+        }
     }
 }

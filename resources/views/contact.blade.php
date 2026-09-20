@@ -369,8 +369,42 @@
 </section>
 
 <!-- MAP / LOCATION EMBED -->
-<section class="relative bg-[#0D1B2A] overflow-hidden">
+<section
+    x-data="{ isOnline: navigator.onLine }"
+    @online.window="isOnline = true"
+    @offline.window="isOnline = false"
+    class="relative bg-[#0D1B2A] overflow-hidden"
+>
     <div class="relative h-72 md:h-130 w-full">
+        <!-- Offline Notice Overlay -->
+        <div
+            x-show="!isOnline"
+            x-cloak
+            class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#0D1B2A]/95 backdrop-blur-md px-6 text-center transition-all duration-300"
+        >
+            <div class="w-14 h-14 mb-4 rounded-full bg-[#132D6B]  flex items-center justify-center text-red-500 shadow-xl">
+                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0 3.75h.008v.008H12v-.008zM12 3a9 9 0 100 18 9 9 0 000-18z" />
+                </svg>
+            </div>
+            <h3 class="text-base sm:text-lg font-heading font-bold text-white uppercase tracking-wider mb-2">
+                Map Unavailable Offline
+            </h3>
+            <p class="text-xs sm:text-sm text-white/70 max-w-md leading-relaxed mb-6">
+                An active internet connection is required to display Google Maps. Please check your network connection and try again.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                
+                <button
+                    type="button"
+                    @click="isOnline = navigator.onLine"
+                    class="px-4 py-2 text-[10px] font-bold uppercase tracking-widest bg-[#2FA7FF]/20 hover:bg-[#2FA7FF]/30 text-white border border-[#2FA7FF]/30 transition-all rounded-none cursor-pointer"
+                >
+                    Retry Connection
+                </button>
+            </div>
+        </div>
+
         <iframe
             title="Go Bike Location — Pangasinan, Philippines"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244767.07891946714!2d119.86557870428943!3d15.893520736700673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33919fc0c2e9e67b%3A0x13e2c7c7d99e9e5!2sPangasinan%2C%20Philippines!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
@@ -382,7 +416,7 @@
         <div class="absolute inset-0 bg-[#132D6B]/20 pointer-events-none mix-blend-multiply"></div>
 
         <!-- Location badge -->
-        <div class="absolute top-4 right-4 z-10">
+        <div class="absolute top-4 right-4 z-10" x-show="isOnline">
             <div class="contact-location-badge">
                 <div class="contact-location-dot"></div>
                 <span class="text-[9px] font-bold text-white/85 tracking-widest uppercase">Pangasinan, Philippines</span>

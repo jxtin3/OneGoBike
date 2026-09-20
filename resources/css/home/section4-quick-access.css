@@ -29,7 +29,6 @@
 }
 
 .quick-card:hover {
-    transform: translateY(-8px);
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 

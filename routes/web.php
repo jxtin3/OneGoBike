@@ -17,9 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/news', [NewsController::class, 'index']);
+
 Route::get('/gallery', function () {
     return view('join-the-movement.gallery');
 });
+
+Route::get('/volunteer', function () {
+    return view('join-the-movement.volunteer');
+})->name('volunteer');
 
 Route::get('/about', function () {
     return view('who-we-are.about');

@@ -11,18 +11,12 @@
     </div>
 
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-6 reveal">
-            <a href="{{ url('/about') }}" class="inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-[#2FA7FF] transition-colors tracking-wide font-medium">
-                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>
-                Back to About Us
-            </a>
-        </div>
         <div class="reveal">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-5 uppercase tracking-tight leading-none">
-                Org Structure<br/><span class="text-[#2FA7FF]">&amp; History</span>
+                Organization Structure<br/><span class="text-[#2FA7FF]">&amp; History</span>
             </h1>
             <p class="text-base text-white/60 max-w-2xl leading-relaxed">
-                From a small circle of cyclists in Dagupan to a province-wide force of over 2,500 youth volunteers — this is the story and structure of OneGoBike Pangasinan.
+                From a small idea of volunterism to a province-wide force of over 2,500 youth volunteers — this is the story and structure of OneGoBike Pangasinan.
             </p>
         </div>
     </div>

@@ -1,0 +1,408 @@
+/* VOLUNTEER / Section 2 — Sign-up Form */
+
+.vol-signup {
+    padding: 4.5rem 0;
+    background: var(--gbp-soft);
+    scroll-margin-top: 5rem;
+}
+
+.vol-signup-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1000px);
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: start;
+}
+
+/* Left info panel */
+.vol-aside {
+    padding: 0.25rem 0 1.5rem 1.5rem;
+    border-left: 3px solid var(--gbp-orange);
+    border-bottom: 1px solid var(--gbp-line);
+    background: transparent;
+    color: var(--gbp-ink);
+}
+
+.vol-aside h2 {
+    margin: 0.35rem 0 0.55rem;
+    color: var(--gbp-navy);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.vol-aside p {
+    max-width: 44rem;
+    margin: 0 0 1rem;
+    color: var(--gbp-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.vol-aside ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 1.5rem;
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.vol-aside li {
+    position: relative;
+    padding-left: 1.15rem;
+    color: var(--gbp-muted);
+    font-size: 0.9rem;
+}
+
+.vol-aside li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gbp-orange);
+    font-weight: 800;
+}
+
+.vol-aside .vol-aside-note {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.vol-aside a {
+    color: var(--gbp-blue);
+    text-decoration: underline;
+}
+
+/* Form card */
+.vol-form-card {
+    width: 100%;
+    min-width: 0;
+    padding: 2rem;
+    border: 1px solid var(--gbp-line);
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0 4px 14px rgba(19, 45, 107, 0.06);
+    box-sizing: border-box;
+}
+
+.vol-form-card * {
+    box-sizing: border-box;
+}
+
+.vol-fieldset {
+    min-width: 0;
+    margin: 0 0 1.75rem;
+    padding: 0;
+    border: 0;
+}
+
+.vol-legend {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--gbp-line);
+    color: var(--gbp-navy);
+    font-family: 'Oswald', 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.vol-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.vol-row.is-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.vol-field {
+    display: block;
+    min-width: 0;
+}
+
+.vol-label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--gbp-muted);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.vol-label i {
+    color: var(--gbp-orange);
+    font-style: normal;
+}
+
+.vol-label small {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.vol-input,
+.vol-select,
+.vol-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0;
+    background: #f8fafc;
+    color: var(--gbp-ink);
+    font: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.vol-input::placeholder,
+.vol-textarea::placeholder {
+    color: #cbd5e1;
+}
+
+.vol-input:focus,
+.vol-select:focus,
+.vol-textarea:focus {
+    outline: none;
+    border-color: #2fa7ff;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(47, 167, 255, 0.2);
+}
+
+.vol-select {
+    padding-right: 2.5rem;
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2355658a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    background-size: 1rem;
+}
+
+.vol-textarea {
+    min-height: 7rem;
+    resize: none;
+}
+
+.vol-hint {
+    margin: 0.35rem 0 0;
+    color: #94a3b8;
+    font-size: 0.75rem;
+}
+
+/* Chips (checkbox + radio) */
+.vol-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.vol-chip {
+    position: relative;
+    cursor: pointer;
+}
+
+.vol-chip input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.vol-chip span {
+    display: inline-block;
+    padding: 0.5rem 0.95rem;
+    border: 1px solid var(--gbp-line);
+    border-radius: 999px;
+    background: var(--gbp-soft);
+    color: var(--gbp-navy);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.vol-chip:hover span {
+    border-color: var(--gbp-navy);
+}
+
+.vol-chip input:checked+span {
+    border-color: var(--gbp-navy);
+    background: var(--gbp-navy);
+    color: #fff;
+}
+
+.vol-chip input:focus-visible+span {
+    outline: 3px solid var(--gbp-sky);
+    outline-offset: 2px;
+}
+
+/* Consent checkboxes */
+.vol-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    color: var(--gbp-muted);
+    font-size: 0.85rem;
+    line-height: 1.55;
+    cursor: pointer;
+}
+
+.vol-check input {
+    flex: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-top: 0.2rem;
+    accent-color: var(--gbp-navy);
+}
+
+.vol-check a {
+    color: var(--gbp-blue);
+    text-decoration: underline;
+}
+
+/* Alerts */
+.vol-alert {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.vol-alert a {
+    text-decoration: underline;
+}
+
+.vol-alert.is-warn {
+    border-color: #fed7aa;
+    background: #fff7ed;
+    color: #9a3412;
+}
+
+.vol-alert.is-info {
+    border-color: #bfdbfe;
+    background: #eff6ff;
+    color: #1e40af;
+}
+
+.vol-alert.is-error {
+    border-color: #fecaca;
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+/* Submit */
+.vol-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.95rem 2rem;
+    border: 0;
+    border-radius: 0;
+    background: var(--gbp-orange);
+    color: #fff;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vol-submit:hover:not(:disabled) {
+    background: #ea6a0e;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(249, 115, 22, 0.3);
+}
+
+.vol-submit:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.vol-submit svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Success */
+.vol-success {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.vol-success-icon {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.25rem;
+    border: 1px solid #bbf7d0;
+    background: #f0fdf4;
+    color: #16a34a;
+}
+
+.vol-success h3 {
+    margin: 0 0 0.5rem;
+    color: var(--gbp-navy);
+    font-family: 'Oswald', 'Inter', sans-serif;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.vol-success p {
+    max-width: 26rem;
+    margin: 0 auto 1.25rem;
+    color: var(--gbp-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.vol-success button {
+    border: 0;
+    background: none;
+    color: var(--gbp-blue);
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media (max-width: 1080px) {
+    .vol-signup {
+        padding: 3.5rem 0;
+    }
+
+    .vol-form-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .vol-row,
+    .vol-row.is-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .vol-form-card {
+        padding: 1.25rem 1rem;
+        box-shadow: 0 3px 10px rgba(19, 45, 107, 0.05);
+    }
+
+    .vol-aside {
+        padding: 0 0 1.25rem 1rem;
+    }
+}

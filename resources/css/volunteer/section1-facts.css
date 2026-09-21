@@ -1,0 +1,59 @@
+/* VOLUNTEER / Section 1 — Quick Facts Strip + small shared bits */
+
+.vol-facts {
+    border-bottom: 1px solid var(--gbp-line);
+    background: #fff;
+}
+
+.vol-facts-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.vol-facts-list li {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-right: 1px solid var(--gbp-line);
+}
+
+.vol-facts-list li:last-child {
+    border-right: 0;
+}
+
+.vol-facts-list strong {
+    display: block;
+    color: var(--gbp-navy);
+    font-family: 'Oswald', 'Inter', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.vol-facts-list span {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--gbp-muted);
+    font-size: 0.8rem;
+}
+
+.vol-step-num {
+    margin-bottom: 0.9rem;
+}
+
+@media (max-width: 900px) {
+    .vol-facts-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .vol-facts-list li:nth-child(2n) {
+        border-right: 0;
+    }
+
+    .vol-facts-list li:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--gbp-line);
+    }
+}

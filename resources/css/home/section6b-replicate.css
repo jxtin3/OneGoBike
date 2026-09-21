@@ -1,56 +1,57 @@
-/* HOME / Section 6b — Replicate Go Bike Card */
+/* HOME / Section 6b — Volunteer promo */
 
-.rep-section {
+.vol-promo-section {
     padding: 3rem 1.5rem;
-    background: #fff;
+    background: #f8fafc;
 }
 
-.rep-card {
+.vol-promo-card {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    border-radius: 10px;
     overflow: hidden;
-    background: #132D6B;
-    box-shadow: 0 20px 20px 12px rgba(20, 45, 107, 0.2);
+    border: 1px solid #dbe4f5;
+    border-left: 8px solid #f97316;
+    background: #fff;
+    box-shadow: 12px 12px 0 rgba(19, 45, 107, 0.08);
 }
 
-.rep-content {
+.vol-promo-content {
     position: relative;
     z-index: 2;
     width: 55%;
     padding: 3.5rem 2.5rem;
 }
 
-.rep-eyebrow {
+.vol-promo-eyebrow {
     display: table;
-    color: #5BC0EB;
+    color: #f97316;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     padding-bottom: 0.25rem;
-    border-bottom: 2px solid #5BC0EB;
+    border-bottom: 2px solid #f97316;
     margin-bottom: 1rem;
 }
 
-.rep-title {
-    color: #fff;
+.vol-promo-title {
+    color: #132D6B;
     font-size: clamp(1.5rem, 2.5vw, 2.2rem);
     font-weight: 800;
     line-height: 1.2;
     margin: 0 0 1rem;
 }
 
-.rep-lead {
-    color: rgba(255, 255, 255, 0.78);
+.vol-promo-lead {
+    color: #55658a;
     font-size: 0.95rem;
     line-height: 1.6;
     margin: 0 0 1.75rem;
     max-width: 28rem;
 }
 
-.rep-list {
+.vol-promo-list {
     list-style: none;
     margin: 0 0 2.5rem;
     padding: 0;
@@ -58,28 +59,28 @@
     gap: 0.9rem;
 }
 
-.rep-list li {
+.vol-promo-list li {
     display: flex;
     align-items: center;
     gap: 0.9rem;
-    color: #fff;
+    color: #132D6B;
     font-size: 0.95rem;
     font-weight: 600;
 }
 
-.rep-list svg {
+.vol-promo-list svg {
     flex: none;
     width: 1.5rem;
     height: 1.5rem;
-    color: #5BC0EB;
+    color: #f97316;
 }
 
-.rep-btn {
+.vol-promo-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.65rem;
-    background: #5BC0EB;
-    color: #132D6B;
+    background: #132D6B;
+    color: #fff;
     font-size: 0.95rem;
     font-weight: 700;
     padding: 0.9rem 1.5rem;
@@ -88,33 +89,33 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.rep-btn:visited {
-    color: #132D6B;
+.vol-promo-btn:visited {
+    color: #fff;
 }
 
-.rep-btn:hover {
-    background: #7ccff1;
+.vol-promo-btn:hover {
+    background: #f97316;
     transform: translateY(-2px);
     box-shadow: 0 10px 24px rgba(91, 192, 235, 0.35);
 }
 
-.rep-btn:focus-visible {
-    outline: 3px solid #fff;
+.vol-promo-btn:focus-visible {
+    outline: 3px solid #f97316;
     outline-offset: 3px;
 }
 
-.rep-btn svg {
+.vol-promo-btn svg {
     width: 1.15rem;
     height: 1.15rem;
     transition: transform 0.2s ease;
 }
 
-.rep-btn:hover svg {
+.vol-promo-btn:hover svg {
     transform: translateX(3px);
 }
 
 /* Photo fades into the navy panel */
-.rep-photo {
+.vol-promo-photo {
     position: absolute;
     top: 0;
     right: 0;
@@ -122,7 +123,7 @@
     width: 55%;
 }
 
-.rep-photo img {
+.vol-promo-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -130,35 +131,31 @@
     display: block;
 }
 
-.rep-photo::after {
+.vol-promo-photo::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg,
-            #132D6B 0%,
-            rgba(19, 45, 107, 0.85) 12%,
-            rgba(19, 45, 107, 0) 45%);
+    background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.72) 10%, rgba(255, 255, 255, 0) 42%);
 }
 
 @media (max-width: 900px) {
-    .rep-card {
+    .vol-promo-card {
         display: flex;
         flex-direction: column;
-        border-radius: 28px;
     }
 
-    .rep-photo {
+    .vol-promo-photo {
         position: relative;
         order: -1;
         width: 100%;
         height: 260px;
     }
 
-    .rep-photo::after {
-        background: linear-gradient(180deg, rgba(19, 45, 107, 0) 40%, #132D6B 100%);
+    .vol-promo-photo::after {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 40%, #fff 100%);
     }
 
-    .rep-content {
+    .vol-promo-content {
         width: 100%;
         padding: 2rem 1.5rem 2.5rem;
     }

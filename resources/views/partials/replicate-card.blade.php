@@ -1,4 +1,4 @@
-<section class="rep-section reveal">
+<section class="rep-section">
     <div class="rep-card">
         <div class="rep-content">
             <h2 class="rep-title">How to Replicate Go Bike Project in Your Community</h2>

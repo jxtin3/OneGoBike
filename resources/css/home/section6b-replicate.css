@@ -104,8 +104,7 @@
 .vol-promo-btn:hover,
 .rep-btn:hover {
     background: #f97316;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(91, 192, 235, 0.35);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
 }
 
 .vol-promo-btn:focus-visible,

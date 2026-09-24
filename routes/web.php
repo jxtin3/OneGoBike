@@ -26,6 +26,11 @@ Route::get('/volunteer', function () {
     return view('join-the-movement.volunteer');
 })->name('volunteer');
 
+Route::post('/volunteer', [\App\Http\Controllers\VolunteerController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('volunteer.store');
+    
+
 Route::get('/about', function () {
     return view('who-we-are.about');
 });
@@ -49,6 +54,12 @@ Route::redirect('/community', '/news');
 Route::get('/contact', function () {
     return view('contact');
 });
+
+// limit visitor to send 5 messages/min
+Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('contact.store');
+
 
 Route::get('/donate', [DonationController::class, 'show'])->name('donate');
 Route::post('/donate/checkout', [DonationController::class, 'checkout'])->name('donate.checkout');

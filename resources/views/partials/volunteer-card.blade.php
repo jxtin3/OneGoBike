@@ -1,8 +1,7 @@
-<section class="vol-promo-section reveal">
+<section class="vol-promo-section">
     <div class="vol-promo-card">
         <div class="vol-promo-content">
-            <span class="vol-promo-eyebrow">Join the Movement</span>
-            <h2 class="vol-promo-title">Become a Go Biker and Volunteer in Your Community</h2>
+            <h2 class="vol-promo-title">Become a Go Biker <br> in Your Community</h2>
             <p class="vol-promo-lead">
                 Join a youth-led network of cyclist-responders delivering health outreach,
                 disaster preparedness, and rapid community response across Pangasinan.

@@ -13,7 +13,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @if(isset($news) && $news->count() > 0)
                     @foreach($news as $i => $newsItem)
-                    <div class="bg-white border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full rounded-sm overflow-hidden hover:-translate-y-2 group reveal reveal-delay-{{ $i + 1 }}">
+                    <div class="bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full rounded-sm overflow-hidden group reveal reveal-delay-{{ $i + 1 }}">
                         <div class="relative w-full aspect-video overflow-hidden bg-slate-100">
                             <img src="{{ $newsItem->image_path ? asset($newsItem->image_path) : asset('images/gobike-logo.png') }}" alt="{{ $newsItem->title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
                             

@@ -1,7 +1,6 @@
 <section class="rep-section reveal">
     <div class="rep-card">
         <div class="rep-content">
-            <span class="rep-eyebrow">Go Bike Program</span>
             <h2 class="rep-title">How to Replicate Go Bike Project in Your Community</h2>
             <p class="rep-lead">
                 Our comprehensive program gives community leaders everything they need to start

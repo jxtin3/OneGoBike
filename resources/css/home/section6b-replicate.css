@@ -1,41 +1,43 @@
-/* HOME / Section 6b — Volunteer promo */
+/* HOME / Section 6b — Volunteer & Replicate promo cards */
 
-.vol-promo-section {
-    padding: 3rem 1.5rem;
-    background: #f8fafc;
-}
-
-.vol-promo-card {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
-    border: 1px solid #dbe4f5;
-    border-left: 8px solid #f97316;
+.vol-promo-section,
+.rep-section {
+    padding: 0;
     background: #fff;
-    box-shadow: 12px 12px 0 rgba(19, 45, 107, 0.08);
+    width: 100%;
 }
 
-.vol-promo-content {
+.vol-promo-card,
+.rep-card {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: #fff;
+}
+
+.vol-promo-content,
+.rep-content {
     position: relative;
     z-index: 2;
     width: 55%;
-    padding: 3.5rem 2.5rem;
+    padding: 4rem 3rem 4rem 6rem;
 }
 
-.vol-promo-eyebrow {
+.vol-promo-eyebrow,
+.rep-eyebrow {
     display: table;
     color: #f97316;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding-bottom: 0.25rem;
-    border-bottom: 2px solid #f97316;
     margin-bottom: 1rem;
 }
 
-.vol-promo-title {
+.vol-promo-title,
+.rep-title {
     color: #132D6B;
     font-size: clamp(1.5rem, 2.5vw, 2.2rem);
     font-weight: 800;
@@ -43,7 +45,8 @@
     margin: 0 0 1rem;
 }
 
-.vol-promo-lead {
+.vol-promo-lead,
+.rep-lead {
     color: #55658a;
     font-size: 0.95rem;
     line-height: 1.6;
@@ -51,7 +54,8 @@
     max-width: 28rem;
 }
 
-.vol-promo-list {
+.vol-promo-list,
+.rep-list {
     list-style: none;
     margin: 0 0 2.5rem;
     padding: 0;
@@ -59,7 +63,8 @@
     gap: 0.9rem;
 }
 
-.vol-promo-list li {
+.vol-promo-list li,
+.rep-list li {
     display: flex;
     align-items: center;
     gap: 0.9rem;
@@ -68,14 +73,16 @@
     font-weight: 600;
 }
 
-.vol-promo-list svg {
+.vol-promo-list svg,
+.rep-list svg {
     flex: none;
     width: 1.5rem;
     height: 1.5rem;
     color: #f97316;
 }
 
-.vol-promo-btn {
+.vol-promo-btn,
+.rep-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.65rem;
@@ -89,33 +96,39 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.vol-promo-btn:visited {
+.vol-promo-btn:visited,
+.rep-btn:visited {
     color: #fff;
 }
 
-.vol-promo-btn:hover {
+.vol-promo-btn:hover,
+.rep-btn:hover {
     background: #f97316;
     transform: translateY(-2px);
     box-shadow: 0 10px 24px rgba(91, 192, 235, 0.35);
 }
 
-.vol-promo-btn:focus-visible {
+.vol-promo-btn:focus-visible,
+.rep-btn:focus-visible {
     outline: 3px solid #f97316;
     outline-offset: 3px;
 }
 
-.vol-promo-btn svg {
+.vol-promo-btn svg,
+.rep-btn svg {
     width: 1.15rem;
     height: 1.15rem;
     transition: transform 0.2s ease;
 }
 
-.vol-promo-btn:hover svg {
+.vol-promo-btn:hover svg,
+.rep-btn:hover svg {
     transform: translateX(3px);
 }
 
 /* Photo fades into the navy panel */
-.vol-promo-photo {
+.vol-promo-photo,
+.rep-photo {
     position: absolute;
     top: 0;
     right: 0;
@@ -123,7 +136,8 @@
     width: 55%;
 }
 
-.vol-promo-photo img {
+.vol-promo-photo img,
+.rep-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -131,7 +145,8 @@
     display: block;
 }
 
-.vol-promo-photo::after {
+.vol-promo-photo::after,
+.rep-photo::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -139,23 +154,27 @@
 }
 
 @media (max-width: 900px) {
-    .vol-promo-card {
+    .vol-promo-card,
+    .rep-card {
         display: flex;
         flex-direction: column;
     }
 
-    .vol-promo-photo {
+    .vol-promo-photo,
+    .rep-photo {
         position: relative;
         order: -1;
         width: 100%;
         height: 260px;
     }
 
-    .vol-promo-photo::after {
+    .vol-promo-photo::after,
+    .rep-photo::after {
         background: linear-gradient(180deg, rgba(255, 255, 255, 0) 40%, #fff 100%);
     }
 
-    .vol-promo-content {
+    .vol-promo-content,
+    .rep-content {
         width: 100%;
         padding: 2rem 1.5rem 2.5rem;
     }

@@ -217,7 +217,7 @@
                     </h3>
 
                     <!-- Success / Error messages (shown via Alpine) -->
-                    <div x-data="contactForm()" @submit.prevent="submitForm">
+                    <div  x-data="contactForm()">
 
                         <div x-show="submitted && !error" x-cloak
                              x-transition:enter="transition ease-out duration-300"

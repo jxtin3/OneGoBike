@@ -19,7 +19,7 @@ class PictureController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate(['title' => ['required', 'string', 'max:255'], 'description' => ['nullable', 'string'], 'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120']]);
+        $data = $request->validate(['title' => ['required', 'string', 'max:30'], 'description' => ['nullable', 'string', 'max:50'], 'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120']]);
         $data['image_path'] = $request->file('image')->store('pictures', 'public');
         $data['uploaded_by'] = $request->user()->id;
         unset($data['image']);
@@ -32,7 +32,7 @@ class PictureController extends Controller
 
     public function update(Request $request, Picture $picture)
     {
-        $data = $request->validate(['title' => ['required', 'string', 'max:255'], 'description' => ['nullable', 'string'], 'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120']]);
+        $data = $request->validate(['title' => ['required', 'string', 'max:30'], 'description' => ['nullable', 'string', 'max:50'], 'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120']]);
         if ($request->hasFile('image')) {
             Storage::disk('public')->delete($picture->image_path);
             $data['image_path'] = $request->file('image')->store('pictures', 'public');

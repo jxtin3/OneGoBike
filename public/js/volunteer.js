@@ -30,6 +30,13 @@ document.addEventListener('alpine:init', () => {
             error: false,
             errorMessage: 'Something went wrong. Please try again.',
 
+            init() {
+                // Reset the form only when the user chooses to submit another one
+                this.$watch('submitted', (value) => {
+                    if (!value) this.form = blank();
+                });
+            },
+
             // 'empty' | 'young' (<13) | 'minor' (13-17) | 'ok' (18-25) | 'old' (>25)
             get ageState() {
                 const n = parseInt(this.form.age, 10);
@@ -55,21 +62,20 @@ document.addEventListener('alpine:init', () => {
                 this.loading = true;
 
                 try {
-                    // TODO: replace this simulated delay with the real POST once the backend exists
-                    // const res = await fetch('/volunteer', {
-                    //     method: 'POST',
-                    //     headers: {
-                    //         'Content-Type': 'application/json',
-                    //         'Accept': 'application/json',
-                    //         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content,
-                    //     },
-                    //     body: JSON.stringify(this.form),
-                    // });
-                    // if (!res.ok) throw new Error('Request failed');
-                    await new Promise(resolve => setTimeout(resolve, 1200));
+                    const res = await fetch('/volunteer', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content ?? '',
+                        },
+                        body: JSON.stringify(this.form),
+                    });
+
+                    if (!res.ok) throw new Error('Request failed');
 
                     this.submitted = true;
-                    this.form = blank();
+                    // this.form = blank();
                 } catch (e) {
                     this.error = true;
                     this.errorMessage = 'We could not send your application. Please try again later.';

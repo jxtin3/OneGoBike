@@ -13,24 +13,35 @@ document.addEventListener('alpine:init', () => {
         error: false,
         errorMessage: 'Something went wrong. Please try again.',
 
+
+        init() {
+            // Reset the form only when the user chooses to send another message
+            this.$watch('submitted', (value) => {
+                if (!value) {
+                    this.form = { name: '', email: '', subject: '', otherConcern: '', phone: '', message: '' };
+                }
+            });
+        },
+
         async submitForm() {
             this.error = false;
             this.loading = true;
 
-            // Simulate async send (replace with real fetch/axios call as needed)
-            await new Promise(resolve => setTimeout(resolve, 1400));
-
             try {
-                // TODO: Replace with actual API endpoint
-                // const res = await fetch('/api/contact', {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content },
-                //     body: JSON.stringify(this.form)
-                // });
-                // if (!res.ok) throw new Error('Network error');
+                const res = await fetch('/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content ?? '',
+                    },
+                    body: JSON.stringify(this.form),
+                });
+
+                if (!res.ok) throw new Error('Request failed');
 
                 this.submitted = true;
-                this.form = { name: '', email: '', subject: '', otherConcern: '', phone: '', message: '' };
+                // this.form = { name: '', email: '', subject: '', otherConcern: '', phone: '', message: '' };
             } catch (e) {
                 this.error = true;
                 this.errorMessage = 'Failed to send your message. Please try again later.';

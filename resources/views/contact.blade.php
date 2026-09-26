@@ -393,7 +393,7 @@
             <p class="text-xs sm:text-sm text-white/70 max-w-md leading-relaxed mb-6">
                 An active internet connection is required to display Google Maps. Please check your network connection and try again.
             </p>
-            <div class="flex flex-wrap items-center justify-center gap-3">
+            <!-- <div class="flex flex-wrap items-center justify-center gap-3">
                 
                 <button
                     type="button"
@@ -402,7 +402,7 @@
                 >
                     Retry Connection
                 </button>
-            </div>
+            </div> -->
         </div>
 
         <iframe

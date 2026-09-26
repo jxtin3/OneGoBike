@@ -1,4 +1,4 @@
-<x-layout title="News & Updates - OneGoBike" description="Stay informed on our latest field operations and news.">
+<x-layout title="News & Updates | Go Bike Project" description="Stay informed on our latest field operations and news.">
     <!-- Header Spacing -->
     <div class="pt-24 md:pt-32 pb-30 bg-[#0D1B2A]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">

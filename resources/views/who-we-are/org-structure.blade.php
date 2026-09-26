@@ -1,5 +1,5 @@
 <x-layout
-    title="Org Structure & History — OneGoBike"
+    title="Org Structure & History | Go Bike Project"
     description="Explore the organizational structure, leadership team, and history of OneGoBike Pangasinan — a youth-led community responder organization."
 >
 

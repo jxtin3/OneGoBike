@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Admin Sign In · OneGoBike</title>
+    <title>Admin</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/gobike-logo.png') }}" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-[#0D1B2A] antialiased">
@@ -12,15 +13,17 @@
         class="relative min-h-screen w-full"
         style="background-image: linear-gradient(180deg, rgba(13,27,42,.25) 0%, rgba(13,27,42,.45) 100%), url('{{ asset('images/guitar-bg.jpg') }}'); background-size: cover; background-position: top center;"
     >
-        {{-- Wordmark, top-left --}}
-        <div class="absolute left-6 top-6 sm:left-10 sm:top-8">
-            <span class="font-heading text-lg font-bold tracking-wide [text-shadow:0_2px_10px_rgba(0,0,0,.5)] sm:text-xl">
-                <span class="text-orange-500">One</span><span class="text-[#2FA7FF]">GoBike</span>
-            </span>
+        <!-- logo -->
+        <div class="absolute left-6 top-6 sm:left-20 sm:top-10">
+            <img
+                src="{{ asset('images/logo(nobg).png') }}"
+                alt="OneGoBike"
+                class="h-24 w-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] sm:h-32 lg:h-30"
+            >
         </div>
 
         {{-- Tagline, bottom-left --}}
-        <p class="absolute bottom-6 left-6 max-w-xs text-sm text-white/80 [text-shadow:0_2px_10px_rgba(0,0,0,.5)] sm:bottom-8 sm:left-10">
+        <p class="absolute bottom-6 left-6 max-w-xs text-sm text-white/80 [text-shadow:0_2px_10px_rgba(0,0,0,.5)] sm:bottom-8 sm:left-25">
             Community health responders serving Pangasinan since 2019.
         </p>
 
@@ -28,9 +31,7 @@
         <div class="flex min-h-screen items-center justify-center px-6 py-12 lg:justify-end lg:px-16 xl:px-24">
             <div class="login-panel-enter w-full max-w-md rounded-3xl border border-white/40 bg-white/80 p-8 shadow-2xl shadow-black/20 backdrop-blur-2xl sm:p-10">
 
-                <!-- <img src="{{ asset('images/gobike-logo.png') }}" alt="" class="h-16 w-16 sm:h-20 sm:w-20" aria-hidden="true"> -->
-
-                <h1 class="font-heading mt-6 text-2xl font-semibold text-[#0D1B2A] sm:text-3xl">
+                <h1 class="font-heading text-2xl font-semibold text-[#0D1B2A] sm:text-3xl">
                     Admin sign in
                 </h1>
                 <p class="mt-2 text-sm text-slate-600">
@@ -112,7 +113,7 @@
         </div>
     </div>
 
-        <!-- Alpine.js -->
+    <!-- Alpine.js -->
     <script defer src="{{ asset('js/alpine-intersect.min.js') }}"></script>
     <script defer src="{{ asset('js/alpine-collapse.min.js') }}"></script>
     <script defer src="{{ asset('js/alpine.min.js') }}"></script>

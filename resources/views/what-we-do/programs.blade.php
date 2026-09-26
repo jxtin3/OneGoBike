@@ -1,7 +1,7 @@
 <!-- WHAT WE DO -->
 
 <x-layout
-    title="What we Do - OneGoBike"
+    title="Programs | Go Bike Project"
     description="Discover how our programs in health, disaster preparedness, and community outreach make an impact."
 >
 

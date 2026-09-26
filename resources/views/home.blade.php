@@ -1,5 +1,5 @@
 <x-layout
-    title="OneGoBike"
+    title="Go Bike Project"
     description="Mobilizing volunteers, responders, and community leaders to strengthen health, preparedness, and community resilience."
 >
      <!-- SECTION 1 — HERO -->

@@ -1,10 +1,10 @@
 <x-layout
-    title="Volunteer — OneGoBike"
+    title="Volunteer | Go Bike Project"
     description="Sign up as a Go Biker volunteer and join youth cyclist-responders delivering health outreach, disaster preparedness, and first response across Pangasinan."
 >
 @php
     $facts = [
-        ['13–25', 'Age range'],
+        ['13-25', 'Age range'],
         ['2 Days', 'DRRM-CCAM, FA & BLS training'],
         ['Pangasinan', 'Community-based chapters'],
         ['Bike-powered', 'Rapid community response'],
@@ -56,7 +56,7 @@
 
     $faqs = [
         ['What is the minimum age to volunteer?',
-         'Our youth responder program accepts volunteers aged 13 to 25. Minors aged 13–17 need written parental consent to take part in active field training and dispatch activities.'],
+         'Our youth responder program accepts volunteers aged 13 to 25. Minors aged 13-17 need written parental consent to take part in active field training and dispatch activities.'],
         ['Do I need training before I sign up?',
          'No. Basic DRRM-CCAM with First Aid & BLS training is part of the program, so you will be trained before going into the field.'],
         ['Who do I contact in an immediate emergency?',

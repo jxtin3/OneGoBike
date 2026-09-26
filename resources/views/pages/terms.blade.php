@@ -1,4 +1,4 @@
-<x-layout title="Terms & Conditions - OneGoBike">
+<x-layout title="Terms & Conditions | Go Bike Project">
     <section class="bg-[#0D1B2A] min-h-screen pt-32 md:pt-40 pb-20 text-white relative overflow-hidden">
         <!-- Decorative blobs -->
         <div class="absolute top-0 right-0 w-96 h-96 bg-[#2FA7FF]/10 rounded-full blur-3xl pointer-events-none"></div>

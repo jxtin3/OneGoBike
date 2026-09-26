@@ -1,5 +1,5 @@
 <x-layout
-    title="Donate - OneGoBike"
+    title="Donate | Go Bike Project"
     description="Support OneGoBike by donating today. Your generous contribution helps provide life-changing bicycles and community services to people around the world."
 >
 

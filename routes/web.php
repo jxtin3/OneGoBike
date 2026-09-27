@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\Webhook\PayMongoWebhookController;
 use App\Http\Controllers\Webhook\PayPalWebhookController;
 use App\Http\Middleware\EnsureAdmin;
@@ -56,12 +57,18 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-// limit visitor to send 5 messages/min
+// limit visitor to send 5 messages/min in contact page
 Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'store'])
     ->middleware('throttle:5,1')
     ->name('contact.store');
 
+//chatbot ----20 requests/minute per IP
+Route::post('/chatbot/message', [ChatbotController::class, 'message'])
+    ->middleware('throttle:20,1')
+    ->name('chatbot.message');
 
+
+//donation
 Route::get('/donate', [DonationController::class, 'show'])->name('donate');
 Route::post('/donate/checkout', [DonationController::class, 'checkout'])->name('donate.checkout');
 Route::get('/donate/success/{donation}', [DonationController::class, 'success'])->name('donate.success');

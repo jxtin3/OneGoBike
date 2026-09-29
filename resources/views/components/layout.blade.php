@@ -298,21 +298,12 @@
 
     </footer>
 
-    <!-- Back to Top -->
-    <button
-        id="back-to-top"
-        type="button"
-        aria-label="Back to top"
-        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-        class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-none bg-[#132D6B] text-white shadow-md flex items-center justify-center hover:bg-[#2FA7FF] hover:-translate-y-1 transition-all duration-300"
-    >
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
-        </svg>
-    </button>
+    <!-- GoBot chat widget -->
+    @include('partials.chatbot')
 
-     <!-- Back-to-top visibility script + scroll reveal  -->
+    <!-- Back-to-top visibility script + scroll reveal  -->
     <script src="{{ asset('js/layout.js') }}"></script>
+    <script src="{{ asset('js/chatbot.js') }}"></script>
 
     <!-- Extra scripts slot  -->
     {{ $scripts ?? '' }}

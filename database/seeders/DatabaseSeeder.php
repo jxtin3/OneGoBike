@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            NewsSeeder::class,
+            // NewsSeeder::class,
             LocationSeeder::class,
         ]);
     }

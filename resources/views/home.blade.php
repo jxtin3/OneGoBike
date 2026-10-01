@@ -614,7 +614,8 @@
                     <div class="news-card-content">
                         <div class="news-card-date">{{ $newsItem->published_at->format('F d, Y') }}</div>
                         <h3 class="news-card-title">{{ $newsItem->title }}</h3>
-                        <p class="news-card-excerpt">{{ $newsItem->excerpt }}</p>
+                        <p class="news-card-excerpt">{{ $newsItem->summary }}</p>
+                        
                         <a href="{{ url('/news') }}" class="news-card-link mt-auto group">
                             Read More
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,7 +23,15 @@ class News extends Model
         'published_at' => 'datetime',
     ];
 
+    // scope to get published news
     public function scopePublished($query)
     {
         return $query->where('is_published', true)->whereNotNull('published_at')->where('published_at', '<=', now());
-    }}
+    }
+
+    // get summary of the news when the excerpt is empty
+    public function getSummaryAttribute(): string
+    {
+        return $this->excerpt ?: Str::limit(trim(strip_tags($this->body)), 160);
+    }
+}

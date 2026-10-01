@@ -10,7 +10,7 @@
     <div class="absolute inset-0 z-0">
         <img
             src="{{ asset('images/story-3.jpg') }}"
-            alt="OneGoBike community"
+            alt="Go Bike community"
             class="w-full h-full object-cover object-center opacity-20"
         />
         <div class="absolute inset-0 bg-gradient-to-b from-[#0D1B2A]/70 via-[#0D1B2A]/50 to-[#0D1B2A]"></div>

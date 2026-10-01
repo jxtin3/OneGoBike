@@ -44,12 +44,12 @@ class SetupPayPalDonationPlan extends Command
 
         $accessToken = $tokenResponse->json('access_token');
 
-        // 2. Create the Product (catalog product) — represents "donating to OneGoBike"
+        // 2. Create the Product (catalog product) — represents "donating to Go Bike"
         $productResponse = Http::withToken($accessToken)
             ->acceptJson()
             ->post("{$baseUrl}/v1/catalogs/products", [
-                'name' => 'OneGoBike Monthly Donation',
-                'description' => 'Recurring monthly donation to OneGoBike',
+                'name' => 'Go Bike Monthly Donation',
+                'description' => 'Recurring monthly donation to Go Bike',
                 'type' => 'SERVICE',
             ]);
 
@@ -67,7 +67,7 @@ class SetupPayPalDonationPlan extends Command
             ->acceptJson()
             ->post("{$baseUrl}/v1/billing/plans", [
                 'product_id' => $productId,
-                'name' => 'OneGoBike Monthly Donation Plan',
+                'name' => 'Go Bike Monthly Donation Plan',
                 'description' => 'Charges the donor-selected amount every month',
                 'billing_cycles' => [
                     [

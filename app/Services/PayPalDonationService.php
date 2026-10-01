@@ -34,7 +34,7 @@ class PayPalDonationService
             'purchase_units' => [
                 [
                     'reference_id' => $donation->uuid,
-                    'description' => 'OneGoBike Donation',
+                    'description' => 'Go Bike Donation',
                     'amount' => [
                         'currency_code' => 'USD',
                         'value' => number_format($donation->total_usd, 2, '.', ''),
@@ -44,7 +44,7 @@ class PayPalDonationService
             'application_context' => [
                 'return_url' => route('donate.success', $donation),
                 'cancel_url' => route('donate.cancel', $donation),
-                'brand_name' => 'OneGoBike',
+                'brand_name' => 'Go Bike',
                 'user_action' => 'PAY_NOW',
             ],
         ]);
@@ -117,7 +117,7 @@ class PayPalDonationService
                     ],
                 ],
                 'application_context' => [
-                    'brand_name' => 'OneGoBike',
+                    'brand_name' => 'Go Bike',
                     'user_action' => 'SUBSCRIBE_NOW',
                     'return_url' => route('donate.success', $donation),
                     'cancel_url' => route('donate.cancel', $donation),

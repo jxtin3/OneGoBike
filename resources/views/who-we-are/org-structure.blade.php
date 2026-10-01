@@ -1,6 +1,6 @@
 <x-layout
     title="Org Structure & History | Go Bike Project"
-    description="Explore the organizational structure, leadership team, and history of OneGoBike Pangasinan — a youth-led community responder organization."
+    description="Explore the organizational structure, leadership team, and history of Go Bike Project — a youth-led community responder organization."
 >
 
 <!-- HERO -->
@@ -16,7 +16,7 @@
                 Organization Structure<br/><span class="text-[#2FA7FF]">&amp; History</span>
             </h1>
             <p class="text-base text-white/60 max-w-2xl leading-relaxed">
-                From a small idea of volunterism to a province-wide force of over 2,500 youth volunteers — this is the story and structure of OneGoBike Pangasinan.
+                From a small idea of volunterism to a province-wide force of over 2,500 youth volunteers — this is the story and structure of Go Bike.
             </p>
         </div>
     </div>
@@ -97,7 +97,7 @@
             @php
             $timeline = [
                 ['year'=>'2019','title'=>'The First Ride','desc'=>'A small group of passionate cyclists in Dagupan City began delivering basic first aid and supplies to remote areas unreachable by four-wheeled vehicles.','align'=>'left'],
-                ['year'=>'2021','title'=>'Pandemic Response','desc'=>'During the height of COVID-19, OneGoBike transformed into a critical lifeline — distributing medicines and relief goods when public transportation was halted.','align'=>'right'],
+                ['year'=>'2021','title'=>'Pandemic Response','desc'=>'During the height of COVID-19, Go Bike transformed into a critical lifeline — distributing medicines and relief goods when public transportation was halted.','align'=>'right'],
                 ['year'=>'2023','title'=>'Official Accreditation','desc'=>'Recognized by the DILG and partnered with local LGUs, formalizing our status as an essential youth-led disaster response and health outreach organization.','align'=>'left'],
                 ['year'=>'2025','title'=>'Provincial Expansion','desc'=>'Now operating across 45 barangays with over 2,500 trained youth volunteers, pushing the boundaries of what community service looks like in the modern era.','align'=>'right'],
             ];
@@ -152,7 +152,7 @@
     </div>
     <div class="relative z-10 max-w-2xl mx-auto reveal">
         <h2 class="text-4xl md:text-4xl font-heading font-bold text-white mb-5 uppercase tracking-tight">Join the Movement</h2>
-        <p class="text-white/80 mb-10 leading-relaxed">The next chapter of OneGoBike's story is waiting to be written — and it could be yours.</p>
+        <p class="text-white/80 mb-10 leading-relaxed">The next chapter of Go Bike's story is waiting to be written — and it could be yours.</p>
         <div class="flex flex-wrap items-center justify-center gap-4">
             <a href="{{ url('/volunteer') }}" class="btn-wbr btn-wbr-orange">
                 <span>Volunteer Now</span>

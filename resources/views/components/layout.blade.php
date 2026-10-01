@@ -7,14 +7,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
      <!-- SEO  seacrh engine opti -->
-    <title>{{ $title ?? 'OneGoBike — Youth-Led Community Health Responders' }}</title>
-    <meta name="description" content="{{ $description ?? 'OneGoBike mobilizes youth volunteers, cyclists, and responders to improve health, resilience, disaster preparedness, and community engagement throughout Pangasinan.' }}" />
-    <meta name="keywords" content="OneGoBike,,Go Bike Project, Pangasinan, youth volunteers, community responders, Go Bikers, disaster preparedness, health outreach" />
+    <title>{{ $title ?? 'Go Bike — Youth-Led Community Health Responders' }}</title>
+    <meta name="description" content="{{ $description ?? 'Go Bike mobilizes youth volunteers, cyclists, and responders to improve health, resilience, disaster preparedness, and community engagement throughout Pangasinan.' }}" />
+    <meta name="keywords" content="OneGoBike,Go Bike Project, Pangasinan, youth volunteers, community responders, Go Bikers, disaster preparedness, health outreach" />
 
-     <!-- Open Graph for sharing socmed -->
+     <!-- Open Graph for sharing in socmed -->
     <meta property="og:type"        content="website" />
     <meta property="og:url"         content="{{ url()->current() }}" />
-    <meta property="og:title"       content="{{ $title ?? 'OneGoBike — Youth-Led Community Health Responders' }}" />
+    <meta property="og:title"       content="{{ $title ?? 'Go Bike — Youth-Led Community Health Responders' }}" />
     <meta property="og:description" content="{{ $description ?? 'Promotes community engagement and educational initiatives, empowering communities to build a healthier, greener, and sustainable future' }}" />
     <meta property="og:image"       content="{{ asset('images/gobike-logo.png') }}" />
 

@@ -11,12 +11,12 @@
             <div class="space-y-8 text-white/75 leading-relaxed">
                 <div>
                     <h2 class="text-2xl font-heading font-bold text-white mb-3">1. Acceptance of Terms</h2>
-                    <p>By accessing and using the OneGoBike website and participating in our programs, you accept and agree to be bound by the terms and provisions of this agreement.</p>
+                    <p>By accessing and using the Go Bike website and participating in our programs, you accept and agree to be bound by the terms and provisions of this agreement.</p>
                 </div>
 
                 <div>
                     <h2 class="text-2xl font-heading font-bold text-white mb-3">2. Volunteer Conduct</h2>
-                    <p>Volunteers and community responders are expected to maintain the highest standards of respect, safety, and community service. OneGoBike reserves the right to revoke volunteer status for any behavior that violates our community guidelines.</p>
+                    <p>Volunteers and community responders are expected to maintain the highest standards of respect, safety, and community service. Go Bike reserves the right to revoke volunteer status for any behavior that violates our community guidelines.</p>
                 </div>
 
                 <div>
@@ -26,7 +26,7 @@
 
                 <div>
                     <h2 class="text-2xl font-heading font-bold text-white mb-3">4. Intellectual Property</h2>
-                    <p>The content, features, and functionality of this website are owned by OneGoBike and are protected by copyright, trademark, and other intellectual property laws.</p>
+                    <p>The content, features, and functionality of this website are owned by Go Bike and are protected by copyright, trademark, and other intellectual property laws.</p>
                 </div>
 
                 <div>

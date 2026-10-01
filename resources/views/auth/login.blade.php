@@ -17,7 +17,7 @@
         <div class="absolute left-6 top-6 sm:left-20 sm:top-10">
             <img
                 src="{{ asset('images/logo(nobg).png') }}"
-                alt="OneGoBike"
+                alt="Go Bike"
                 class="h-24 w-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] sm:h-32 lg:h-30"
             >
         </div>
@@ -44,7 +44,7 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('login') }}" class="mt-8 space-y-5">
+                <form method="POST" action="{{ route('login') }}" class="mt-8 space-y-5" x-data="{ loading: false }" @submit="loading = true" @pageshow.window="loading = false">
                     @csrf
 
                     <div>
@@ -100,10 +100,16 @@
 
                     <button
                         type="submit"
-                        class="mt-2 w-full rounded-lg bg-orange-500 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-orange-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/40 focus-visible:ring-offset-2"
+                        :disabled="loading"
+                        class="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-orange-500 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-orange-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/40 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
                     >
-                        Sign in
+                        <svg x-show="loading" x-cloak class="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                        </svg>
+                        <span x-text="loading ? 'Signing in…' : 'Sign in'"></span>
                     </button>
+                    
                 </form>
 
                 <p class="mt-8 text-xs text-slate-500">

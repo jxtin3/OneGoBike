@@ -44,7 +44,7 @@ class PayMongoDonationService
                         ],
                         'line_items' => [
                             [
-                                'name' => 'OneGoBike Donation',
+                                'name' => 'Go Bike Donation',
                                 'amount' => $amountCentavos,
                                 'currency' => 'PHP',
                                 'quantity' => 1,
@@ -55,7 +55,7 @@ class PayMongoDonationService
                         'cancel_url' => route('donate.cancel', $donation),
                         'reference_number' => $donation->uuid,
                         'send_email_receipt' => true,
-                        'description' => 'OneGoBike donation from '.$donation->donor_name,
+                        'description' => 'Go Bike donation from '.$donation->donor_name,
                         'metadata' => [
                             'donation_uuid' => $donation->uuid,
                         ],

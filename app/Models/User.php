@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
@@ -16,8 +17,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
-
+    use HasApiTokens, HasFactory, Notifiable;
+    
     public function location(): HasOne
     {
         return $this->hasOne(Location::class);

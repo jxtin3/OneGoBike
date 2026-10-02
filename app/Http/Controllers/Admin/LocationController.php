@@ -79,14 +79,28 @@ class LocationController extends Controller
     }
 
     public function startActiveSession(Request $request): JsonResponse
-    {
-        $location = Location::updateOrCreate(
-            ['user_id' => $request->user()->id],
-            ['name' => $request->user()->name, 'status' => 'active', 'active_start_time' => now(), 'active_end_time' => null],
-        );
+{
+    $data = $request->validate([
+        'designated_barangay' => ['nullable', 'string', 'max:255'],
+    ]);
 
-        return response()->json(['message' => 'Active mode started.', 'active_start_time' => $location->active_start_time]);
-    }
+    $location = Location::updateOrCreate(
+        ['user_id' => $request->user()->id],
+        [
+            'name'                => $request->user()->name,
+            'role'                => 'GoBiker',
+            'designated_barangay' => $data['designated_barangay'] ?? $request->user()->barangay,
+            'status'              => 'active',
+            'active_start_time'   => now(),
+            'active_end_time'     => null,
+        ],
+    );
+
+    return response()->json([
+        'message' => 'Active mode started.',
+        'active_start_time' => $location->active_start_time,
+    ]);
+}
 
     public function stopActiveSession(Request $request): JsonResponse
     {

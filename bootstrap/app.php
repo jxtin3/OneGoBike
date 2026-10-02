@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'admin' => \App\Http\Middleware\EnsureAdmin::class,
+            'gobiker' => \App\Http\Middleware\EnsureGoBiker::class,
         ]);
 
         $middleware->validateCsrfTokens(except: [

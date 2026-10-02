@@ -29,7 +29,7 @@ Route::middleware([EnsureAdmin::class])->group(function () {
 });
 
 
-Route::middleware('auth:sanctum')->prefix('gobiker')->group(function () {
+Route::middleware(['auth:sanctum', 'gobiker'])->prefix('gobiker')->group(function () {
     Route::post('/location', [
         LocationController::class,
         'updateLocation',
